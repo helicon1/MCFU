@@ -1,0 +1,39 @@
+<mvc:View height="100%" xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc"
+	xmlns="sap.m" xmlns:l="sap.ui.layout" controllerName="sap.umc.mobile.services.view.Services">
+	<Page enableScrolling="true">
+		<customHeader>
+			<Bar>
+				<contentMiddle>
+					<Label text="{i18n>SERVICES.SUBTITLE}" />
+				</contentMiddle>
+			</Bar>
+		</customHeader>
+		<content>
+			<VBox>
+				<HBox width="100%" class="sapUmcHeadingWrapperBottomLine">
+					<Label text="{i18n>SERVICES.SELECT_PROPERTY}"
+						class="sapUmcVerticalBeforeSpacingX1 sapUmcHorizontalBeforeSpacingX1_5 sapUmcSideSectionTitle" />
+				</HBox>
+				<Select id="PremisesDropDown" change="onPremiseChange"
+					width="100%" items="{ path: 'premises>/' }">
+					<core:Item key="{premises>PremiseID}" text="{premises>AddressInfo/ShortForm}" />
+				</Select>
+				<HBox width="100%" class="sapUmcHeadingWrapperBottomLine">
+					<Label text="{i18n>SERVICES.SELECT_SERVICE}"
+						class="sapUmcVerticalBeforeSpacingX1 sapUmcHorizontalBeforeSpacingX1_5 sapUmcSideSectionTitle" />
+				</HBox>
+				<List id="ServicesList" items="{contracts>/}" mode="{device>/listMode}"
+					class="sapUmcVerticalBeforeSpacingX_5" select="handleListItemPress">
+					<StandardListItem title="{contracts>Division/Description}"
+						icon="{ path: 'contracts>',formatter: 'sap.umc.mobile.app.js.formatters.servicesIconFormatter'}"
+						iconDensityAware="false" type="Navigation" iconInset="false"
+						press="onContractSelected">
+						<customData>
+							<core:CustomData key="Contract" value="{contracts>ContractID}" />
+						</customData>
+					</StandardListItem>
+				</List>
+			</VBox>
+		</content>
+	</Page>
+</mvc:View>

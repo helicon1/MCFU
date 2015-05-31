@@ -1,0 +1,22 @@
+{
+   "d":{
+      "results":[
+         {
+            "__metadata":{
+               "id":"https://LDCIGM6.WDF.SAP.CORP:44333/sap/opu/odata/sap//Services",
+               "uri":"https://LDCIGM6.WDF.SAP.CORP:44333/sap/opu/odata/sap//Services",
+               "type":".Services"
+            },
+			//TODO Add JSON ATTRIBUTES HERE
+         },
+         {
+            "__metadata":{
+               "id":"https://LDCIGM6.WDF.SAP.CORP:44333/sap/opu/odata/sap//Services",
+               "uri":"https://LDCIGM6.WDF.SAP.CORP:44333/sap/opu/odata/sap//Services",
+               "type":".Services"
+            },
+			//TODO Add JSON ATTRIBUTES HERE
+         }
+      ]
+   }
+}

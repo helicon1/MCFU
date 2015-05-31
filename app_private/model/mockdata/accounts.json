@@ -1,0 +1,91 @@
+{
+    "d": {
+        "results": [
+            {
+                "__metadata": {
+                    "id": "http://ldcigm6.wdf.sap.corp:50033/sap/opu/odata/sap/ERP_UTILITIES_UMC/Accounts('1516')",
+                    "uri": "http://ldcigm6.wdf.sap.corp:50033/sap/opu/odata/sap/ERP_UTILITIES_UMC/Accounts('1516')",
+                    "type": "ERP_UTILITIES_UMC.Account"
+                },
+                "AccountID": "1516",
+                "AccountTitleID": "0002",
+                "FirstName": "Frank",
+                "LastName": "Zappa",
+                "MiddleName": "",
+                "SecondName": "",
+                "Sex": "2",
+                "FullName": "Mr. Buba Gamp",
+                "AccountContacts": {
+                    "__deferred": {
+                        "uri": "http://ldcigm6.wdf.sap.corp:50033/sap/opu/odata/sap/ERP_UTILITIES_UMC/Accounts('1516')/AccountContacts"
+                    }
+                },
+                "AccountAlerts": {
+                    "__deferred": {
+                        "uri": "http://ldcigm6.wdf.sap.corp:50033/sap/opu/odata/sap/ERP_UTILITIES_UMC/Accounts('1516')/AccountAlerts"
+                    }
+                },
+                "StandardAccountAddress": {
+                    "__deferred": {
+                        "uri": "http://ldcigm6.wdf.sap.corp:50033/sap/opu/odata/sap/ERP_UTILITIES_UMC/Accounts('1516')/StandardAccountAddress"
+                    }
+                },
+                "ContractAccounts": {
+                    "__deferred": {
+                        "uri": "http://ldcigm6.wdf.sap.corp:50033/sap/opu/odata/sap/ERP_UTILITIES_UMC/Accounts('1516')/ContractAccounts"
+                    }
+                },
+                "AccountAddresses": {
+                    "__deferred": {
+                        "uri": "http://ldcigm6.wdf.sap.corp:50033/sap/opu/odata/sap/ERP_UTILITIES_UMC/Accounts('1516')/AccountAddresses"
+                    }
+                },
+                "PaymentCards": {
+                    "__deferred": {
+                        "uri": "http://ldcigm6.wdf.sap.corp:50033/sap/opu/odata/sap/ERP_UTILITIES_UMC/Accounts('1516')/PaymentCards"
+                    }
+                },
+                "AccountAddressIndependentEmails": {
+                    "__deferred": {
+                        "uri": "http://ldcigm6.wdf.sap.corp:50033/sap/opu/odata/sap/ERP_UTILITIES_UMC/Accounts('1516')/AccountAddressIndependentEmails"
+                    }
+                },
+                "AccountAddressIndependentMobilePhones": {
+                    "__deferred": {
+                        "uri": "http://ldcigm6.wdf.sap.corp:50033/sap/opu/odata/sap/ERP_UTILITIES_UMC/Accounts('1516')/AccountAddressIndependentMobilePhones"
+                    }
+                },
+                "AccountAddressIndependentPhones": {
+                    "__deferred": {
+                        "uri": "http://ldcigm6.wdf.sap.corp:50033/sap/opu/odata/sap/ERP_UTILITIES_UMC/Accounts('1516')/AccountAddressIndependentPhones"
+                    }
+                },
+                "AccountAddressIndependentFaxes": {
+                    "__deferred": {
+                        "uri": "http://ldcigm6.wdf.sap.corp:50033/sap/opu/odata/sap/ERP_UTILITIES_UMC/Accounts('1516')/AccountAddressIndependentFaxes"
+                    }
+                },
+                "PaymentDocuments": {
+                    "__deferred": {
+                        "uri": "http://ldcigm6.wdf.sap.corp:50033/sap/opu/odata/sap/ERP_UTILITIES_UMC/Accounts('1516')/PaymentDocuments"
+                    }
+                },
+                "Invoices": {
+                    "__deferred": {
+                        "uri": "http://ldcigm6.wdf.sap.corp:50033/sap/opu/odata/sap/ERP_UTILITIES_UMC/Accounts('1516')/Invoices"
+                    }
+                },
+                "BankAccounts": {
+                    "__deferred": {
+                        "uri": "http://ldcigm6.wdf.sap.corp:50033/sap/opu/odata/sap/ERP_UTILITIES_UMC/Accounts('1516')/BankAccounts"
+                    }
+                },
+                "AccountTitle": {
+                    "__deferred": {
+                        "uri": "http://ldcigm6.wdf.sap.corp:50033/sap/opu/odata/sap/ERP_UTILITIES_UMC/Accounts('1516')/AccountTitle"
+                    }
+                }
+            }
+        ]
+    }
+}

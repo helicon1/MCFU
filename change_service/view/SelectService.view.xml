@@ -1,0 +1,13 @@
+<core:View height="100%" xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" xmlns:l="sap.ui.layout" xmlns:f="sap.ui.layout.form" controllerName="sap.umc.mobile.change_service.view.SelectService">
+
+    <l:Grid defaultSpan="L6 M10 S12" defaultIndent="L3 M1 S0">
+        <l:content>
+            <l:VerticalLayout id="selectServiceVerticalLayout" width="100%">
+
+                <!-- Items added dynamically -->
+
+            </l:VerticalLayout>
+        </l:content>
+    </l:Grid>
+
+</core:View>

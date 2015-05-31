@@ -1,0 +1,84 @@
+<core:View  height="100%" xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns:ma="sap.makit"
+	xmlns="sap.m" xmlns:l="sap.ui.layout" xmlns:f="sap.ui.layout.form"
+	controllerName="sap.umc.mobile.invoice.view.InvoiceDetail" >
+	<Page enableScrolling="true" >		
+	   <customHeader>
+			<Bar>			
+				<contentMiddle>
+					<Label text="{i18n>INVOICE.BILL_DETAILS}" />
+				</contentMiddle>			
+			</Bar>
+		</customHeader>	
+	    <content>
+			 <ObjectHeader			   
+			    title="{invoice>/FormatteInvoiceDate}"
+			    number="{invoice>/FormatteAmountDue}"
+			    numberUnit="{invoice>/Currency}" >
+			    <attributes>
+			      <ObjectAttribute text="{invoice>/ContractAccount/Description}" class="sapUmcWhiteTextColor"/>
+			      <ObjectAttribute text="{path: 'invoice>/FormatteDueDate', formatter: 'sap.umc.mobile.invoice.js.utils.FormattedDueDate'}" class="sapUmcWhiteTextColor"/>
+			    </attributes>          
+			  </ObjectHeader>
+			 <l:Grid defaultSpan="L12 M12 S12" width="auto">
+			    <l:content>
+			      <f:SimpleForm minWidth="1024" maxContainerCols="2" editable="false" layout="ResponsiveGridLayout" title="{i18n>APP.DETAILS}"
+			        labelSpanL="6" labelSpanM="6" emptySpanL="0" emptySpanM="0" columnsL="2" columnsM="2">
+					<f:content>
+						<Label text="{i18n>INVOICE.AMOUNT_PAID}"/>
+						<Text text="{invoice>/FormatteAmountPaid}" class="sapUmcBillMText"/>
+						<Label text="{i18n>INVOICE.AMOUNT_REMAINING}"/>
+						<Text text="{invoice>/FormatteAmountRemaining}" class="sapUmcBillMText"/>
+						<Label text="{i18n>INVOICE.INVOICE_ID}"/>
+						<Text text="{invoice>/InvoiceID}"  class="sapUmcBillMText"/>	
+					</f:content>
+			      </f:SimpleForm>
+			    </l:content>
+			  </l:Grid>
+
+			   <Label id="TrendLabel" text="{i18n>INVOICE.BILLING_TREND}" class="sapUmcConsumptionGraphTitle" />
+			  
+			  <l:Grid defaultSpan="L12 M12 S12" width="auto" class="sapUmcGraphContainer" >
+			  <l:content>					  			   
+			  <l:VerticalLayout id="Graph" width="100%" visible="true" class="sapUmcGraphLabelContainer" >        	 			                	       
+		       <ma:CombinationChart id="chart_1" legendPosition="None" width="100%" height="25rem" showRangeSelector="false" showTableView="false" >
+				<ma:categoryRegions>
+				        <ma:Category column="FormatteInvoiceDate" />
+				</ma:categoryRegions>
+				<ma:layers>
+				     <ma:Layer type="Column" rows="{bill>/results}" >
+						<ma:values>
+							<ma:Value id="graph_chart_value_amount_due" displayName="{invoice>/CostCurrency}" locale="{invoice>/LocaleCurrency}" /> <!-- format="currency" -->
+						</ma:values>
+						<ma:columns>
+							<ma:Column name="FormatteInvoiceDate" value="{bill>FormatteInvoiceDate}" />                                           
+	                        <ma:Column id="graph_chart_column_amount_due" name="AmountDue" value="{bill>AmountDue}" />                  
+						</ma:columns>
+					</ma:Layer>
+				    <ma:Layer type="Line" rows="{bill2>/results}">
+						<ma:values>
+							<ma:Value id="graph_chart_vlaue_average" displayName="{i18n>SERVICES.AVERAGE_LINE}" locale="{invoice>/LocaleCurrency}" />    
+						</ma:values>
+						<ma:columns>
+							<ma:Column  name="FormatteInvoiceDate" value="{bill2>FormatteInvoiceDate}" />        
+							<ma:Column id="graph_chart_column_average" name="Average"  value="{bill2>average}" />
+						</ma:columns>
+					</ma:Layer>
+				  </ma:layers>
+		         </ma:CombinationChart>		    
+	           </l:VerticalLayout> 	           		
+	           </l:content>
+			  </l:Grid>          
+	           <l:VerticalLayout id="ContentBox" width="100%">
+			   </l:VerticalLayout>           
+	    </content>
+		<footer>
+			<Bar>
+				<contentRight>
+					<Button id="PayBill" text="{i18n>INVOICE.PAYBILL}" press="handlePayButton" class="sapUmcBtnWhiteTextColor sapUmcBtnBorderLeft" />
+					<Button id="SubmitPay" text="{i18n>APP.SUBMIT}" class="sapUmcBtnWhiteTextColor sapUmcBtnBorderLeft" />
+					<Button icon="sap-icon://horizontal-grip" press="handleOpen" class="sapUmcBtnBorderLeft"/>
+				</contentRight>
+			</Bar>
+		</footer> 
+	</Page>
+</core:View>

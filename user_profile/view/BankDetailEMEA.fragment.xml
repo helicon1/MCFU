@@ -1,0 +1,27 @@
+<core:FragmentDefinition
+	xmlns="sap.m"
+	xmlns:core="sap.ui.core" xmlns:l="sap.ui.layout">
+	<l:VerticalLayout width="100%">
+		<Label text="{i18n>USER_PROFILE.IBAN}" class="sapUmcHorizontalBeforeSpacingX1_5 sapUmcVerticalBeforeSpacingX4 sapUmcMLabelBold" />
+		<Input type="Text" value="{bankDetail>/IBAN}" enabled="{bankDetail>/AddBank}" change="handleIBANChange" class="sapUmcVerticalAfterSpacingX2"/>
+		
+		<Label text="{i18n>USER_PROFILE.COUNTRY}"  visible="{bankDetail>/ShowBank}" class="sapUmcHorizontalBeforeSpacingX1_5 sapUmcMLabelBold" />
+		<Input type="Text" value="{bankDetail>/CountryName}" visible="{bankDetail>/ShowBank}" enabled="false" class="sapUmcVerticalAfterSpacingX2"/>
+		<Input type="Text" value="{bankDetail>/CountryName}" visible="false" enabled="false" class="sapUmcVerticalAfterSpacingX2"/>
+ 		<ComboBox items="{Countries>/results/}" selectedKey="{bankDetail>/seletedCountryID}" visible="false" width="100%" 
+		          selectionChange="handleCountrySelect" class="sapUmcVerticalAfterSpacingX2">
+                    <core:Item key="{Countries>CountryID}" text="{Countries>Name}" />
+        </ComboBox>
+		<Label text="{i18n>USER_PROFILE.BIC}" visible="{bankDetail>/ShowBank}" class="sapUmcHorizontalBeforeSpacingX1_5 sapUmcMLabelBold"/>
+		<Input type="Text" value="{parts:[ 'bankDetail>/Bank/Name', 'bankDetail>/Bank/SWIFTCode'], formatter: 'sap.umc.mobile.user_profile.js.utils.bankIdFormatter' }"						
+		       visible="{bankDetail>/ShowBank}" enabled="false" class="sapUmcVerticalAfterSpacingX2"/>		<!-- visible="{bankDetail>/ShowBank}" -->	   	       		
+        <ComboBox selectionChange="handleBICSelect" selectedKey="{bankDetail>/seletedBankID}" width="100%" items="{Banks>/results/}" visible="false" 
+                  class="sapUmcVerticalAfterSpacingX2">
+				<core:Item key="{Banks>BankID}"  text="{Banks>Name}" />
+		</ComboBox>  		
+		<Label text="{i18n>USER_PROFILE.ACCOUNT_HOLDER}" class="sapUmcHorizontalBeforeSpacingX1_5 sapUmcMLabelBold"/>
+		<Input type="Text" value="{bankDetail>/AccountHolder}" enabled="{bankDetail>/DisplayInfo}" change="onInformationModified" class="sapUmcVerticalAfterSpacingX2"/>
+		<Label text="{i18n>USER_PROFILE.ACCOUNT_DESCRIPTION}" class="sapUmcHorizontalBeforeSpacingX1_5 sapUmcMLabelBold"/>
+		<Input type="Text" value="{bankDetail>/BankAccountName}" enabled="{bankDetail>/AddBank}" change="onInformationModified" class="sapUmcVerticalAfterSpacingX6" />					
+	</l:VerticalLayout>		
+</core:FragmentDefinition>

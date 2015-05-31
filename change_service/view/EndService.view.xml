@@ -1,0 +1,38 @@
+<core:View height="100%" xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" xmlns:l="sap.ui.layout" xmlns:f="sap.ui.layout.form" controllerName="sap.umc.mobile.change_service.view.EndService">
+   <Page enableScrolling="true" showNavButton="false" title="{i18n>CHANGE_SERVICE.END_SERVICE}">
+        <content>
+
+            <ObjectHeader title="{i18n>CHANGE_SERVICE.END_SERVICE_TITLE}" class="sapUmcObjectHeaderWhiteColor">
+                <attributes>
+                    <ObjectAttribute text="{endServiceSettings>/titleSubtext}" />
+                </attributes>
+            </ObjectHeader>
+
+            <IconTabBar id="endServiceIconTabBar" expanded="true" select="onIconTabBarSelect">
+                <items>
+                    <IconTabFilter id="step1IconTabFilter" icon="sap-icon://hint" iconColor="Neutral" text="{i18n>CHANGE_SERVICE.END_SERVICE_STEP1}" key="1">
+                        <mvc:XMLView viewName="sap.umc.mobile.change_service.view.EndServiceGeneralInfo"></mvc:XMLView>
+                    </IconTabFilter>
+                    <IconTabSeparator icon="sap-icon://step" />
+                    <IconTabFilter id="step2IconTabFilter" icon="sap-icon://heating-cooling" iconColor="Neutral" text="{i18n>CHANGE_SERVICE.END_SERVICE_STEP2}" key="2">
+                        <mvc:XMLView viewName="sap.umc.mobile.change_service.view.SelectService"></mvc:XMLView>
+                    </IconTabFilter>
+                    <IconTabSeparator icon="sap-icon://step" />
+                    <IconTabFilter id="step3IconTabFilter" icon="sap-icon://accept" iconColor="Neutral" text="{i18n>CHANGE_SERVICE.END_SERVICE_STEP3}" key="3">
+                        <mvc:XMLView viewName="sap.umc.mobile.change_service.view.EndServiceConfirmation"></mvc:XMLView>
+                    </IconTabFilter>
+                </items>
+            </IconTabBar>
+
+        </content>
+        <footer>
+            <Bar>
+                <contentRight>
+                    <Button visible="{endServiceSettings>/backButtonVisible}" text="{i18n>APP.BACK}" press="onPressBack" class="sapUmcBtnWhiteTextColor sapUmcBtnBorderLeft" />
+                    <Button visible="{endServiceSettings>/nextButtonVisible}" text="{i18n>APP.NEXT}" press="onPressNext" class="sapUmcBtnWhiteTextColor sapUmcBtnBorderLeft" />
+                    <Button visible="{confirmation>/isChecked}" text="{i18n>APP.SUBMIT}" press="onPressSubmit" class="sapUmcBtnWhiteTextColor sapUmcBtnBorderLeft" />
+                </contentRight>
+            </Bar>
+        </footer>
+    </Page>
+</core:View>

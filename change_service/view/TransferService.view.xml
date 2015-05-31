@@ -1,0 +1,42 @@
+<core:View height="100%" xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" xmlns:l="sap.ui.layout" xmlns:f="sap.ui.layout.form" controllerName="sap.umc.mobile.change_service.view.TransferService">
+    <Page enableScrolling="true" showNavButton="false" title="{i18n>CHANGE_SERVICE.TRANSFER_SERVICE}">
+        <content>
+
+            <ObjectHeader title="{i18n>CHANGE_SERVICE.TRANSFER_SERVICE_TITLE}" class="sapUmcObjectHeaderWhiteColor">
+                <attributes>
+                    <ObjectAttribute text="{transferServiceSettings>/titleSubtext}" />
+                </attributes>
+            </ObjectHeader>
+
+            <IconTabBar id="transferServiceIconTabBar" expanded="true" select="onIconTabBarSelect">
+                <items>
+                    <IconTabFilter id="step1IconTabFilter" icon="sap-icon://hint" iconColor="Neutral" text="{i18n>CHANGE_SERVICE.TRANSFER_SERVICE_STEP1}" key="1">
+                        <mvc:XMLView viewName="sap.umc.mobile.change_service.view.TransferServiceGeneralInfo"></mvc:XMLView>
+                    </IconTabFilter>
+                    <IconTabSeparator icon="sap-icon://step" />
+                    <IconTabFilter id="step2IconTabFilter" icon="sap-icon://addresses" iconColor="Neutral" text="{i18n>CHANGE_SERVICE.TRANSFER_SERVICE_STEP2}" key="2">
+                        <mvc:XMLView viewName="sap.umc.mobile.change_service.view.PremiseAddress"></mvc:XMLView>
+                    </IconTabFilter>
+                    <IconTabSeparator icon="sap-icon://step" />
+                    <IconTabFilter id="step3IconTabFilter" icon="sap-icon://sales-order-item" iconColor="Neutral" text="{i18n>CHANGE_SERVICE.TRANSFER_SERVICE_STEP3}" key="3">
+                        <mvc:XMLView viewName="sap.umc.mobile.change_service.view.BillingAddress"></mvc:XMLView>
+                    </IconTabFilter>
+                    <IconTabSeparator icon="sap-icon://step" />
+                    <IconTabFilter id="step4IconTabFilter" icon="sap-icon://accept" iconColor="Neutral" text="{i18n>CHANGE_SERVICE.TRANSFER_SERVICE_STEP4}" key="4">
+                        <mvc:XMLView viewName="sap.umc.mobile.change_service.view.TransferServiceConfirmation"></mvc:XMLView>
+                    </IconTabFilter>
+                </items>
+            </IconTabBar>
+
+        </content>
+        <footer>
+            <Bar>
+                <contentRight>
+                    <Button visible="{transferServiceSettings>/backButtonVisible}" text="{i18n>APP.BACK}" press="onPressBack" class="sapUmcBtnWhiteTextColor sapUmcBtnBorderLeft" />
+                    <Button visible="{transferServiceSettings>/nextButtonVisible}" text="{i18n>APP.NEXT}" press="onPressNext" class="sapUmcBtnWhiteTextColor sapUmcBtnBorderLeft" />
+                    <Button visible="{confirmation>/isChecked}" text="{i18n>APP.SUBMIT}" press="onPressSubmit" class="sapUmcBtnWhiteTextColor sapUmcBtnBorderLeft" />
+                </contentRight>
+            </Bar>
+        </footer>
+    </Page>
+</core:View>

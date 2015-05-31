@@ -1,0 +1,14 @@
+<core:FragmentDefinition
+	xmlns="sap.m"
+	xmlns:core="sap.ui.core">
+	<ActionSheet
+		title="Tiles"
+		showCancelButton="true"
+		placement="Top">
+		<buttons>
+			<Button text="Send Message" icon="sap-icon://email" />
+			<Button text="Detail Invoice" icon="sap-icon://forward" />			
+			<Button text="Cancel"  />
+		</buttons>
+	</ActionSheet>
+</core:FragmentDefinition>

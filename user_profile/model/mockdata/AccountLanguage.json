@@ -1,0 +1,17 @@
+{
+   "d":{
+      "results":[
+         {
+            "__metadata":{
+               "id":"https://LDCIGM6.WDF.SAP.CORP:44333/sap/opu/odata/sap/ERP_UTILITIES_UMC/Invoices('ISU000300002757')",
+               "uri":"https://LDCIGM6.WDF.SAP.CORP:44333/sap/opu/odata/sap/ERP_UTILITIES_UMC/Invoices('ISU000300002757')",
+               "type":"ERP_UTILITIES_UMC.Invoice"
+            },           
+          "AccountID": "2542",
+          "AccountTypeID": "1",
+          "CorrespondenceLanguage": "E",
+          "Language": "E"      
+         }       
+      ]
+   }
+}

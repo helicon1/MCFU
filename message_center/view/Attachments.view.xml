@@ -1,0 +1,20 @@
+<mvc:View height="100%" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" xmlns:ui="sap.ca.ui"
+	controllerName="sap.umc.mobile.message_center.view.Attachments">
+	<Page enableScrolling="true">
+		<customHeader>
+			<Bar>
+				<contentMiddle>
+					<Label text="{i18n>MESSAGE_CENTER.ATTACHMENTS}" />
+				</contentMiddle>			
+			</Bar>
+		</customHeader>		
+		<content>		    
+		<!-- https://wiki.wdf.sap.corp/wiki//pages/viewpage.action?pageId=1458442279 -->
+			<UploadCollection id="attachmentUploadCollection" items="{Attachments>/results/}">
+				<UploadCollectionItem enableEdit="false" fileName="" url="">
+					
+				</UploadCollectionItem>
+			</UploadCollection>
+		</content>
+	</Page>
+</mvc:View>

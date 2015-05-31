@@ -1,0 +1,229 @@
+<core:View height="100%" xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc"
+	xmlns:ma="sap.makit" xmlns="sap.m" xmlns:l="sap.ui.layout" xmlns:f="sap.ui.layout.form"
+	controllerName="sap.umc.mobile.services.view.ServiceDetail">
+	<Page enableScrolling="true" title="{i18n>SERVICES.DETAILS}">
+		<customHeader>
+			<Bar>
+				<contentMiddle>
+					<Label text="{i18n>SERVICES.DETAILS}" />
+				</contentMiddle>
+			</Bar>
+		</customHeader>
+		<content>
+			<ObjectHeader title="{contract>/address}" titleActive="true">
+				<attributes>
+					<ObjectAttribute
+						text="{parts:[ 'contract>/division' , 'contract>/contract/Product/Description'],  formatter:'sap.umc.mobile.services.js.utils.productFormatter'}" class="sapUmcWhiteTextColor"/>
+				</attributes>
+				<statuses>
+					<ObjectStatus text="" />
+					<ObjectStatus
+						text="{parts:[ 'contract>/contract/ContractStartDate' , 'contract>/contract/ContractEndDate'],  formatter:'sap.umc.mobile.services.js.utils.contractDateFormatter'}" class="sapUmcWhiteTextColor"/>
+				</statuses>
+			</ObjectHeader>
+			<l:Grid defaultSpan="L12 M12 S12" defaultIndent="L0 M0 S0"
+				width="auto" vSpacing="0" hSpacing="0">
+				<l:content>
+					<IconTabBar class="iconTabBarPaddingTop" id="ServicesTab"
+						select="onServiceSelected" expanded="{device>/isNoPhone}"
+						selectedKey="{viewModel>/sSelectedTabKey}">
+						<items>
+							<IconTabFilter id="smartMeterTab" key="4" icon="sap-icon://tools-opportunity" text="{i18n>SERVICES.SMART_METER}">
+								<mvc:XMLView viewName="sap.umc.mobile.services.view.SmartMeter"></mvc:XMLView>
+							</IconTabFilter>
+
+							<IconTabFilter key="0" icon="sap-icon://line-chart"
+								text="{i18n>SERVICES.CONSUPTION_HISTORY}" >
+								<!-- Consumption -->								
+							    <FlexBox alignItems="Start" justifyContent="Start">
+						          <items>
+						             <ToggleButton id="Consumption" width="100%" pressed="{switchControl>/IsConsumption}" enabled="{ path: 'consumption>/Switch', formatter: 'sap.umc.mobile.services.js.utils.toggleEnable' }"
+											 text="{ path: 'consumption>/UnitButton', formatter: 'sap.umc.mobile.services.js.utils.toggleUnitText' }" press="handleIsConsumptionSwitched"
+									         visible="{ path: 'consumption>/Visible', formatter: 'sap.umc.mobile.services.js.utils.graphVisible'}" class="sapUmcHorizontalBeforeSpacingX2 sapUmcVerticalAfterSpacingX1 sapUmcToggleSpace sapUmcMSwtTextSizeOn sapUmcMSwtTextSizeOff" />
+									 <ToggleButton id="Cost" width="100%" pressed="{switchControl>/IsCost}" enabled="{ path: 'consumption>/Switch', formatter: 'sap.umc.mobile.services.js.utils.toggleEnable' }"
+											 text="{ path: 'consumption>/CostButton', formatter: 'sap.umc.mobile.services.js.utils.toggleCostText' }" press="handleIsCostSwitched"
+									         visible="{ path: 'consumption>/Visible', formatter: 'sap.umc.mobile.services.js.utils.graphVisible'}" class="sapUmcHorizontalBeforeSpacingX2 sapUmcVerticalAfterSpacingX1 sapUmcToggleSpace sapUmcMSwtTextSizeOn sapUmcMSwtTextSizeOff" />
+						          </items>
+						        </FlexBox>			
+				                <l:ResponsiveFlowLayout class="sapUmcVerticalBeforeSpacingX3">
+				                 <l:content>
+				                       <Text  text="{i18n>SERVICES.PREVIOUS_PERIOD} :" 
+						                      visible="{ path: 'consumption>/Visible', formatter: 'sap.umc.mobile.services.js.utils.graphVisible'}" 
+									          class="sapUMCConsumptionLegendHeader" /> 
+									   <Text  text="{i18n>SERVICES.FROM} {consumption>/FirstYear} {i18n>SERVICES.TO} {consumption>/SecondYear} " 
+						                      visible="{ path: 'consumption>/Visible', formatter: 'sap.umc.mobile.services.js.utils.graphVisible'}" 
+									          class="sapUMCConsumptionLegendContent" /> 
+				                       <Text  text="{i18n>SERVICES.CURRENT_PERIOD} :" 
+						                      visible="{ path: 'consumption>/Visible', formatter: 'sap.umc.mobile.services.js.utils.graphVisible'}" 
+									          class="sapUMCConsumptionLegendHeader" />								          
+									   <Text  text="{i18n>SERVICES.FROM} {consumption>/SecondYear} {i18n>SERVICES.TO} {consumption>/CurrentDate} " 
+						                      visible="{ path: 'consumption>/Visible', formatter: 'sap.umc.mobile.services.js.utils.graphVisible'}" 
+									          class="sapUMCConsumptionLegendContent" />   			          
+									   <Text  text="{i18n>INVOICE.MONTHLY_AVERAGE} :" visible="{ path: 'consumption>/Visible', formatter: 'sap.umc.mobile.services.js.utils.graphVisible'}" 
+									          class="sapUMCConsumptionLegendHeader" /> 
+									   <Text  text="{consumption>/Average} " visible="{ path: 'consumption>/Visible', formatter: 'sap.umc.mobile.services.js.utils.graphVisible'}" 
+									          class="sapUMCConsumptionLegendContent" /> 
+				                 </l:content>
+				                </l:ResponsiveFlowLayout> 									
+							    <l:VerticalLayout id="Msg" width="100%" visible="{ path: 'consumption>/Visible', formatter: 'sap.umc.mobile.services.js.utils.labelVisible'}" > 
+							            <Text text="{consumption>/Message}" class="sapUmcMLabelConsumption" /> 
+							    </l:VerticalLayout>
+								<l:VerticalLayout id="Graph" width="90%" visible="{ path: 'consumption>/Visible', formatter: 'sap.umc.mobile.services.js.utils.graphVisible'}" >    											    
+								     <ma:CombinationChart id="chart_1" legendPosition="None" width="100%" height="25rem" showRangeSelector="false" showTableView="false" 
+									       primaryColorPalette="{consumption>/Color}" >
+										<ma:categoryRegions>									     
+										        <ma:Category column="displayPeriod" displayName="" />
+										</ma:categoryRegions>
+										<ma:layers>
+										     <ma:Layer type="Column" rows="{consumption>/results}" >
+												<ma:values>
+													<ma:Value expression="displayValue" displayName="{consumption>/DisplayType}" />
+												</ma:values>
+												<ma:columns>
+													<ma:Column name="displayPeriod" value="{consumption>DisplayPeriod}" />
+													<ma:Column name="yearCatogory" value="{consumption>YearCatogory}" />
+													<ma:Column name="displayValue" value="{consumption>DisplayValue}" type="number" />        
+												</ma:columns>
+												<ma:series>
+											         <ma:Series column="yearCatogory" displayName="" ></ma:Series>
+										        </ma:series>
+											</ma:Layer>
+										    <ma:Layer type="Line" rows="{consumption_average>/results}" >
+												<ma:values>
+													  <ma:Value expression="{i18n>SERVICES.AVERAGE}" displayName="{i18n>SERVICES.AVERAGE_LINE}" />    
+												</ma:values>
+												<ma:columns>
+													<ma:Column name="displayPeriod" value="{consumption_average>DisplayPeriod}" />
+													<ma:Column id="graph_chart_column_average" value="{consumption_average>AverageValue}" type="number" /> 													
+												</ma:columns>												 
+											</ma:Layer>
+										  </ma:layers>									 
+								     </ma:CombinationChart>																							
+								</l:VerticalLayout>												
+							</IconTabFilter>
+
+							<IconTabFilter id="meterReadingTab" key="1" icon="sap-icon://performance"
+								text="{i18n>SERVICES.MR}">
+								<Text text="{i18n>SERVICES.SELECT_METER}"
+									class="sapUmcSubsectionHeading sapUmcVerticalBeforeSpacingX2 sapUmcHorizontalBeforeSpacingX1_5" />
+								<f:SimpleForm minWidth="1024" maxContainerCols="2"
+									editable="false" layout="ResponsiveGridLayout" labelSpanL="3"
+									labelSpanM="3" emptySpanL="4" emptySpanM="4" columnsL="1"
+									columnsM="1">
+									<f:content>
+										<Label text="{i18n>SERVICES.METER_NUMBER}"
+											class="sapUmcHorizontalBeforeSpacingX1_5 sapUmcVerticalBeforeSpacingX2" />
+										<Select id="MeterNumberDropDown" selectionChange="onMeterNumberChanged"
+											items="{ path: 'devices>/' }" class="sapUmcVerticalAfterSpacingX1">
+											<core:Item key="{devices>SerialNumber}" text="{devices>SerialNumber}" />
+										</Select>
+									</f:content>
+								</f:SimpleForm>
+								<l:VerticalLayout width="100%"
+									class="sapUmcSubSectionHeadingWrapperBottomLine sapUmcHorizontalBeforeSpacingX1_5" />
+								<Text text="{i18n>SERVICES.NEW_READING}"
+									class="sapUmcSubsectionHeading sapUmcVerticalBeforeSpacingX2 sapUmcHorizontalBeforeSpacingX1_5" />
+								<f:SimpleForm minWidth="1024" maxContainerCols="2"
+									editable="false" layout="ResponsiveGridLayout" labelSpanL="3"
+									labelSpanM="3" emptySpanL="4" emptySpanM="4" columnsL="1"
+									columnsM="1">
+									<f:content>
+										<Label
+											class="sapUmcHorizontalBeforeSpacingX1_5 sapUmcVerticalBeforeSpacingX2"
+											text="{i18n>SERVICES.DATE}" />
+										<DatePicker displayFormat="long" dateValue="{meterReading>/date}"
+											class="sapUmcVerticalAfterSpacingX1" />
+									</f:content>
+								</f:SimpleForm>
+								<f:SimpleForm minWidth="1024" maxContainerCols="2"
+									id="meterReadingRegisters" editable="false" layout="ResponsiveGridLayout"
+									labelSpanL="3" labelSpanM="3" emptySpanL="4" emptySpanM="4"
+									columnsL="1" columnsM="1">
+									<f:content>
+									</f:content>
+								</f:SimpleForm>
+								<f:SimpleForm minWidth="1024" maxContainerCols="2"
+									editable="false" layout="ResponsiveGridLayout" labelSpanL="3"
+									labelSpanM="3" emptySpanL="4" emptySpanM="4" columnsL="1"
+									columnsM="1">
+									<f:content>
+										<Label
+											class="sapUmcHorizontalBeforeSpacingX1_5 sapUmcVerticalBeforeSpacingX2"
+											text="{i18n>SERVICES.METER_READING_NOTE}" visible="{viewModel>/bShowMeterReadingNotes}" />
+										<Select id="MeterReaderNotes" selectionChange="onMeterReaderNoteChange"
+											width="100%" items="{ path: 'meterReadingNotes>/' }" visible="{viewModel>/bShowMeterReadingNotes}"
+											class="sapUmcVerticalAfterSpacingX1">
+											<core:Item key="{meterReadingNotes>MeterReadingNoteID}"
+												text="{meterReadingNotes>Description}" />
+										</Select>
+									</f:content>
+								</f:SimpleForm>
+								<l:VerticalLayout width="100%"
+									class="sapUmcSubSectionHeadingWrapperBottomLine sapUmcHorizontalBeforeSpacingX1_5" />							
+								<Text text="{i18n>SERVICES.READING_HISTORY}"
+									class="sapUmcSubsectionHeading sapUmcVerticalBeforeSpacingX2 sapUmcHorizontalBeforeSpacingX1_5" />
+								<Table id="MeterReadingHistoryTable" inset="false"
+									class="sapUmcAlternativeBackgroundColor sapUmcHorizontalBeforeSpacingX1_5"
+									items="{path: 'meterReadingHistory>/',  sorter: {path: 'ReadingDateTime', descending: true}}">
+									<columns>
+										<Column>
+											<Text text="{i18n>SERVICES.DATE}" />
+										</Column>
+										<Column>
+											<Text text="{i18n>SERVICES.REASON}" />
+										</Column>
+										<Column>
+											<Text text="{i18n>SERVICES.REGISTER}" />
+										</Column>
+										<Column>
+											<Text text="{i18n>SERVICES.READING}" />
+										</Column>
+									</columns>
+									<items>
+										<ColumnListItem>
+											<cells>
+												<Text
+													text="{parts: ['meterReadingHistory>ReadingDateTime'] , formatter: 'sap.umc.mobile.app.js.formatters.dateFormatter' }" />
+												<Text text="{meterReadingHistory>MeterReadingReason/Description}" />
+												<Text text="{meterReadingHistory>RegisterID}" />
+												<Text
+													text="{parts: ['meterReadingHistory>ReadingResult', 'meterReadingHistory>ReadingUnit'] , formatter: 'sap.umc.mobile.app.js.formatters.amountWithCurrencyFormatter' }" />
+											</cells>
+										</ColumnListItem>
+									</items>
+								</Table>
+							</IconTabFilter>
+
+							<IconTabFilter key="2" icon="sap-icon://sales-document"
+								text="{i18n>SERVICES.BB}">
+								<l:VerticalLayout id="budgetBillingContent"
+									width="100%"></l:VerticalLayout>
+							</IconTabFilter>
+							
+							<IconTabFilter key="3" icon="sap-icon://sales-document"
+								text="{i18n>SERVICES.PAYMENTPLAN}">
+								<l:VerticalLayout id="paymentPlanContent"
+									width="100%"></l:VerticalLayout>
+							</IconTabFilter>
+						</items>
+					</IconTabBar>
+					<f:SimpleForm class="sapUmcWhiteBackgroundColor">
+						<f:content>
+							<l:VerticalLayout id="ServicesContent" width="100%"></l:VerticalLayout>
+						</f:content>
+					</f:SimpleForm>
+				</l:content>
+			</l:Grid>
+		</content>
+		<footer>
+			<Bar>
+				<contentRight>
+					<Button text="{i18n>APP.SUBMIT}" press="onSubmitButtonPress"
+						visible="{viewModel>/bShowSubmitButton}" class="sapUmcBtnWhiteTextColor sapUmcBtnBorderLeft" />
+
+					<Button text="{i18n>SERVICES.DOWNLOAD_DATA}" icon="sap-icon://download" iconFirst="false" press="onConsumptionDownloadPressed" visible="{viewModel>/bShowConsumptionDownloadButton}" class="sapUmcBtnWhiteTextColor sapUmcBtnBorderLeft" />
+				</contentRight>
+			</Bar>
+		</footer>
+	</Page>
+</core:View>

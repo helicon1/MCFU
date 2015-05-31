@@ -1,0 +1,48 @@
+<mvc:View height="100%" xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc"
+	xmlns="sap.m" xmlns:l="sap.ui.layout"
+	controllerName="sap.umc.mobile.change_service.view.ChangeService">
+	<Page enableScrolling="true">
+		<customHeader>
+			<Bar>
+				<contentMiddle>
+					<Label text="{i18n>HOME.MANAGE_SERVICE}" />
+				</contentMiddle>
+			</Bar>
+		</customHeader>
+		<content>
+			<HBox width="100%" class="sapUmcHeadingWrapperBottomLine">
+				<Label text="{i18n>CHANGE_SERVICE.CHANGE_SERVICE}"
+					class="sapUmcVerticalBeforeSpacingX1 sapUmcHorizontalBeforeSpacingX1_5 sapUmcSideSectionTitle" />
+			</HBox>
+			<List id="changeServiceList" mode="SingleSelectMaster"
+				itemPress="handleListPress">
+				<StandardListItem id="listItemStartService"
+					title="{i18n>CHANGE_SERVICE.START_SERVICE}" icon="sap-icon://initiative"
+					type="Navigation" />
+				<StandardListItem id="listItemEndService"
+					title="{i18n>CHANGE_SERVICE.END_SERVICE}" visible="{changeServiceSettings>/hasContracts}"
+					icon="sap-icon://journey-arrive" type="Navigation" />
+				<StandardListItem id="listItemTransferService"
+					title="{i18n>CHANGE_SERVICE.TRANSFER_SERVICE}" visible="{changeServiceSettings>/hasContracts}"
+					icon="sap-icon://action" type="Navigation" />
+				<StandardListItem id="listItemChangeProduct"
+					title="{i18n>CHANGE_SERVICE.CHANGE_PRODUCT}" visible="{changeServiceSettings>/hasContracts}"
+					icon="sap-icon://redo" type="Navigation" />
+			</List>
+			<HBox width="100%" class="sapUmcHeadingWrapperBottomLine">
+				<Label text="{i18n>CHANGE_SERVICE.REQUESTED_SERVICE}"
+					class="sapUmcVerticalBeforeSpacingX1 sapUmcHorizontalBeforeSpacingX1_5 sapUmcSideSectionTitle"
+					visible="{changeServiceSettings>/hasRequestedService}" />
+			</HBox>
+			<List id="requestedServiceList" mode="SingleSelectMaster"
+				itemPress="handleRequestedServiceListPress">
+				<StandardListItem id="listItemPendingService"
+					title="{i18n>CHANGE_SERVICE.PENDING_SERVICE}" icon="sap-icon://pending"
+					type="Navigation" visible="{changeServiceSettings>/hasPendingContracts}" />
+				<StandardListItem id="listItemQuotation"
+					title="{i18n>CHANGE_SERVICE.QUOTATION}" icon="sap-icon://sales-quote"
+					type="Navigation" visible="{changeServiceSettings>/hasQuotations}" />
+			</List>
+		</content>
+	</Page>
+</mvc:View>

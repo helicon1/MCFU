@@ -1,0 +1,29 @@
+[
+ {
+    "latitude": 45.496823,
+    "longitude": -73.556626,
+    "text": "SAP Labs Canada",
+    "x": 248179361,
+    "y": 428829617,
+    "id": 655,
+    "Address":"Pariser Platz 7, 10117 Berlin, Germany"
+  }, {
+    "latitude": 46.496823,
+    "longitude": -74.556626,
+    "text": "Abdellah's House",
+    "x": 248179361,
+    "y": 428829617,
+    "id": 655,
+    "Address": "Panoramastraﬂe 1, 10178 Berlin, Germany"
+  },
+  {
+    "latitude": 47.496823,
+    "longitude": -76.556626,
+    "text": "Abdellah's House",
+    "x": 248179361,
+    "y": 428829617,
+    "id": 655,
+     "Address": "Friedrichstr. 44, 10969 Berlin"
+  }
+  
+]

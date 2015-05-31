@@ -1,0 +1,63 @@
+<mvc:View height="100%" controllerName="sap.umc.mobile.home.view.Home"
+	xmlns:l="sap.ui.layout" xmlns:mvc="sap.ui.core.mvc" xmlns:core="sap.ui.core"
+	xmlns="sap.m">
+	<Page enableScrolling="true">
+		<content>
+			<!-- <l:VerticalLayout width="100%"
+				class="sapUmcVerticalBeforeSpacingX2">
+			 -->	
+				<l:Grid defaultSpan="L6 M10 S12" defaultIndent="L3 M1 S0"
+				containerQuery="true" vSpacing="0" hSpacing="0" width="100%">
+
+
+				<l:HorizontalLayout>
+					<Label text="{i18n>HOME.WELCOME} {personalInformation>/FirstName}"
+						class="sapUmcHorizontalBeforeSpacingX1_5 sapUmcVerticalBeforeSpacingX2 sapUmcWhiteTextColor sapUmcBoldText" />
+					<ToggleButton icon="sap-icon://arrow-down" press="handleAccountTogglePress" 
+						visible="{settings>/bIsMultipleAccounts}" 
+						type="Transparent" 
+						class="sapUmcWhiteTextColor" />
+			    </l:HorizontalLayout>
+				<Carousel id="homeCarousel" loop="true" showPageIndicator="false">
+					<pages>
+						<FlexBox width="100%" alignItems="Start" justifyContent="Center">
+							<items>
+								<Image width="100%" src="{Images>/Private1Url}" />
+							</items>
+						</FlexBox>
+						<FlexBox width="100%" alignItems="Start" justifyContent="Center">
+							<items>
+								<Image width="100%" src="{Images>/Private2Url}"/>
+							</items>
+						</FlexBox>
+					</pages>
+				</Carousel>
+				</l:Grid>
+			
+				<TileContainer height="400px" id="tileContainer" tiles="{tiles>/TileCollection/}">
+					<CustomTile class="sapMTile sapUmcTile" press="tilePressed">
+						<content>
+							<VBox justifyContent="SpaceBetween" fitContainer="true">
+								<Text text="{tiles>title}" class="sapUmcTileTitle sapMStdTileTopRow" />
+								<VBox class="sapMStdTileBottomRow" direction="ColumnReverse">
+									<Text text="{tiles>info}" class="sapUmcTileInfo" />
+									<HBox justifyContent="SpaceBetween" alignItems="End">
+										<HBox id="tilesHBox" alignItems="End">
+											<Text text="{tiles>number}" />
+											<Text text="{tiles>numberUnit}" />
+										</HBox>
+										<core:Icon src="{tiles>icon}" class="sapUmcTileIcon" />
+									</HBox>
+								</VBox>
+							</VBox>
+						</content>
+						<customData>
+							<core:CustomData key="Number" value="{tiles>numberClass}" />
+							<core:CustomData key="Unit" value="{tiles>numberUnitClass}" />
+							<core:CustomData key="Icon" value="{tiles>iconClass}" />
+						</customData>
+					</CustomTile>
+				</TileContainer>
+		</content>
+	</Page>
+</mvc:View>

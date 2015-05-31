@@ -1,0 +1,29 @@
+<core:View height="100%" xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc"
+	xmlns="sap.m" xmlns:l="sap.ui.layout" xmlns:f="sap.ui.layout.form"
+	controllerName="sap.umc.mobile.change_service.view.RequestedService"
+	xmlns:customData="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1">
+	<Page enableScrolling="true" title="{i18n>CHANGE_SERVICE.REQUESTED_SERVICE}">
+		<customHeader>
+			<Bar>
+				<contentMiddle>
+					<Label text="{i18n>CHANGE_SERVICE.REQUESTED_SERVICE}" />
+				</contentMiddle>
+			</Bar>
+		</customHeader>
+		<content>
+			<ObjectHeader title="{requestedServiceSettings>/title}"
+				class="sapUmcObjectHeaderWhiteColor">
+				<attributes>
+					<ObjectAttribute text="{requestedServiceSettings>/titleSubtext}" />
+				</attributes>
+			</ObjectHeader>
+
+			<List id="requestedServiceList" mode="SingleSelectMaster"
+				itemPress="handleListPress" items="{ path: 'requestedServices>/'}">
+				<StandardListItem title="{requestedServices>ServiceDescription}"
+					description="{requestedServices>ShortDescription}" info="{requestedServices>StatusDescription}"
+					infoState="{requestedServices>StatusState}" type="Navigation" />
+			</List>
+		</content>
+	</Page>
+</core:View>

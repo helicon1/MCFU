@@ -1,0 +1,25 @@
+<core:FragmentDefinition xmlns="sap.m"
+	xmlns:f="sap.ui.layout.form" xmlns:core="sap.ui.core" xmlns:l="sap.ui.layout">
+	<l:VerticalLayout width="100%"
+		visible="{budgetbilling>/_bHasBB}">
+		<Text text="{i18n>APP.DETAILS}" class="sapUmcHorizontalBeforeSpacingX1_5 sapUmcSubsectionHeading sapUmcVerticalBeforeSpacingX2" />
+		<f:SimpleForm width="100%" class="sapUmcSubSectionHeadingWrapperBottomLine">
+			<f:content>
+				<Label text="{i18n>SERVICES.CURRENT_AMOUNT}" />
+				<Text class="sapUmcBoldText"
+					text="{parts: ['budgetbilling>/Amount', 'budgetbilling>/Currency'], formatter: 'sap.umc.mobile.app.js.formatters.amountWithCurrencyFormatter' }" />
+				<Label text="{i18n>SERVICES.BILLING_CYCLE}" />
+				<Text class="sapUmcBoldText"
+					text="{budgetbilling>/BudgetBillingCycle/Description}" />
+			</f:content>
+		</f:SimpleForm>
+		<Text text="{i18n>SERVICES.BBP_ADJUST}" class="sapUmcHorizontalBeforeSpacingX1_5 sapUmcSubsectionHeading sapUmcVerticalAfterSpacingX2" />
+		<Label class="sapUmcHorizontalBeforeSpacingX2" text="{i18n>SERVICES.NEWAMOUNT}" />
+		<Input width="90%" value="{budgetbilling>/NewAmount}" type="Number"
+			placeholder="{ path: 'budgetbilling>/',formatter: 'sap.umc.mobile.app.js.formatters.budgetBillingRangeFormatter' }"
+			class="sapUmcVerticalAfterSpacingX1 sapUmcAlternativeBackgroundColor sapUmcHorizontalBeforeSpacingX1_5" />
+		<Label text="{i18n>SERVICES.EFFECTIVEDATE}" class="sapUmcHorizontalBeforeSpacingX2" />
+		<DatePicker width="90%" displayFormat="long" dateValue="{budgetbilling>/EffectiveDate}"
+			class="sapUmcAlternativeBackgroundColor sapUmcHorizontalBeforeSpacingX1_5" />
+	</l:VerticalLayout>
+</core:FragmentDefinition>

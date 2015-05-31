@@ -1,0 +1,36 @@
+<core:View height="100%" xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" xmlns:l="sap.ui.layout" xmlns:f="sap.ui.layout.form" controllerName="sap.umc.mobile.change_service.view.StartServiceConfirmation">
+
+    <l:Grid defaultSpan="L6 M10 S12" defaultIndent="L3 M1 S0">
+        <l:content>
+            <l:VerticalLayout width="100%">
+
+                <!-- Date -->
+                <Label text="{i18n>CHANGE_SERVICE.FIELD_DATE}" class="sapUmcHorizontalBeforeSpacingX1_5 sapUmcVerticalBeforeSpacingX2 sapUmcMLabelBold" />
+                <Input enabled="false" value="{confirmation>/date}" class="sapUmcVerticalAfterSpacingX2" />
+
+                <!-- Service Address -->
+                <Label text="{i18n>CHANGE_SERVICE.FIELD_SERVICE_ADDRESS}" class="sapUmcHorizontalBeforeSpacingX1_5 sapUmcMLabelBold" />
+                <Input enabled="false" value="{confirmation>/service}" class="sapUmcVerticalAfterSpacingX2" />
+
+                <!-- Product -->
+                <Label text="{i18n>CHANGE_SERVICE.FIELD_PRODUCT}" class="sapUmcHorizontalBeforeSpacingX1_5 sapUmcMLabelBold" />
+                <Input enabled="false" value="{confirmation>/product}" class="sapUmcVerticalAfterSpacingX2" />
+
+                <!-- Billing Address -->
+                <Label text="{i18n>CHANGE_SERVICE.FIELD_BILLING_ADDRESS}" class="sapUmcHorizontalBeforeSpacingX1_5 sapUmcMLabelBold" />
+                <Input enabled="false" value="{confirmation>/billing}" class="sapUmcVerticalAfterSpacingX2" />
+
+                <!-- Payment -->
+                <Label text="{i18n>CHANGE_SERVICE.FIELD_PAYMENT}" class="sapUmcHorizontalBeforeSpacingX1_5 sapUmcMLabelBold" />
+                <Input enabled="false" value="{confirmation>/payment}" class="sapUmcVerticalAfterSpacingX2" />
+
+                <!-- Terms of Service -->
+                <Text text="{i18n>CHANGE_SERVICE.TERMS_SERVICE}" class="sapMLabel sapUmcHorizontalBeforeSpacingX1_5 sapUmcMLabelBold" />
+                <Switch state="{confirmation>/isChecked}" customTextOff="{i18n>CHANGE_SERVICE.NO}" customTextOn="{i18n>CHANGE_SERVICE.YES}" class="sapUmcVerticalAfterSpacingX2" />
+
+            </l:VerticalLayout>
+        </l:content>
+    </l:Grid>
+
+
+</core:View>

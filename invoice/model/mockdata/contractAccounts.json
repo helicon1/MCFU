@@ -1,0 +1,138 @@
+{
+  "d" : {
+    "results" : [
+      {
+        "__metadata" : {
+          "id" : "http://ldai2gm6.wdf.sap.corp:50033/sap/opu/odata/sap/ERP_UTILITIES_UMC/ContractAccounts('1034997')",
+          "uri" : "http://ldai2gm6.wdf.sap.corp:50033/sap/opu/odata/sap/ERP_UTILITIES_UMC/ContractAccounts('1034997')",
+          "type" : "ERP_UTILITIES_UMC.ContractAccount"
+        },
+        "OutgoingPaymentBankAccountID" : "",
+        "IncomingPaymentBankAccountID" : "",
+        "IncomingPaymentMethodID" : "",
+        "BudgetBillingProcedure" : "3",
+        "OutgoingPaymentMethodID5" : "",
+        "OutgoingPaymentMethodID4" : "",
+        "OutgoingPaymentMethodID3" : "",
+        "OutgoingPaymentMethodID2" : "",
+        "OutgoingPaymentMethodID1" : "",
+        "Description" : "My Cottage",
+        "AccountID" : "1934",
+        "ContractAccountID" : "1034997",
+        "OutgoingPaymentPaymentCardID" : "",
+        "IncomingPaymentPaymentCardID" : "",
+        "Invoices" : {
+          "__deferred" : {
+            "uri" : "http://ldai2gm6.wdf.sap.corp:50033/sap/opu/odata/sap/ERP_UTILITIES_UMC/ContractAccounts('1034997')/Invoices"
+          }
+        },
+        "ContractAccountBalance" : {
+          "__metadata" : {
+            "id" : "http://ldai2gm6.wdf.sap.corp:50033/sap/opu/odata/sap/ERP_UTILITIES_UMC/ContractAccountBalances('1034997')",
+            "uri" : "http://ldai2gm6.wdf.sap.corp:50033/sap/opu/odata/sap/ERP_UTILITIES_UMC/ContractAccountBalances('1034997')",
+            "type" : "ERP_UTILITIES_UMC.ContractAccountBalance"
+          },
+          "TotalAmount" : "21.12000",
+          "NetAmount" : "35.00000",
+          "ContractAccountID" : "1034997",
+          "CurrentBalance" : "35.00000",
+          "OpenCollectable" : "0.00000",
+          "Currency" : "EUR",
+          "OpenDebits" : "21.12000",
+          "OpenCredits" : "-10.00000"
+        },
+        "Contracts" : {
+          "__deferred" : {
+            "uri" : "http://ldai2gm6.wdf.sap.corp:50033/sap/opu/odata/sap/ERP_UTILITIES_UMC/ContractAccounts('1034997')/Contracts"
+          }
+        },
+        "IncomingBankAccount" : {
+          "__deferred" : {
+            "uri" : "http://ldai2gm6.wdf.sap.corp:50033/sap/opu/odata/sap/ERP_UTILITIES_UMC/ContractAccounts('1034997')/IncomingBankAccount"
+          }
+        },
+        "IncomingPaymentCard" : {
+          "__deferred" : {
+            "uri" : "http://ldai2gm6.wdf.sap.corp:50033/sap/opu/odata/sap/ERP_UTILITIES_UMC/ContractAccounts('1034997')/IncomingPaymentCard"
+          }
+        },
+        "OutgoingBankAccount" : {
+          "__deferred" : {
+            "uri" : "http://ldai2gm6.wdf.sap.corp:50033/sap/opu/odata/sap/ERP_UTILITIES_UMC/ContractAccounts('1034997')/OutgoingBankAccount"
+          }
+        },
+        "OutgoingPaymentCard" : {
+          "__deferred" : {
+            "uri" : "http://ldai2gm6.wdf.sap.corp:50033/sap/opu/odata/sap/ERP_UTILITIES_UMC/ContractAccounts('1034997')/OutgoingPaymentCard"
+          }
+        }
+      },
+      {
+        "__metadata" : {
+          "id" : "http://ldai2gm6.wdf.sap.corp:50033/sap/opu/odata/sap/ERP_UTILITIES_UMC/ContractAccounts('1035245')",
+          "uri" : "http://ldai2gm6.wdf.sap.corp:50033/sap/opu/odata/sap/ERP_UTILITIES_UMC/ContractAccounts('1035245')",
+          "type" : "ERP_UTILITIES_UMC.ContractAccount"
+        },
+        "OutgoingPaymentBankAccountID" : "",
+        "IncomingPaymentBankAccountID" : "",
+        "IncomingPaymentMethodID" : "",
+        "BudgetBillingProcedure" : "0",
+        "OutgoingPaymentMethodID5" : "",
+        "OutgoingPaymentMethodID4" : "",
+        "OutgoingPaymentMethodID3" : "",
+        "OutgoingPaymentMethodID2" : "",
+        "OutgoingPaymentMethodID1" : "",
+        "Description" : "My Home",
+        "AccountID" : "1934",
+        "ContractAccountID" : "1035245",
+        "OutgoingPaymentPaymentCardID" : "",
+        "IncomingPaymentPaymentCardID" : "",
+        "Invoices" : {
+          "__deferred" : {
+            "uri" : "http://ldai2gm6.wdf.sap.corp:50033/sap/opu/odata/sap/ERP_UTILITIES_UMC/ContractAccounts('1035245')/Invoices"
+          }
+        },
+        "ContractAccountBalance" : {
+          "__metadata" : {
+            "id" : "http://ldai2gm6.wdf.sap.corp:50033/sap/opu/odata/sap/ERP_UTILITIES_UMC/ContractAccountBalances('1035245')",
+            "uri" : "http://ldai2gm6.wdf.sap.corp:50033/sap/opu/odata/sap/ERP_UTILITIES_UMC/ContractAccountBalances('1035245')",
+            "type" : "ERP_UTILITIES_UMC.ContractAccountBalance"
+          },
+          "TotalAmount" : "0.00000",
+          "NetAmount" : "55.00000",
+          "ContractAccountID" : "1035245",
+          "CurrentBalance" : "55.00000",
+          "OpenCollectable" : "0.00000",
+          "Currency" : "",
+          "OpenDebits" : "0.00000",
+          "OpenCredits" : "0.00000"
+        },
+        "Contracts" : {
+          "__deferred" : {
+            "uri" : "http://ldai2gm6.wdf.sap.corp:50033/sap/opu/odata/sap/ERP_UTILITIES_UMC/ContractAccounts('1035245')/Contracts"
+          }
+        },
+        "IncomingBankAccount" : {
+          "__deferred" : {
+            "uri" : "http://ldai2gm6.wdf.sap.corp:50033/sap/opu/odata/sap/ERP_UTILITIES_UMC/ContractAccounts('1035245')/IncomingBankAccount"
+          }
+        },
+        "IncomingPaymentCard" : {
+          "__deferred" : {
+            "uri" : "http://ldai2gm6.wdf.sap.corp:50033/sap/opu/odata/sap/ERP_UTILITIES_UMC/ContractAccounts('1035245')/IncomingPaymentCard"
+          }
+        },
+        "OutgoingBankAccount" : {
+          "__deferred" : {
+            "uri" : "http://ldai2gm6.wdf.sap.corp:50033/sap/opu/odata/sap/ERP_UTILITIES_UMC/ContractAccounts('1035245')/OutgoingBankAccount"
+          }
+        },
+        "OutgoingPaymentCard" : {
+          "__deferred" : {
+            "uri" : "http://ldai2gm6.wdf.sap.corp:50033/sap/opu/odata/sap/ERP_UTILITIES_UMC/ContractAccounts('1035245')/OutgoingPaymentCard"
+          }
+        }
+      }
+    ]
+  }
+}

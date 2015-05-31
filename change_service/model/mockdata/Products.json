@@ -1,0 +1,101 @@
+{
+   "d":{
+      "results":[
+         {
+            "__metadata":{
+               "id":"https://LDCIGM6.WDF.SAP.CORP:44333/sap/opu/odata/sap/ERP_UTILITIES_UMC/Invoices('ISU000300002757')",
+               "uri":"https://LDCIGM6.WDF.SAP.CORP:44333/sap/opu/odata/sap/ERP_UTILITIES_UMC/Invoices('ISU000300002757')",
+               "type":"ERP_UTILITIES_UMC.Invoice"
+            },
+            "ConsumptionMax": "019999",
+            "ConsumptionMin": "010000",
+            "Description": "Solar Energy",
+            "DivisionID": "01",
+            "IconURL": "img/solar_product.png",
+            "LongText": "Consumption: 10.000 - 19.999 kHh 70% renewable energy 12 months contract Offer valid until November 2013 ",
+            "PersonsMax": "000010",
+            "PersonsMin": "000000",
+            "PremiseTypeID": "0001",
+            "ProductID": "Z_UMC_ELECTR_3",
+            "AmountDue":"53.5500",
+            
+            "PremiseType":{
+	              "Description": "Office",
+	              "PremiseTypeID": "0001"
+	        },
+	         "UtilitiesProductPrices":{         
+	            "results": [
+	            {
+	            "ConditionType": "HT01",
+	            "Currency": "EUR",
+	            "Price": "7.00",
+	            "ProductID": "Z_UMC_ELECTR_3",
+	            "Quantity": "8000",
+	            "QuantityUnit": "KWH"
+	            },
+	            {
+	            "ConditionType": "NT01",
+	            "Currency": "EUR",
+	            "Price": "0.80",
+	            "ProductID": "Z_UMC_ELECTR_3",
+	            "Quantity": "5000",
+	            "QuantityUnit": "KWH"
+	            }]
+	           },   
+             "InvoicePDF":{
+               "__deferred":{
+                  "uri":"https://LDCIGM6.WDF.SAP.CORP:44333/sap/opu/odata/sap/ERP_UTILITIES_UMC/Invoices('ISU000300002756')/InvoicePDF"
+               }
+            }
+         },
+         {
+            "__metadata":{
+               "id":"https://LDCIGM6.WDF.SAP.CORP:44333/sap/opu/odata/sap/ERP_UTILITIES_UMC/Invoices('ISU000300002752')",
+               "uri":"https://LDCIGM6.WDF.SAP.CORP:44333/sap/opu/odata/sap/ERP_UTILITIES_UMC/Invoices('ISU000300002752')",
+               "type":"ERP_UTILITIES_UMC.Invoice"
+            },
+            "ConsumptionMax": "019999",
+            "ConsumptionMin": "000000",
+            "Description": "Affordable Bill 12 Months",
+            "DivisionID": "01",
+            "IconURL": "sap-icon://loan",
+            "LongText": "Consumption: 0 - 19999 kWh 70% renewable energy 12 months contract Offer valid until November 2015",
+            "PersonsMax": "000000",
+            "PersonsMin": "000000",
+            "PremiseTypeID": "0003",
+            "ProductID": "Z_UMC_ELECTR_3",
+            "AmountDue":"53.5500",
+            
+               "PremiseType":{
+	              "Description": "Single Family Home",
+	              "PremiseTypeID": "0003"
+	           },
+	         "UtilitiesProductPrices":{         
+	            "results": [
+	            {
+	            "ConditionType": "HT01",
+	            "Currency": "EUR",
+	            "Price": "9.50",
+	            "ProductID": "Z_VICTOR_TEST1",
+	            "Quantity": "6000",
+	            "QuantityUnit": "KWH"
+	            },
+	            {
+	            "ConditionType": "NT01",
+	            "Currency": "EUR",
+	            "Price": "10.10",
+	            "ProductID": "Z_VICTOR_TEST1",
+	            "Quantity": "3000",
+	            "QuantityUnit": "KWH"
+	            }]
+	           }, 
+            
+            "InvoicePDF":{
+               "__deferred":{
+                  "uri":"https://LDCIGM6.WDF.SAP.CORP:44333/sap/opu/odata/sap/ERP_UTILITIES_UMC/Invoices('ISU000300002752')/InvoicePDF"
+               }
+            }
+         }
+      ]
+   }
+}

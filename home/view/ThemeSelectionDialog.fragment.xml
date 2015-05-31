@@ -1,0 +1,18 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core">
+<!-- 	<Dialog title="{i18n>SELECT_THEME}" class="sapUiPopupWithPadding"> -->
+	<Dialog title="{i18n>APP.SELECT_THEME}">		
+		<content>
+			<List id="themeListId" items="{themes>/Items/}">
+				<InputListItem label="{themes>label}">
+					<RadioButton groupName="themeListGroup" selected="{themes>selected}"/>
+				</InputListItem>
+			</List>
+		</content>
+		<beginButton>
+			<Button text="{i18n>APP.SUBMIT}" press="onDialogSubmitButton" />
+		</beginButton>
+		<endButton>
+			<Button text="{i18n>APP.CANCEL}" press="onDialogCancelButton" />
+		</endButton>
+	</Dialog>
+</core:FragmentDefinition>

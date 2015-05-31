@@ -1,0 +1,36 @@
+<core:View height="100%" xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" xmlns:l="sap.ui.layout" xmlns:f="sap.ui.layout.form" controllerName="sap.umc.mobile.change_service.view.StartServiceGeneralInfo">
+
+    <l:Grid defaultSpan="L6 M10 S12" defaultIndent="L3 M1 S0">
+        <l:content>
+            <l:VerticalLayout width="100%">
+
+                <!-- Date -->
+                <Label text="{i18n>CHANGE_SERVICE.FIELD_DATE}" class="sapUmcHorizontalBeforeSpacingX1_5 sapUmcVerticalBeforeSpacingX2 sapUmcMLabelBold" />
+                <DatePicker dateValue="{startDate>/selectedDate}" class="sapUmcVerticalAfterSpacingX2" />
+
+                <!-- Meter Number - EMEA only -->
+                <Label text="{i18n>CHANGE_SERVICE.FIELD_METER_NUMBER}" visible="{settings>/isEMEA}" class="sapUmcHorizontalBeforeSpacingX1_5 sapUmcMLabelBold" />
+                <Input value="{deregulation>/meterNumber}" visible="{settings>/isEMEA}" placeholder="{i18n>CHANGE_SERVICE.OPTIONAL}" class="sapUmcVerticalAfterSpacingX2" />
+
+                <!-- External POD - NA only -->
+                <Label text="{i18n>CHANGE_SERVICE.FIELD_EXTERNAL_POD}" visible="{settings>/isNorthAmerica}" class="sapUmcHorizontalBeforeSpacingX1_5 sapUmcMLabelBold" />
+                <Input value="{deregulation>/externalPOD}" visible="{settings>/isNorthAmerica}" placeholder="{i18n>CHANGE_SERVICE.OPTIONAL}" class="sapUmcVerticalAfterSpacingX2" />
+
+                <!-- Changing Supplier -->
+                <Label text="{i18n>CHANGE_SERVICE.CHANGING_SUPPLIER}" class="sapUmcHorizontalBeforeSpacingX1_5 sapUmcMLabelBold" />
+                <Switch state="{currentSupplier>/isChecked}" customTextOff="{i18n>CHANGE_SERVICE.NO}" customTextOn="{i18n>CHANGE_SERVICE.YES}" class="sapUmcVerticalAfterSpacingX2" />
+
+                <!-- Current Supplier -->
+                <Label text="{i18n>CHANGE_SERVICE.FIELD_CURRENT_SUPPLIER}" class="sapUmcHorizontalBeforeSpacingX1_5 sapUmcMLabelBold" />
+                <Select width="100%" enabled="{currentSupplier>/isChecked}" class="sapUmcVerticalAfterSpacingX2" selectedKey="{currentSupplier>/selectionID}" items="{
+                                            path: 'currentSupplier>/suppliers',
+                                            sorter: {path: '_ID'}
+                                        }">
+                    <core:Item key="{currentSupplier>_ID}" text="{currentSupplier>Name}" />
+                </Select>
+
+            </l:VerticalLayout>
+        </l:content>
+    </l:Grid>
+
+</core:View>

@@ -1,0 +1,29 @@
+<core:FragmentDefinition
+	xmlns="sap.m"
+	xmlns:core="sap.ui.core" xmlns:l="sap.ui.layout">
+	<l:VerticalLayout width="100%" >
+		<l:VerticalLayout width="100%" class="sapUmcVerticalBeforeSpacingX2" />
+		<l:VerticalLayout width="100%" visible="true" class="sapUmcVerticalBeforeSpacingX1">
+			<Label text="{i18n>USER_PROFILE.STREET}" class="sapUmcHorizontalBeforeSpacingX1_5"/>
+			<Input value="{contactAddressModel>/AddressInfo/Street}" liveChange="onAddressInformationModified" enabled="{viewModel>/bEditMode}"/>
+		</l:VerticalLayout>
+		<l:VerticalLayout width="100%" visible="true" class="sapUmcVerticalBeforeSpacingX1">
+			<Label text="{i18n>USER_PROFILE.HOUSE}" class="sapUmcHorizontalBeforeSpacingX1_5"/>
+			<Input value="{contactAddressModel>/AddressInfo/HouseNo}" liveChange="onAddressInformationModified" enabled="{viewModel>/bEditMode}"/>
+		</l:VerticalLayout>
+		<l:VerticalLayout width="100%" visible="true" class="sapUmcVerticalBeforeSpacingX1">
+			<Label text="{i18n>USER_PROFILE.POSTAL_CODE}" class="sapUmcHorizontalBeforeSpacingX1_5"/>
+			<Input value="{contactAddressModel>/AddressInfo/PostalCode}" liveChange="onAddressInformationModified" enabled="{viewModel>/bEditMode}"/>
+		</l:VerticalLayout>
+		<l:VerticalLayout width="100%" visible="true" class="sapUmcVerticalBeforeSpacingX1">
+			<Label text="{i18n>USER_PROFILE.CITY}" class="sapUmcHorizontalBeforeSpacingX1_5"/>
+			<Input value="{contactAddressModel>/AddressInfo/City}" liveChange="onAddressInformationModified" enabled="{viewModel>/bEditMode}"/>
+		</l:VerticalLayout>
+		<l:VerticalLayout width="100%" visible="true" class="sapUmcVerticalBeforeSpacingX1">
+			<Label text="{i18n>USER_PROFILE.COUNTRY}" class="sapUmcHorizontalBeforeSpacingX1_5"/>						
+			<ComboBox id="CountriesDropDown" selectionChange="onCountryChange" width="100%" items="{ path: 'countries>/results' }" enabled="{viewModel>/bEditMode}">
+				<core:Item key="{countries>CountryID}"	text="{countries>Name}" />
+			</ComboBox>		
+		</l:VerticalLayout>
+	</l:VerticalLayout>
+</core:FragmentDefinition>

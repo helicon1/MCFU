@@ -1,0 +1,230 @@
+{
+  "d" : {
+    "results" : [
+      {
+        "__metadata" : {
+          "id" : "http://ldai1gm6.wdf.sap.corp:50033/sap/opu/odata/sap/ERP_UTILITIES_UMC/PaymentDocuments('100000000713')",
+          "uri" : "http://ldai1gm6.wdf.sap.corp:50033/sap/opu/odata/sap/ERP_UTILITIES_UMC/PaymentDocuments('100000000713')",
+          "type" : "ERP_UTILITIES_UMC.PaymentDocument"
+        },
+        "PaymentCardTypeID" : "",
+        "CardNumber" : "",
+        "Amount" : "1199.6200",
+        "Currency" : "EUR",
+        "PaymentMethodDescription" : "Payment Made: US/ 123123123/ 32313424231231/ Citi Bank",
+        "ExecutionDate" : "\/Date(1396224000000)\/",
+        "PaymentStatusID" : "2",
+        "PaymentDocumentID" : "100000000713",
+        "ValidFrom" : null,
+        "ValidTo" : null,
+        "Cardholder" : "",
+        "AccountID" : "1357",
+        "BankAccountID" : "",
+        "PaymentCardID" : "",
+        "CVC" : "",
+        "PaymentDocumentStatus" : {
+          "__deferred" : {
+            "uri" : "http://ldai1gm6.wdf.sap.corp:50033/sap/opu/odata/sap/ERP_UTILITIES_UMC/PaymentDocuments('100000000713')/PaymentDocumentStatus"
+          }
+        },
+        "PaymentDocumentItems" : {
+          "__deferred" : {
+            "uri" : "http://ldai1gm6.wdf.sap.corp:50033/sap/opu/odata/sap/ERP_UTILITIES_UMC/PaymentDocuments('100000000713')/PaymentDocumentItems"
+          }
+        }
+      },
+      {
+        "__metadata" : {
+          "id" : "http://ldai1gm6.wdf.sap.corp:50033/sap/opu/odata/sap/ERP_UTILITIES_UMC/PaymentDocuments('100000001701')",
+          "uri" : "http://ldai1gm6.wdf.sap.corp:50033/sap/opu/odata/sap/ERP_UTILITIES_UMC/PaymentDocuments('100000001701')",
+          "type" : "ERP_UTILITIES_UMC.PaymentDocument"
+        },
+        "PaymentCardTypeID" : "",
+        "CardNumber" : "",
+        "Amount" : "24.6300",
+        "Currency" : "EUR",
+        "PaymentMethodDescription" : "Payment Made: ,6**6756,56756,Valid To 15.01.2014",
+        "ExecutionDate" : "\/Date(1403654400000)\/",
+        "PaymentStatusID" : "3",
+        "PaymentDocumentID" : "100000001701",
+        "ValidFrom" : null,
+        "ValidTo" : null,
+        "Cardholder" : "",
+        "AccountID" : "1934",
+        "BankAccountID" : "",
+        "PaymentCardID" : "",
+        "CVC" : "",
+        "PaymentDocumentStatus" : {
+          "__deferred" : {
+            "uri" : "http://ldai1gm6.wdf.sap.corp:50033/sap/opu/odata/sap/ERP_UTILITIES_UMC/PaymentDocuments('100000001701')/PaymentDocumentStatus"
+          }
+        },
+        "PaymentDocumentItems" : {
+          "__deferred" : {
+            "uri" : "http://ldai1gm6.wdf.sap.corp:50033/sap/opu/odata/sap/ERP_UTILITIES_UMC/PaymentDocuments('100000001701')/PaymentDocumentItems"
+          }
+        }
+      },
+      {
+        "__metadata" : {
+          "id" : "http://ldai1gm6.wdf.sap.corp:50033/sap/opu/odata/sap/ERP_UTILITIES_UMC/PaymentDocuments('100000001512')",
+          "uri" : "http://ldai1gm6.wdf.sap.corp:50033/sap/opu/odata/sap/ERP_UTILITIES_UMC/PaymentDocuments('100000001512')",
+          "type" : "ERP_UTILITIES_UMC.PaymentDocument"
+        },
+        "PaymentCardTypeID" : "",
+        "CardNumber" : "",
+        "Amount" : "3.2100",
+        "Currency" : "EUR",
+        "PaymentMethodDescription" : "Payment Made: DE/ 01010101/ 1234454535/ DEUTSCH BANK",
+        "ExecutionDate" : "\/Date(1403481600000)\/",
+        "PaymentStatusID" : "4",
+        "PaymentDocumentID" : "100000001512",
+        "ValidFrom" : null,
+        "ValidTo" : null,
+        "Cardholder" : "",
+        "AccountID" : "1934",
+        "BankAccountID" : "",
+        "PaymentCardID" : "",
+        "CVC" : "",
+        "PaymentDocumentStatus" : {
+          "__deferred" : {
+            "uri" : "http://ldai1gm6.wdf.sap.corp:50033/sap/opu/odata/sap/ERP_UTILITIES_UMC/PaymentDocuments('100000001512')/PaymentDocumentStatus"
+          }
+        },
+        "PaymentDocumentItems" : {
+          "__deferred" : {
+            "uri" : "http://ldai1gm6.wdf.sap.corp:50033/sap/opu/odata/sap/ERP_UTILITIES_UMC/PaymentDocuments('100000001512')/PaymentDocumentItems"
+          }
+        }
+      },
+      {
+        "__metadata" : {
+          "id" : "http://ldai1gm6.wdf.sap.corp:50033/sap/opu/odata/sap/ERP_UTILITIES_UMC/PaymentDocuments('100000001605')",
+          "uri" : "http://ldai1gm6.wdf.sap.corp:50033/sap/opu/odata/sap/ERP_UTILITIES_UMC/PaymentDocuments('100000001605')",
+          "type" : "ERP_UTILITIES_UMC.PaymentDocument"
+        },
+        "PaymentCardTypeID" : "",
+        "CardNumber" : "",
+        "Amount" : "3.2100",
+        "Currency" : "EUR",
+        "PaymentMethodDescription" : "Payment Made: DE/ 01010101/ 1234454535/ DEUTSCH BANK",
+        "ExecutionDate" : "\/Date(1403136000000)\/",
+        "PaymentStatusID" : "2",
+        "PaymentDocumentID" : "100000001605",
+        "ValidFrom" : null,
+        "ValidTo" : null,
+        "Cardholder" : "",
+        "AccountID" : "1934",
+        "BankAccountID" : "",
+        "PaymentCardID" : "",
+        "CVC" : "",
+        "PaymentDocumentStatus" : {
+          "__deferred" : {
+            "uri" : "http://ldai1gm6.wdf.sap.corp:50033/sap/opu/odata/sap/ERP_UTILITIES_UMC/PaymentDocuments('100000001605')/PaymentDocumentStatus"
+          }
+        },
+        "PaymentDocumentItems" : {
+          "__deferred" : {
+            "uri" : "http://ldai1gm6.wdf.sap.corp:50033/sap/opu/odata/sap/ERP_UTILITIES_UMC/PaymentDocuments('100000001605')/PaymentDocumentItems"
+          }
+        }
+      },
+      {
+        "__metadata" : {
+          "id" : "http://ldai1gm6.wdf.sap.corp:50033/sap/opu/odata/sap/ERP_UTILITIES_UMC/PaymentDocuments('100000001606')",
+          "uri" : "http://ldai1gm6.wdf.sap.corp:50033/sap/opu/odata/sap/ERP_UTILITIES_UMC/PaymentDocuments('100000001606')",
+          "type" : "ERP_UTILITIES_UMC.PaymentDocument"
+        },
+        "PaymentCardTypeID" : "",
+        "CardNumber" : "",
+        "Amount" : "2.8600",
+        "Currency" : "EUR",
+        "PaymentMethodDescription" : "Payment Made: DE/ 01010101/ 1234454535/ DEUTSCH BANK",
+        "ExecutionDate" : "\/Date(1403136000000)\/",
+        "PaymentStatusID" : "9",
+        "PaymentDocumentID" : "100000001606",
+        "ValidFrom" : null,
+        "ValidTo" : null,
+        "Cardholder" : "",
+        "AccountID" : "1934",
+        "BankAccountID" : "",
+        "PaymentCardID" : "",
+        "CVC" : "",
+        "PaymentDocumentStatus" : {
+          "__deferred" : {
+            "uri" : "http://ldai1gm6.wdf.sap.corp:50033/sap/opu/odata/sap/ERP_UTILITIES_UMC/PaymentDocuments('100000001606')/PaymentDocumentStatus"
+          }
+        },
+        "PaymentDocumentItems" : {
+          "__deferred" : {
+            "uri" : "http://ldai1gm6.wdf.sap.corp:50033/sap/opu/odata/sap/ERP_UTILITIES_UMC/PaymentDocuments('100000001606')/PaymentDocumentItems"
+          }
+        }
+      },
+      {
+        "__metadata" : {
+          "id" : "http://ldai1gm6.wdf.sap.corp:50033/sap/opu/odata/sap/ERP_UTILITIES_UMC/PaymentDocuments('100000001607')",
+          "uri" : "http://ldai1gm6.wdf.sap.corp:50033/sap/opu/odata/sap/ERP_UTILITIES_UMC/PaymentDocuments('100000001607')",
+          "type" : "ERP_UTILITIES_UMC.PaymentDocument"
+        },
+        "PaymentCardTypeID" : "",
+        "CardNumber" : "",
+        "Amount" : "2.8600",
+        "Currency" : "EUR",
+        "PaymentMethodDescription" : "Payment Made: DE/ 01010101/ 1234454535/ DEUTSCH BANK",
+        "ExecutionDate" : "\/Date(1403136000000)\/",
+        "PaymentStatusID" : "9",
+        "PaymentDocumentID" : "100000001607",
+        "ValidFrom" : null,
+        "ValidTo" : null,
+        "Cardholder" : "",
+        "AccountID" : "1934",
+        "BankAccountID" : "",
+        "PaymentCardID" : "",
+        "CVC" : "",
+        "PaymentDocumentStatus" : {
+          "__deferred" : {
+            "uri" : "http://ldai1gm6.wdf.sap.corp:50033/sap/opu/odata/sap/ERP_UTILITIES_UMC/PaymentDocuments('100000001607')/PaymentDocumentStatus"
+          }
+        },
+        "PaymentDocumentItems" : {
+          "__deferred" : {
+            "uri" : "http://ldai1gm6.wdf.sap.corp:50033/sap/opu/odata/sap/ERP_UTILITIES_UMC/PaymentDocuments('100000001607')/PaymentDocumentItems"
+          }
+        }
+      },
+      {
+        "__metadata" : {
+          "id" : "http://ldai1gm6.wdf.sap.corp:50033/sap/opu/odata/sap/ERP_UTILITIES_UMC/PaymentDocuments('100000001608')",
+          "uri" : "http://ldai1gm6.wdf.sap.corp:50033/sap/opu/odata/sap/ERP_UTILITIES_UMC/PaymentDocuments('100000001608')",
+          "type" : "ERP_UTILITIES_UMC.PaymentDocument"
+        },
+        "PaymentCardTypeID" : "",
+        "CardNumber" : "",
+        "Amount" : "73.5400",
+        "Currency" : "EUR",
+        "PaymentMethodDescription" : "Payment Made: Account 2",
+        "ExecutionDate" : "\/Date(1403136000000)\/",
+        "PaymentStatusID" : "9",
+        "PaymentDocumentID" : "100000001608",
+        "ValidFrom" : null,
+        "ValidTo" : null,
+        "Cardholder" : "",
+        "AccountID" : "2180",
+        "BankAccountID" : "",
+        "PaymentCardID" : "",
+        "CVC" : "",
+        "PaymentDocumentStatus" : {
+          "__deferred" : {
+            "uri" : "http://ldai1gm6.wdf.sap.corp:50033/sap/opu/odata/sap/ERP_UTILITIES_UMC/PaymentDocuments('100000001608')/PaymentDocumentStatus"
+          }
+        },
+        "PaymentDocumentItems" : {
+          "__deferred" : {
+            "uri" : "http://ldai1gm6.wdf.sap.corp:50033/sap/opu/odata/sap/ERP_UTILITIES_UMC/PaymentDocuments('100000001608')/PaymentDocumentItems"
+          }
+        }
+      }
+    ]
+  }
+}

@@ -1,0 +1,88 @@
+<core:View height="100%" xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" xmlns:l="sap.ui.layout" xmlns:f="sap.ui.layout.form" controllerName="sap.umc.mobile.services.view.MeterReading">								
+								<l:VerticalLayout id="meterReadingContent"
+									width="100%"></l:VerticalLayout>
+								<Text text="{i18n>SERVICES.SELECT_METER}"
+									class="sapUmcSubsectionHeading sapUmcVerticalBeforeSpacingX1 sapUmcVerticalAfterSpacingX3 sapUmcHorizontalBeforeSpacingX1_5" />
+								<f:SimpleForm minWidth="1024" maxContainerCols="2"
+									editable="false" layout="ResponsiveGridLayout" labelSpanL="3"
+									labelSpanM="3" emptySpanL="4" emptySpanM="4" columnsL="1"
+									columnsM="1">
+									<f:content>
+										<Label text="{i18n>SERVICES.METER_NUMBER}" class="sapUmcHorizontalBeforeSpacingX1_5 sapUmcVerticalBeforeSpacingX2" />
+										<Select id="MeterNumberDropDown" selectionChange="onMeterNumberChanged"
+											items="{ path: 'devices>/' }" class="sapUmcVerticalAfterSpacingX1">
+											<core:Item key="{devices>SerialNumber}" text="{devices>SerialNumber}" />
+										</Select>
+									</f:content>
+								</f:SimpleForm>
+								<l:VerticalLayout width="100%"
+									class=" sapUmcVerticalAfterSpacingX1 sapUmcSubSectionHeadingWrapperBottomLine sapUmcHorizontalBeforeSpacingX1_5" />
+								<Text text="{i18n>SERVICES.NEW_READING}"
+									class="sapUmcSubsectionHeading sapUmcVerticalBeforeSpacingX1 sapUmcVerticalAfterSpacingX3 sapUmcHorizontalBeforeSpacingX1_5" />
+								<f:SimpleForm minWidth="1024" maxContainerCols="2"
+									editable="false" layout="ResponsiveGridLayout" labelSpanL="3"
+									labelSpanM="3" emptySpanL="4" emptySpanM="4" columnsL="1"
+									columnsM="1">
+									<f:content>
+										<Label class="sapUmcHorizontalBeforeSpacingX1_5 sapUmcVerticalBeforeSpacingX2" text="{i18n>SERVICES.DATE}" />
+										<DatePicker displayFormat="long" dateValue="{meterReading>/date}"
+											class="sapUmcVerticalAfterSpacingX1" />
+									</f:content>
+								</f:SimpleForm>
+								<f:SimpleForm minWidth="1024" maxContainerCols="2" id="meterReadingRegisters"
+									editable="false" layout="ResponsiveGridLayout" labelSpanL="3"
+									labelSpanM="3" emptySpanL="4" emptySpanM="4" columnsL="1"
+									columnsM="1">
+									<f:content>
+									</f:content>
+								</f:SimpleForm>
+								<f:SimpleForm minWidth="1024" maxContainerCols="2"
+									editable="false" layout="ResponsiveGridLayout" labelSpanL="3"
+									labelSpanM="3" emptySpanL="4" emptySpanM="4" columnsL="1"
+									columnsM="1">
+									<f:content>
+										<Label class="sapUmcHorizontalBeforeSpacingX1_5 sapUmcVerticalBeforeSpacingX2" text="{i18n>SERVICES.METER_READING_NOTE}"
+											visible="{viewModel>/bShowMeterReadingNotes}" />
+										<Select id="MeterReaderNotes" selectionChange="onMeterReaderNoteChange"
+											width="100%" items="{ path: 'meterReadingNotes>/' }" visible="{viewModel>/bShowMeterReadingNotes}"
+											class="sapUmcVerticalAfterSpacingX1">
+											<core:Item key="{meterReadingNotes>MeterReadingNoteID}"
+												text="{meterReadingNotes>Description}" />
+										</Select>
+									</f:content>
+								</f:SimpleForm>
+
+								<Text text="{i18n>SERVICES.READING_HISTORY}"
+									class="sapUmcSubsectionHeading sapUmcVerticalBeforeSpacingX3 sapUmcVerticalAfterSpacingX3 sapUmcHorizontalBeforeSpacingX1_5" />
+
+								<Table id="MeterReadingHistoryTable" inset="false"
+									class="sapUmcAlternativeBackgroundColor"
+									items="{path: 'meterReadingHistory>/',  sorter: {path: 'ReadingDateTime', descending: true}}">
+									<columns>
+										<Column>
+											<Text text="{i18n>SERVICES.DATE}" />
+										</Column>
+										<Column>
+											<Text text="{i18n>SERVICES.REASON}" />
+										</Column>
+										<Column>
+											<Text text="{i18n>SERVICES.REGISTER}" />
+										</Column>
+										<Column>
+											<Text text="{i18n>SERVICES.READING}" />
+										</Column>
+									</columns>
+									<items>
+										<ColumnListItem>
+											<cells>
+												<Text
+													text="{parts: ['meterReadingHistory>ReadingDateTime'] , formatter: 'sap.umc.mobile.app.js.formatters.dateFormatter' }" />
+												<Text text="{meterReadingHistory>MeterReadingReason/Description}" />
+												<Text text="{meterReadingHistory>RegisterID}" />
+												<Text
+													text="{parts: ['meterReadingHistory>ReadingResult', 'meterReadingHistory>ReadingUnit'] , formatter: 'sap.umc.mobile.app.js.formatters.amountAndCurrencyFormatter' }" />
+											</cells>
+										</ColumnListItem>
+									</items>
+								</Table>
+</core:View>								

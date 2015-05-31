@@ -1,0 +1,40 @@
+<mvc:View height="100%" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m"
+	controllerName="sap.umc.mobile.invoice.view.PaymentHistory">
+	<Page enableScrolling="true">
+		<customHeader>
+			<Bar>
+				<contentMiddle>
+					<Label text="{i18n>INVOICE.PAYMENT_HISTORY}" />
+				</contentMiddle>
+			</Bar>
+		</customHeader>
+		<!-- mode="SingleSelectMaster" -->
+		<content>
+			<List items="{path: 'InProcessPayments>/results/'}" mode="SingleSelect" includeItemInSelection="true" headerText="{i18n>INVOICE.IN_PROCESS}"  noDataText="{i18n>INVOICE.NO_PAYMENTS}"
+				select="handleListSelect" >
+				<ObjectListItem title="{path: 'InProcessPayments>ExecutionDate', formatter: 'sap.umc.mobile.base.js.utils.formatDate' }" press="handleListItemPress"
+				      number="{parts: ['InProcessPayments>Amount', 'InProcessPayments>Currency'], formatter: 'sap.umc.mobile.invoice.js.utils.Price'}" numberUnit="{InProcessPayments>Currency}" >
+
+					<attributes>
+						<ObjectAttribute text="{i18n>INVOICE.BANK_ACCOUNT}" />						
+					</attributes>
+				</ObjectListItem>
+			</List>
+			<List items="{path: 'ProcessedPayments>/results/'}" headerText="{i18n>INVOICE.PROCESSED}" noDataText="{i18n>INVOICE.NO_PAYMENTS}">
+				<ObjectListItem title="{path: 'ProcessedPayments>ExecutionDate', formatter: 'sap.umc.mobile.invoice.js.utils.Date' }" press="handleListItemPress"
+				      number="{parts: ['ProcessedPayments>Amount', 'ProcessedPayments>Currency'], formatter: 'sap.umc.mobile.invoice.js.utils.Price'}" numberUnit="{ProcessedPayments>Currency}" >
+					<attributes>
+						<ObjectAttribute text="{i18n>INVOICE.BANK_ACCOUNT}" />						
+					</attributes>
+				</ObjectListItem>
+			</List>
+		</content>
+		<footer>
+			<Bar>
+				<contentRight>
+					<Button text="{i18n>INVOICE.CANCEL_PAYMENT}" visible="{PaymentHistorySetting>/CancelPaymentVisible}" press="handleCancelPayment" class="sapUmcBtnWhiteTextColor sapUmcBtnBorderLeft" />					
+				</contentRight>
+			</Bar>
+		</footer>
+	</Page>
+</mvc:View>

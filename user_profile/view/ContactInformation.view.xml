@@ -1,0 +1,80 @@
+<core:View height="100%" xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc"
+	xmlns="sap.m" xmlns:l="sap.ui.layout"
+	controllerName="sap.umc.mobile.user_profile.view.ContactInformation">
+	<Page enableScrolling="true">
+		<customHeader>
+			<Bar>
+				<contentMiddle>
+					<Label text="{i18n>USER_PROFILE.CONTACT}" />
+				</contentMiddle>
+			</Bar>
+		</customHeader>
+		<content>
+			<ObjectHeader title="{i18n>USER_PROFILE.CONTACT_INFORMATION}" titleActive="false">
+				<attributes>
+					<ObjectAttribute text="{i18n>USER_PROFILE.MANAGE_MAIN_ADDRESS}" class="sapUmcWhiteTextColor"/>
+				</attributes>
+			</ObjectHeader>
+			<IconTabBar width="100%" id="ContactDetailsTab" expanded="{device>/isNoPhone}" select="onContactDetailsSelected">
+				<items>
+					<IconTabFilter key="0" id="MainAddress_Fragment" tooltip="{i18n>USER_PROFILE.MAIN_ADDRESS}" text="{i18n>USER_PROFILE.MAIN_ADDRESS}" icon="sap-icon://home">
+					</IconTabFilter>
+					<IconTabFilter key="1" text="{i18n>USER_PROFILE.PHONE_EMAIL}" tooltip="{i18n>USER_PROFILE.PHONE_EMAIL}" icon="sap-icon://comment" width="100%">
+						<l:VerticalLayout width="100%" class="sapUmcVerticalAfterSpacingX1 sapUmcSubSectionHeadingWrapperBottomLine sapUmcHorizontalBeforeSpacingX1_5">
+							<Text text="{i18n>USER_PROFILE.HOME_PHONE}" class="sapUmcSubsectionHeading sapUmcVerticalBeforeSpacingX4 sapUmcVerticalAfterSpacingX1 sapUmcHorizontalBeforeSpacingX1_5 sapUmcMLabelBold" />
+							<l:Grid defaultSpan="L4 M10 S10" defaultIndent="L4 M1 S1">
+								<l:content>
+									 <FlexBox justifyContent="End">
+										 <items >
+											<Text text="{i18n>USER_PROFILE.PREFERRED}" class="sapUmcMLabelBlue sapUmcMLabelBold" />	
+										</items>
+					  				</FlexBox>										
+									<l:VerticalLayout id="ContactHomePhones" width="100%"></l:VerticalLayout>
+								</l:content>
+							</l:Grid> 
+						</l:VerticalLayout>	
+
+						<l:VerticalLayout width="100%" class="sapUmcVerticalAfterSpacingX1 sapUmcSubSectionHeadingWrapperBottomLine sapUmcHorizontalBeforeSpacingX1_5">
+							<Text text="{i18n>USER_PROFILE.MOBILE_PHONE}" class="sapUmcSubsectionHeading sapUmcVerticalBeforeSpacingX1 sapUmcVerticalAfterSpacingX1 sapUmcHorizontalBeforeSpacingX1_5 sapUmcMLabelBold" />	
+							<l:Grid defaultSpan="L4 M10 S10" defaultIndent="L4 M1 S1">
+								<l:content>		
+									 <FlexBox justifyContent="End">
+										 <items >
+											<Text text="{i18n>USER_PROFILE.PREFERRED}" class="sapUmcMLabelBlue sapUmcMLabelBold" />	
+										</items>
+					  				</FlexBox>														
+									<l:VerticalLayout id="ContactMobilePhones" width="100%"></l:VerticalLayout>	
+								</l:content>
+							</l:Grid> 									
+						</l:VerticalLayout>
+
+						<l:VerticalLayout width="100%" class="sapUmcVerticalAfterSpacingX1 sapUmcSubSectionHeadingWrapperBottomLine sapUmcHorizontalBeforeSpacingX1_5">
+							<Text text="{i18n>USER_PROFILE.EMAIL_ADDRESS}" class="sapUmcSubsectionHeading sapUmcVerticalBeforeSpacingX1 sapUmcVerticalAfterSpacingX1 sapUmcHorizontalBeforeSpacingX1_5 sapUmcMLabelBold" />		
+							<l:Grid defaultSpan="L4 M10 S10" defaultIndent="L4 M1 S1">
+								<l:content>									
+									 <FlexBox justifyContent="End">
+										 <items >
+											<Text text="{i18n>USER_PROFILE.PREFERRED}" class="sapUmcMLabelBlue sapUmcMLabelBold" />	
+										</items>
+					  				</FlexBox>									
+									<l:VerticalLayout id="ContactEmails" width="100%"></l:VerticalLayout>	
+								</l:content>
+							</l:Grid>									
+						</l:VerticalLayout>
+					</IconTabFilter>
+				</items>
+			</IconTabBar>
+		</content>
+		<footer>
+			<Bar>
+				<contentRight>
+					<Button text="{i18n>USER_PROFILE.EDIT}" press="onAddressEditButtonPress" class="sapUmcBtnWhiteTextColor sapUmcBtnBorderLeft" visible="{parts:[{path:'viewModel>/sCurrentTab'}, {path:'viewModel>/bEditMode'}],  formatter:'sap.umc.mobile.app.js.utils.profileAddressEditButtonVisibilityFormatter'}"/>
+					<Button text="{i18n>USER_PROFILE.SAVE}" press="onAddressSaveButtonPress" class="sapUmcBtnWhiteTextColor sapUmcBtnBorderLeft" visible="{parts:[{path:'viewModel>/sCurrentTab'}, {path:'viewModel>/bEditMode'}, {path:'viewModel>/AddressModified'}],  formatter:'sap.umc.mobile.app.js.utils.profileAddressSaveButtonVisibilityFormatter'}"/>
+					
+					<Button text="{i18n>USER_PROFILE.EDIT}" press="onPhonesEditButtonPress" class="sapUmcBtnWhiteTextColor sapUmcBtnBorderLeft" visible="{parts:[{path:'viewModel>/sCurrentTab'}, {path:'viewModel>/bPhonesEditMode'}],  formatter:'sap.umc.mobile.app.js.utils.profilePhonesEditButtonVisibilityFormatter'}"/>
+					<Button text="{i18n>USER_PROFILE.SAVE}" press="onPhonesSaveButtonPress" class="sapUmcBtnWhiteTextColor sapUmcBtnBorderLeft" visible="{parts:[{path:'viewModel>/sCurrentTab'}, {path:'viewModel>/bPhonesEditMode'},  {path:'viewModel>/PhonesAndEmailsModified'}],  formatter:'sap.umc.mobile.app.js.utils.profilePhonesSaveButtonVisibilityFormatter'}"/>
+				</contentRight>
+			</Bar>
+		</footer>
+	</Page>
+</core:View>

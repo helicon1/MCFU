@@ -1,0 +1,103 @@
+<core:View height="100%" xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc"
+	xmlns="sap.m" xmlns:l="sap.ui.layout"
+	controllerName="sap.umc.mobile.user_profile.view.CommunicationPreferences">
+	<Page enableScrolling="true">
+		<customHeader>
+			<Bar>
+				<contentMiddle>
+					<Label text="{i18n>USER_PROFILE.COM}" />
+				</contentMiddle>
+			</Bar>
+		</customHeader>
+		<content>
+			<ObjectHeader title="{i18n>USER_PROFILE.COM_PREF}"
+				titleActive="false">
+				<attributes>
+					<ObjectAttribute text="{i18n>USER_PROFILE.CHOOSE_COM}" class="sapUmcWhiteTextColor"/>
+				</attributes>
+			</ObjectHeader>
+			<l:Grid defaultSpan="L4 M10 S10" defaultIndent="L4 M1 S1" vSpacing="0" hSpacing="0">
+				<l:content>
+					
+					<Label text="{i18n>USER_PROFILE.PREFFERED_LANGUAGE}"
+						class="sapUmcSubsectionHeadingGrey sapUmcSectionHeading sapUmcMLabelBold sapUmcVerticalBeforeSpacingX2 sapUmcVerticalAfterSpacingX1" />
+					<Select items="{languages>/languages}" change="onLanguageChange"
+						enabled="{viewModel>/bEditable}" id="languageDropdown"
+						selectedKey="{languages>/selectedCommunicationLanguageISO}"
+						width="100%" class="sapUmcVerticalAfterSpacingX2">
+						<core:Item key="{languages>LanguageID}"
+							text="{languages>Name}" />
+					</Select>
+
+					<HBox>
+						<Label text="{i18n>USER_PROFILE.GO_GREEN}"
+							class="sapUmcSubsectionHeadingGrey sapUmcSectionHeading sapUmcMLabelBold sapUmcVerticalBeforeSpacingX2" />
+						<core:Icon src="sap-icon://e-care" color="#458B00"
+							class="sapUmcHorizontalBeforeSpacingX1 sapUmcVerticalBeforeSpacingX2" />
+						<layoutData>
+							<l:GridData span="L2 M4 S4" />
+						</layoutData>
+					</HBox>
+					<HBox justifyContent="End">
+						<Label text="{i18n>USER_PROFILE.PAPERLESS}"
+							class="sapUmcVerticalBeforeSpacingX2" />
+						<Switch id="paperlessBillSwitch" enabled="{viewModel>/bEditable}" change="onPaperlessBillSwitchChange"
+							state="{ path: 'communicationPreferences>/results/2/',formatter: 'sap.umc.mobile.user_profile.js.utils.paperlessBillFormatter' }"
+							class="sapUmcHorizontalBeforeSpacingX1">
+						</Switch>
+						<layoutData>
+							<l:GridData span="L2 M6 S6" indent="L0 M0 S0" />
+						</layoutData>
+					</HBox>
+
+					<Label text="{i18n>USER_PROFILE.BILL_NOTIFICATIONS}"
+						class="sapUmcSubsectionHeadingGrey sapUmcSectionHeading sapUmcMLabelBold sapUmcVerticalBeforeSpacingX2 sapUmcVerticalAfterSpacingX1" />
+					<Select items="{communicationBilling>/}" change="onBillChange"
+						enabled="{viewModel>/bEditable}" id="billingDropdown"
+						selectedKey="{communicationPreferences>/results/0/CommunicationMethodID}"
+						width="100%" class="sapUmcVerticalAfterSpacingX2">
+						<core:Item key="{communicationBilling>CommunicationMethodID}"
+							text="{communicationBilling>Description}" />
+					</Select>
+					<Input id="billingInput" enabled="false"
+						value="{viewModel>/sBillingValue}" />
+
+					<Label text="{i18n>USER_PROFILE.OUTAGE}"
+						class="sapUmcSubsectionHeadingGrey sapUmcSectionHeading sapUmcMLabelBold sapUmcVerticalBeforeSpacingX2 sapUmcVerticalAfterSpacingX1" />
+					<Select items="{communcationOutage>/}" change="onOutageChange"
+						enabled="{viewModel>/bEditable}" id="outageDropdown"
+						selectedKey="{communicationPreferences>/results/1/CommunicationMethodID}"
+						width="100%" class="sapUmcVerticalAfterSpacingX2">
+						<core:Item key="{communcationOutage>CommunicationMethodID}"
+							text="{communcationOutage>Description}" />
+					</Select>
+					<Input id="outageInput" enabled="false" value="{viewModel>/sOutageValue}" />
+
+					<Label text="{i18n>USER_PROFILE.HOT_OFFERS}"
+						class="sapUmcSubsectionHeadingGrey sapUmcSectionHeading sapUmcMLabelBold sapUmcVerticalBeforeSpacingX2 sapUmcVerticalAfterSpacingX1" />
+					<Select items="{communicationChannels>/}" change="onHotOfferChange"
+						enabled="{viewModel>/bEditable}" id="hotOfferDropDown"
+						selectedKey="{hotOffers>/CommunicationChannelID}" width="100%"
+						class="sapUmcVerticalAfterSpacingX2">
+						<core:Item key="{communicationChannels>CommunicationChannelID}"
+							text="{communicationChannels>Description}" />
+					</Select>
+					<Input id="hotOfferInput" value="{viewModel>/sHotOfferValue}"
+						enabled="false" />
+					
+				</l:content>
+			</l:Grid>
+		</content>
+		<footer>
+			<Bar>
+				<contentRight>
+					<Button text="{i18n>USER_PROFILE.EDIT}" press="onEditCommunication"
+						visible="{ path: 'viewModel>/bEditable/',formatter: 'sap.umc.mobile.user_profile.js.utils.oppositeValueFormatter' }"
+						class="sapUmcBtnWhiteTextColor sapUmcBtnBorderLeft" />
+					<Button text="{i18n>USER_PROFILE.SAVE}" press="onSaveCommunication"
+						visible="{viewModel>/bEditable}" class="sapUmcBtnWhiteTextColor sapUmcBtnBorderLeft" />
+				</contentRight>
+			</Bar>
+		</footer>
+	</Page>
+</core:View>

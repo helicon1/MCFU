@@ -1,0 +1,44 @@
+{
+   "d":{
+      "results":[
+         {
+            "__metadata":{
+               "id":"https://LDCIGM6.WDF.SAP.CORP:44333/sap/opu/odata/sap/ERP_UTILITIES_UMC/Invoices('ISU000300002757')",
+               "uri":"https://LDCIGM6.WDF.SAP.CORP:44333/sap/opu/odata/sap/ERP_UTILITIES_UMC/Invoices('ISU000300002757')",
+               "type":"ERP_UTILITIES_UMC.Invoice"
+            },           
+            "BankID": "25010060",
+			"City": "Frankfurt",
+			"CountryID": "DE",
+			"Name": "Postbank",
+			"SWIFTCode": "",
+			"BankAccountID": "0001",
+			"BankAccountName": "Account 1",
+			"BankAccountNo": "xxxxx6789",
+			"BankID": "25010060",
+			"CountryID": "DE",
+			"IBAN": ""
+            
+         },
+         {
+             "__metadata":{
+               "id":"https://LDCIGM6.WDF.SAP.CORP:44333/sap/opu/odata/sap/ERP_UTILITIES_UMC/Invoices('ISU000300002757')",
+               "uri":"https://LDCIGM6.WDF.SAP.CORP:44333/sap/opu/odata/sap/ERP_UTILITIES_UMC/Invoices('ISU000300002757')",
+               "type":"ERP_UTILITIES_UMC.Invoice"
+            },           
+            "BankID": "25010061",
+			"City": "Berlin",
+			"CountryID": "DE",
+			"Name": "Postbank",
+			"SWIFTCode": "",
+			"BankAccountID": "0001",
+			"BankAccountName": "Account 2",
+			"BankAccountNo": "xxxxx6789",
+			"BankID": "25010060",
+			"CountryID": "DE",
+			"IBAN": ""
+        
+         }        
+      ]
+   }
+}

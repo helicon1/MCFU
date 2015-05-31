@@ -1,0 +1,48 @@
+<mvc:View height="100%" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m"
+	xmlns:l="sap.ui.layout" xmlns:form="sap.ui.layout.form"
+	controllerName="sap.umc.mobile.invoice.view.Balance">
+	<Page enableScrolling="true">
+		<customHeader>
+			<Bar>
+				<contentMiddle>
+					<Label text="{i18n>INVOICE.PAY_BALANCE}" />
+				</contentMiddle>
+			</Bar>
+		</customHeader>
+		<!-- mode="SingleSelectMaster" -->
+		<content>
+			<ObjectHeader title="{i18n>INVOICE.CURRENT_BALANCE}"
+				number="{parts: ['Balance>/Amount', 'Balance>/Currency'], formatter: 'sap.umc.mobile.app.js.formatters.amountWithoutCurrencyFormatter'}"
+				numberUnit="{Balance>/Currency}">
+			</ObjectHeader>
+			<form:SimpleForm id="invoice_contract_account_form"
+				maxContainerCols="2" editable="false" layout="ResponsiveGridLayout"
+				labelSpanL="6" labelSpanM="6" emptySpanL="0" emptySpanM="0"
+				columnsL="2" columnsM="2">
+			</form:SimpleForm>
+			<List class="sapUmcVerticalBeforeSpacingX1">
+				<StandardListItem title="{i18n>INVOICE.BILLS}"
+					description="{i18n>INVOICE.VIEW_BILL_HISTORY}" iconDensityAware="false"
+					iconInset="false" type="Navigation" press="onClickBillHistory" />
+			</List>
+			<List class="sapUmcVerticalBeforeSpacingX1">
+				<StandardListItem title="{i18n>INVOICE.PAYMENT_HISTORY}"
+					description="{i18n>INVOICE.VIEW_AND_MANAGE_PAYMENTS}"
+					iconDensityAware="false" iconInset="false" type="Navigation"
+					press="onClickPaymentHistory" />
+			</List>
+			<l:VerticalLayout id="BalanceModeContent" width="100%">
+			</l:VerticalLayout>
+		</content>
+		<footer>
+			<Bar>
+				<contentRight>
+					<Button id="PayBalanceBtn" text="{i18n>INVOICE.PAY_BALANCE}"
+						press="onClickPayBalance" class="sapUmcBtnWhiteTextColor sapUmcBtnBorderLeft" />
+					<Button id="SubmitBalanceBtn" text="{i18n>APP.SUBMIT}"
+						press="onSubmitBalancePayment" class="sapUmcBtnWhiteTextColor sapUmcBtnBorderLeft" />
+				</contentRight>
+			</Bar>
+		</footer>
+	</Page>
+</mvc:View>

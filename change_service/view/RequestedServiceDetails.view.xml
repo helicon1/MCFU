@@ -1,0 +1,67 @@
+<core:View height="100%" xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc"
+	xmlns="sap.m" xmlns:l="sap.ui.layout" xmlns:f="sap.ui.layout.form"
+	controllerName="sap.umc.mobile.change_service.view.RequestedServiceDetails"
+	xmlns:customData="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1">
+	<Page enableScrolling="true">
+		<customHeader>
+			<Bar>
+				<contentMiddle>
+					<Label text="{i18n>CHANGE_SERVICE.REQUESTED_SERVICE}" />
+				</contentMiddle>
+			</Bar>
+		</customHeader>
+		<content>
+			<ObjectHeader title="{requestedService>/ServiceDescription}"
+				class="sapUmcObjectHeaderWhiteColor">
+				<statuses>
+					<ObjectStatus text="{requestedService>/StatusDescription}" state="None" />
+				</statuses>
+				<attributes>
+					<ObjectAttribute text="{requestedService>/StartDateDescription}" />
+				</attributes>
+			</ObjectHeader>
+
+			<l:Grid defaultSpan="L12 M12 S12" width="100%"
+				class="sapUMCUiRespGridDiv sapUMCUiRespGridSpan sapUMCUiRespGrid ">
+				<l:content>
+					<f:SimpleForm minWidth="1024" maxContainerCols="2"
+						class="sapUmcFormResGridNoBottomPadding" editable="false"
+						layout="ResponsiveGridLayout" title="{requestedService>/DetailsHeaderLabel}"
+						labelSpanL="6" labelSpanM="6" emptySpanL="0" emptySpanM="0"
+						columnsL="2" columnsM="2">
+						<f:content>
+							<Label text="{requestedService>/IDLabel}" />
+							<Text text="{requestedService>/ID}" class="sapUmcBillMText" />
+							<Label text="{requestedService>/StatusLabel}" />
+							<Text text="{requestedService>/StatusDescription}" class="sapUmcBillMText" />
+							<Label text="{i18n>CHANGE_SERVICE.START_DATE}" />
+							<Text text="{requestedService>/StartDate}" class="sapUmcBillMText" />
+							<Label text="{i18n>CHANGE_SERVICE.SERVICE_ADDRESS}" />
+							<Text text="{requestedService>/Address}" class="sapUmcBillMText" />
+							<Label text="{i18n>CHANGE_SERVICE.SERVICE}" />
+							<Text text="{requestedService>/DivisionDescription}" class="sapUmcBillMText" />
+							<Label text="{i18n>CHANGE_SERVICE.PRODUCT}" />
+							<Text text="{requestedService>/ProductDescription}" class="sapUmcBillMText" />
+						</f:content>
+					</f:SimpleForm>
+					<f:SimpleForm id="prices_form" minWidth="1024"
+						maxContainerCols="2" class="sapUmcFormResGridNoTopPadding"
+						editable="false" layout="ResponsiveGridLayout" labelSpanL="6"
+						labelSpanM="6" emptySpanL="0" emptySpanM="0" columnsL="2"
+						columnsM="2">
+						<f:content>
+						</f:content>
+					</f:SimpleForm>
+				</l:content>
+			</l:Grid>
+		</content>
+		<footer>
+			<Bar>
+				<contentRight>
+					<Button text="{i18n>APP.BACK}" press="onPressBack"
+						class="sapUmcBtnWhiteTextColor sapUmcBtnBorderLeft" />
+				</contentRight>
+			</Bar>
+		</footer>
+	</Page>
+</core:View>

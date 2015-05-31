@@ -1,0 +1,125 @@
+<core:View height="100%" xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" xmlns:l="sap.ui.layout" xmlns:f="sap.ui.layout.form" controllerName="sap.umc.mobile.change_service.view.PaymentInfo">
+
+    <l:Grid defaultSpan="L6 M10 S12" defaultIndent="L3 M1 S0" vSpacing="0">
+        <l:content>
+
+            <!-- Set Up Auto-Pay Switch -->
+            <l:VerticalLayout width="100%">
+                <Label text="{i18n>CHANGE_SERVICE.ENTER_PAYMENT_DATA}" class="sapUmcHorizontalBeforeSpacingX1_5 sapUmcVerticalBeforeSpacingX2 sapUmcMLabelBold" />
+                <Switch state="{combinedPaymentInfo>/_isEntered}" customTextOff="{i18n>CHANGE_SERVICE.NO}" customTextOn="{i18n>CHANGE_SERVICE.YES}" class="sapUmcVerticalAfterSpacingX2" />
+            </l:VerticalLayout>
+
+
+            <!-- Bank Account and Card Account Fields only visible is switch checked -->
+            <l:VerticalLayout visible="{combinedPaymentInfo>/_isEntered}" width="100%">
+
+                <!-- Account Selection -->
+                <Label text="{i18n>CHANGE_SERVICE.FIELD_ACCOUNT}" class="sapUmcHorizontalBeforeSpacingX1_5 sapUmcMLabelBold" />
+                <Select width="100%" selectedKey="{combinedPaymentInfo>/_selectionID}" change="onPaymentInfoSelected" class="sapUmcVerticalAfterSpacingX2" items="{
+                                            path: 'combinedPaymentInfo>/accounts',
+                                            sorter: {path: '_ID'}
+                                        }">
+                    <core:Item key="{combinedPaymentInfo>_ID}" text="{combinedPaymentInfo>_displayName}" />
+                </Select>
+
+                <!-- Bank Account Start  -->
+                <l:VerticalLayout visible="{combinedPaymentInfo>/_isBankAccount}" width="100%">
+
+                    <!-- Country -->
+                    <Label text="{i18n>CHANGE_SERVICE.FIELD_COUNTRY}" class="sapUmcHorizontalBeforeSpacingX1_5 sapUmcMLabelBold" />
+                    <ComboBox width="100%" selectedKey="{combinedPaymentInfo>/selection/CountryID}" enabled="{combinedPaymentInfo>/_isNewAccount}" selectionChange="onCountrySelected" class="sapUmcVerticalAfterSpacingX2" items="{
+                                            path: 'country>/countries',
+                                            sorter: {path: 'Name'}
+                                        }">
+                        <core:Item key="{country>CountryID}" text="{country>Name}" />
+                    </ComboBox>
+
+                    <!-- Name - NA ONLY -->
+                    <Label visible="{settings>/isNorthAmerica}" text="{i18n>CHANGE_SERVICE.FIELD_NAME}" class="sapUmcHorizontalBeforeSpacingX1_5 sapUmcMLabelBold" />
+                    <Select visible="{settings>/isNorthAmerica}" width="100%" selectedKey="{combinedPaymentInfo>/selection/BankID}" enabled="{combinedPaymentInfo>/_isNewAccount}" class="sapUmcVerticalAfterSpacingX2" items="{
+                                            path: 'combinedPaymentInfo>/bankAccountTypes',
+                                            sorter: {path: 'BankID'}
+                                        }">
+                        <core:Item key="{combinedPaymentInfo>BankID}" text="{combinedPaymentInfo>Name}" />
+                    </Select>
+
+                    <!-- Account Number - NA ONLY -->
+                    <Label visible="{settings>/isNorthAmerica}" text="{i18n>CHANGE_SERVICE.FIELD_ACCOUNT_NUMBER}" class="sapUmcHorizontalBeforeSpacingX1_5 sapUmcMLabelBold" />
+                    <Input visible="{settings>/isNorthAmerica}" value="{combinedPaymentInfo>/selection/BankAccountNo}" enabled="{combinedPaymentInfo>/_isNewAccount}" class="sapUmcVerticalAfterSpacingX2" />
+
+                    <!-- BIC - EMEA ONLY-->
+                    <Label visible="{settings>/isEMEA}" text="{i18n>CHANGE_SERVICE.FIELD_BIC}" class="sapUmcHorizontalBeforeSpacingX1_5 sapUmcMLabelBold" />
+                    <Select visible="{settings>/isEMEA}" width="100%" selectedKey="{combinedPaymentInfo>/selection/BankID}" enabled="{combinedPaymentInfo>/_isNewAccount}" class="sapUmcVerticalAfterSpacingX2" items="{
+                                            path: 'combinedPaymentInfo>/bankAccountTypes',
+                                            sorter: {path: 'BankID'}
+                                        }">
+                        <core:Item key="{combinedPaymentInfo>BankID}" text="{combinedPaymentInfo>SWIFTCode} - {combinedPaymentInfo>Name}" />
+                    </Select>
+
+                    <!-- IBAN - EMEA ONLY -->
+                    <Label visible="{settings>/isEMEA}" text="{i18n>CHANGE_SERVICE.FIELD_IBAN}" class="sapUmcHorizontalBeforeSpacingX1_5 sapUmcMLabelBold" />
+                    <Input visible="{settings>/isEMEA}" value="{combinedPaymentInfo>/selection/IBAN}" enabled="{combinedPaymentInfo>/_isNewAccount}" class="sapUmcVerticalAfterSpacingX2" />
+
+                    <!-- Account Holder -->
+                    <Label text="{i18n>CHANGE_SERVICE.FIELD_ACCOUNT_HOLDER}" class="sapUmcHorizontalBeforeSpacingX1_5 sapUmcMLabelBold" />
+                    <Input value="{combinedPaymentInfo>/selection/AccountHolder}" enabled="{combinedPaymentInfo>/_isNewAccount}" placeholder="{i18n>CHANGE_SERVICE.OPTIONAL}" class="sapUmcVerticalAfterSpacingX2" />
+
+                    <!-- Account Description -->
+                    <Label text="{i18n>CHANGE_SERVICE.FIELD_ACCOUNT_DESCRIPTION}" class="sapUmcHorizontalBeforeSpacingX1_5 sapUmcMLabelBold" />
+                    <Input value="{combinedPaymentInfo>/selection/BankAccountName}" enabled="{combinedPaymentInfo>/_isNewAccount}" placeholder="{i18n>CHANGE_SERVICE.OPTIONAL}" class="sapUmcVerticalAfterSpacingX2" />
+
+                </l:VerticalLayout>
+                <!-- Bank Account End -->
+
+                <!-- Card Account Start -->
+                <l:VerticalLayout visible="{combinedPaymentInfo>/_isCardAccount}" width="100%">
+
+                    <!-- Card Type -->
+                    <Label text="{i18n>CHANGE_SERVICE.FIELD_CARD_TYPE}" class="sapUmcHorizontalBeforeSpacingX1_5 sapUmcMLabelBold" />
+                    <Select width="100%" selectedKey="{combinedPaymentInfo>/selection/PaymentCardTypeID}" enabled="{combinedPaymentInfo>/_isNewAccount}" class="sapUmcVerticalAfterSpacingX2" items="{
+                                            path: 'combinedPaymentInfo>/cardAccountTypes',
+                                            sorter: {path: 'PaymentCardTypeID'}
+                                        }">
+                        <core:Item key="{combinedPaymentInfo>PaymentCardTypeID}" text="{combinedPaymentInfo>Description}" />
+                    </Select>
+
+                    <!-- Card Number -->
+                    <Label text="{i18n>CHANGE_SERVICE.FIELD_CARD_NUMBER}" class="sapUmcHorizontalBeforeSpacingX1_5 sapUmcMLabelBold" />
+                    <Input value="{combinedPaymentInfo>/selection/CardNumber}" enabled="{combinedPaymentInfo>/_isNewAccount}" class="sapUmcVerticalAfterSpacingX2" />
+
+                    <!-- Expiry -->
+                    <Label text="{i18n>CHANGE_SERVICE.FIELD_EXPIRY}" class="sapUmcHorizontalBeforeSpacingX1_5 sapUmcMLabelBold" />
+                    <HBox width="100%" justifyContent="SpaceBetween" class="sapUmcVerticalAfterSpacingX2">
+                        <ComboBox width="95%" selectedKey="{combinedPaymentInfo>/selection/_expiry/month}" enabled="{combinedPaymentInfo>/_isNewAccount}" items="{
+                                            path: 'combinedPaymentInfo>/months',
+                                            sorter: {path: 'MonthID'}
+                                        }">
+                            <core:Item key="{combinedPaymentInfo>MonthID}" text="{combinedPaymentInfo>MonthID}" />
+                            <layoutData>
+                                <FlexItemData growFactor="1" />
+                            </layoutData>
+                        </ComboBox>
+                        <ComboBox width="99.9%" selectedKey="{combinedPaymentInfo>/selection/_expiry/year}" enabled="{combinedPaymentInfo>/_isNewAccount}" items="{
+                                            path: 'combinedPaymentInfo>/years',
+                                            sorter: {path: 'Year'}
+                                        }">
+                            <core:Item key="{combinedPaymentInfo>Year}" text="{combinedPaymentInfo>Year}" />
+                            <layoutData>
+                                <FlexItemData growFactor="1" />
+                            </layoutData>
+                        </ComboBox>
+                    </HBox>
+
+                    <!-- Cardholder Name -->
+                    <Label text="{i18n>CHANGE_SERVICE.FIELD_CARDHOLDER_NAME}" class="sapUmcHorizontalBeforeSpacingX1_5 sapUmcMLabelBold" />
+                    <Input value="{combinedPaymentInfo>/selection/Cardholder}" enabled="{combinedPaymentInfo>/_isNewAccount}" class="sapUmcVerticalAfterSpacingX2" />
+
+                </l:VerticalLayout>
+                <!-- Card Account End -->
+
+            </l:VerticalLayout>
+
+        </l:content>
+    </l:Grid>
+
+</core:View>

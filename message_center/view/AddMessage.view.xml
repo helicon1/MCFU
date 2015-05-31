@@ -1,0 +1,18 @@
+<mvc:View height="100%" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m"
+	controllerName="sap.umc.mobile.message_center.view.AddMessage">
+	<Page enableScrolling="true">
+		<customHeader>
+			<Bar>
+				<contentMiddle>
+					<Label text="{i18n>MESSAGE_CENTER.MESSAGES}" />
+				</contentMiddle>			
+			</Bar>
+		</customHeader>		
+		<content>		    
+			<List headerText="{i18n>MESSAGE_CENTER.SELECT_MESSAGE_TYPE}" items="{MessageTypes>/results/}" mode="{device>/listMode}" itemPress="handleListItemSelect" >           
+      			 <StandardListItem  icon="{MessageTypes>Icon}" title="{MessageTypes>Description}" iconDensityAware="false" iconInset="false"
+      			                    type="Navigation" press="handleListItemPress" />	
+			</List>		
+		</content>
+	</Page>
+</mvc:View>

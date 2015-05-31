@@ -1,0 +1,25 @@
+<core:View height="100%" xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" xmlns:l="sap.ui.layout" xmlns:f="sap.ui.layout.form" controllerName="sap.umc.mobile.change_service.view.EndServiceGeneralInfo">
+
+    <l:Grid defaultSpan="L6 M10 S12" defaultIndent="L3 M1 S0">
+        <l:content>
+            <l:VerticalLayout width="100%">
+                <!-- Left Column -->
+                
+                <!-- Date -->
+                    <Label text="{i18n>CHANGE_SERVICE.FIELD_DATE}" class="sapUmcHorizontalBeforeSpacingX1_5 sapUmcVerticalBeforeSpacingX2 sapUmcMLabelBold" />
+                    <DatePicker dateValue="{endDate>/selectedDate}" class="sapUmcVerticalAfterSpacingX2" width="100%" />
+                
+                <!-- Premise Address -->
+                    <Label text="{i18n>CHANGE_SERVICE.FIELD_ADDRESS}" class="sapUmcHorizontalBeforeSpacingX1_5 sapUmcMLabelBold" />
+                    <Select width="100%" selectedKey="{premise>/selectionID}" change="onPremiseSelected" class="sapUmcVerticalAfterSpacingX2" items="{
+                                            path: 'premise>/premises',
+                                            sorter: {path: '_ID'}
+                                        }">
+                        <core:Item key="{premise>_ID}" text="{premise>AddressInfo/ShortForm}" />
+                    </Select>
+
+            </l:VerticalLayout>
+        </l:content>
+    </l:Grid>
+
+</core:View>

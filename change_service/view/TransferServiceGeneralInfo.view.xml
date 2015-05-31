@@ -1,0 +1,43 @@
+<core:View height="100%" xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" xmlns:l="sap.ui.layout" xmlns:f="sap.ui.layout.form" controllerName="sap.umc.mobile.change_service.view.TransferServiceGeneralInfo">
+
+    <l:Grid defaultSpan="L6 M10 S12" defaultIndent="L3 M1 S0">
+        <l:content>
+            <l:VerticalLayout width="100%">
+
+                <!-- LABEL -->
+                <Label text="{i18n>CHANGE_SERVICE.LABEL_OLD_SERVICE}" class="sapUmcVerticalBeforeSpacingX2 sapUmcTransferServiceLabel sapUmcVerticalAfterSpacingX1" />
+
+                <!-- End Date -->
+                <Label text="{i18n>CHANGE_SERVICE.FIELD_SERVICE_END_DATE}" class="sapUmcHorizontalBeforeSpacingX1_5 sapUmcMLabelBold" />
+                <DatePicker dateValue="{date>/endDate}" width="100%" class="sapUmcVerticalAfterSpacingX2" />
+
+                <!-- Premise Address -->
+                <Label text="{i18n>CHANGE_SERVICE.FIELD_OLD_ADDRESS}" class="sapUmcHorizontalBeforeSpacingX1_5 sapUmcMLabelBold" />
+                <Select width="100%" selectedKey="{premise>/selectionID}" change="onPremiseSelected" class="sapUmcVerticalAfterSpacingX2" items="{
+                                            path: 'premise>/premises',
+                                            sorter: {path: '_ID'}
+                                        }">
+                    <core:Item key="{premise>_ID}" text="{premise>AddressInfo/ShortForm}" />
+                </Select>
+
+                <!-- LABEL -->
+                <Label text="{i18n>CHANGE_SERVICE.LABEL_NEW_SERVICE}" class="sapUmcTransferServiceLabel sapUmcVerticalAfterSpacingX1" />
+
+                <!-- Start Date -->
+                <Label text="{i18n>CHANGE_SERVICE.FIELD_SERVICE_START_DATE}" class="sapUmcHorizontalBeforeSpacingX1_5 sapUmcMLabelBold" />
+                <DatePicker dateValue="{date>/startDate}" width="100%" class="sapUmcVerticalAfterSpacingX2" />
+
+                <!-- Meter Number - EMEA only -->
+                <Label visible="{settings>/isEMEA}" text="{i18n>CHANGE_SERVICE.FIELD_METER_NUMBER}" class="sapUmcHorizontalBeforeSpacingX1_5 sapUmcMLabelBold" />
+                <Input visible="{settings>/isEMEA}" value="{deregulation>/meterNumber}" placeholder="{i18n>CHANGE_SERVICE.OPTIONAL}" class="sapUmcVerticalAfterSpacingX2" />
+
+                <!-- External POD - NA only -->
+                <Label visible="{settings>/isNorthAmerica}" text="{i18n>CHANGE_SERVICE.FIELD_EXTERNAL_POD}" class="sapUmcHorizontalBeforeSpacingX1_5 sapUmcMLabelBold" />
+                <Input visible="{settings>/isNorthAmerica}" value="{deregulation>/externalPOD}" placeholder="{i18n>CHANGE_SERVICE.OPTIONAL}" class="sapUmcVerticalAfterSpacingX2" />
+
+            </l:VerticalLayout>
+        </l:content>
+    </l:Grid>
+
+
+</core:View>

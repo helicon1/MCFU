@@ -1,0 +1,31 @@
+<mvc:View height="100%" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m"
+	controllerName="sap.umc.mobile.user_profile.view.PaymentAccounts">
+	<Page enableScrolling="true">
+		<customHeader>
+			<Bar>
+				<contentMiddle>
+					<Label text="{i18n>USER_PROFILE.PAYMENT_ACCOUNTS}" />
+				</contentMiddle>			
+			</Bar>
+		</customHeader>	
+		<content>		    
+			<List headerText="{i18n>USER_PROFILE.BANK_ACCOUNTS}" items="{bankAccounts>/results/}" mode="{device>/listMode}" 
+				select="handleListItemSelect" >
+				<StandardListItem title="{parts:['bankAccounts>Bank/Name', 'bankAccounts>BankAccountNo'], formatter: 'sap.umc.mobile.user_profile.js.utils.bankAccountNoFormatter' }"  
+				description="{bankAccounts>BankAccountName}" iconDensityAware="false" iconInset="false" adaptTitleSize="false" type="Navigation" press="handleBankListItemPress"/>     		
+			</List> 							 								 
+			<List headerText="{i18n>USER_PROFILE.CREDIT_CARDS}"  items="{cardAccounts>/results/}" mode="{device>/listMode}" 
+				select="handleListItemSelect" >
+			    <StandardListItem title="{parts:['cardAccounts>PaymentCardType/Description', 'cardAccounts>CardNumber'], formatter: 'sap.umc.mobile.user_profile.js.utils.cardAccountNoFormatter' }"
+			     description="{path: 'cardAccounts>ValidTo', formatter: 'sap.umc.mobile.user_profile.js.utils.getFormattedDate'}" iconDensityAware="false" iconInset="false" adaptTitleSize="false" type="Navigation" press="handleCardListItemPress" /> 			  
+			</List>
+		</content>
+		<footer>
+			<Bar>		
+				<contentRight>
+				<Button text="{i18n>USER_PROFILE.ADD}" press="handleOpen" class="sapUmcBtnWhiteTextColor sapUmcBtnBorderLeft" />
+				</contentRight>
+			</Bar>
+		</footer>
+	</Page>
+</mvc:View>

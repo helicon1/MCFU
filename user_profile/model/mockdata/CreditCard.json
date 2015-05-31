@@ -1,0 +1,54 @@
+{
+   "d":{
+      "results":[
+         {
+            "__metadata":{
+               "id":"https://LDCIGM6.WDF.SAP.CORP:44333/sap/opu/odata/sap/ERP_UTILITIES_UMC/Invoices('ISU000300002757')",
+               "uri":"https://LDCIGM6.WDF.SAP.CORP:44333/sap/opu/odata/sap/ERP_UTILITIES_UMC/Invoices('ISU000300002757')",
+               "type":"ERP_UTILITIES_UMC.Invoice"
+            },           
+           "AccountID": "1357",
+		   "PaymentCardID": "0001",
+			"PaymentCardTypeID": "0005",
+			"PaymentCardType":{
+			"Description": "My first card.."
+			},
+			"CardNumber": "5***********8282", 
+			"StandardFlag": "true",
+			"Description": "Test credit card 1",
+			"ValidFrom": "null",
+			"ValidTo": "null",
+			"Cardholder": "gm_victor5 gm_gao5",
+			"Issuer": "",
+			"IssueDate": "null",       
+           
+			 "Description": "Diners Club Card"
+            
+         },
+         {
+             "__metadata":{
+               "id":"https://LDCIGM6.WDF.SAP.CORP:44333/sap/opu/odata/sap/ERP_UTILITIES_UMC/Invoices('ISU000300002757')",
+               "uri":"https://LDCIGM6.WDF.SAP.CORP:44333/sap/opu/odata/sap/ERP_UTILITIES_UMC/Invoices('ISU000300002757')",
+               "type":"ERP_UTILITIES_UMC.Invoice"
+            },           
+            "AccountID": "1357",
+		    "PaymentCardID": "0002",
+			"PaymentCardTypeID": "0003",
+			"PaymentCardType":{
+			"Description": "My second card.."
+			},
+			"CardNumber": "1*****7898",
+			"StandardFlag": "true",
+			"Description": "Test credit card 2",
+			"ValidFrom": "null",
+			"ValidTo": "null",
+			"Cardholder": "gm_victor5 gm_gao5",
+			"Issuer": "",
+			"IssueDate": "null",       
+            
+			 "Description": "MasterCard"
+        
+         }        
+      ]
+   }
+}

@@ -1,0 +1,66 @@
+<core:View height="100%" xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" xmlns:l="sap.ui.layout" xmlns:f="sap.ui.layout.form" controllerName="sap.umc.mobile.change_service.view.PremiseAddress">
+
+    <l:Grid defaultSpan="L6 M10 S12" defaultIndent="L3 M1 S0">
+        <l:content>
+            <l:VerticalLayout width="100%">
+
+                <!-- Address -->
+                <Label text="{i18n>CHANGE_SERVICE.FIELD_ADDRESS}" class="sapUmcHorizontalBeforeSpacingX1_5 sapUmcVerticalBeforeSpacingX2 sapUmcMLabelBold" />
+                <Select width="100%" selectedKey="{premiseAddress>/selectionID}" change="onPremiseAddressSelected" class="sapUmcVerticalAfterSpacingX2" items="{
+                                            path: 'premiseAddress>/addresses',
+                                            sorter: {path: '_ID'}
+                                        }">
+                    <core:Item key="{premiseAddress>_ID}" text="{premiseAddress>AddressInfo/ShortForm}" />
+                </Select>
+
+                <!-- House/Building # - NA POSITION -->
+                <Label visible="{settings>/isNorthAmerica}" text="{i18n>CHANGE_SERVICE.FIELD_HOUSE_NUMBER}" class="sapUmcHorizontalBeforeSpacingX1_5 sapUmcMLabelBold" />
+                <Input visible="{settings>/isNorthAmerica}" value="{premiseAddress>/selection/AddressInfo/HouseNo}" enabled="{premiseAddress>/_isNewAddress}" class="sapUmcVerticalAfterSpacingX2" />
+
+                <!-- Street -->
+                <Label text="{i18n>CHANGE_SERVICE.FIELD_STREET}" class="sapUmcHorizontalBeforeSpacingX1_5 sapUmcMLabelBold" />
+                <Input value="{premiseAddress>/selection/AddressInfo/Street}" enabled="{premiseAddress>/_isNewAddress}" class="sapUmcVerticalAfterSpacingX2" />
+
+                <!-- House/Building # - EMEA POSITION -->
+                <Label visible="{settings>/isEMEA}" text="{i18n>CHANGE_SERVICE.FIELD_HOUSE_NUMBER}" class="sapUmcHorizontalBeforeSpacingX1_5 sapUmcMLabelBold" />
+                <Input visible="{settings>/isEMEA}" value="{premiseAddress>/selection/AddressInfo/HouseNo}" enabled="{premiseAddress>/_isNewAddress}" class="sapUmcVerticalAfterSpacingX2" />
+
+                <!-- Apt./Unit/Suite - NA ONLY -->
+                <Label visible="{settings>/isNorthAmerica}" text="{i18n>CHANGE_SERVICE.FIELD_APT}" class="sapUmcHorizontalBeforeSpacingX1_5 sapUmcMLabelBold" />
+                <Input visible="{settings>/isNorthAmerica}" value="{premiseAddress>/selection/AddressInfo/RoomNo}" enabled="{premiseAddress>/_isNewAddress}" placeholder="{i18n>CHANGE_SERVICE.OPTIONAL}" class="sapUmcVerticalAfterSpacingX2" />
+
+                <!-- Zip/Postal Code - EMEA POSITION -->
+                <Label visible="{settings>/isEMEA}" text="{i18n>CHANGE_SERVICE.FIELD_POSTAL_CODE}" class="sapUmcHorizontalBeforeSpacingX1_5 sapUmcMLabelBold" />
+                <Input visible="{settings>/isEMEA}" value="{premiseAddress>/selection/AddressInfo/PostalCode}" enabled="{premiseAddress>/_isNewAddress}" class="sapUmcVerticalAfterSpacingX2" />
+
+                <!-- City -->
+                <Label text="{i18n>CHANGE_SERVICE.FIELD_CITY}" class="sapUmcHorizontalBeforeSpacingX1_5 sapUmcMLabelBold" />
+                <Input value="{premiseAddress>/selection/AddressInfo/City}" enabled="{premiseAddress>/_isNewAddress}" class="sapUmcVerticalAfterSpacingX2" />
+
+                <!-- Country -->
+                <Label text="{i18n>CHANGE_SERVICE.FIELD_COUNTRY}" class="sapUmcHorizontalBeforeSpacingX1_5 sapUmcMLabelBold" />
+                <ComboBox width="100%" enabled="{premiseAddress>/_isNewAddress}" selectedKey="{premiseAddress>/selection/AddressInfo/CountryID}" selectionChange="onCountrySelected" class="sapUmcVerticalAfterSpacingX2" items="{
+                                            path: 'country>/countries',
+                                            sorter: {path: 'Name'}
+                                        }">
+                    <core:Item key="{country>CountryID}" text="{country>Name}" />
+                </ComboBox>
+
+                <!-- State/Province - NA ONLY -->
+                <Label visible="{settings>/isNorthAmerica}" text="{i18n>CHANGE_SERVICE.FIELD_REGION}" class="sapUmcHorizontalBeforeSpacingX1_5 sapUmcMLabelBold" />
+                <ComboBox visible="{settings>/isNorthAmerica}" width="100%" enabled="{premiseAddress>/_isNewAddress}" selectedKey="{premiseAddress>/selection/AddressInfo/Region}" class="sapUmcVerticalAfterSpacingX2" items="{
+                                            path: 'premiseAddress>/regions',
+                                            sorter: {path: 'Name'}
+                                        }">
+                    <core:Item key="{premiseAddress>RegionID}" text="{premiseAddress>Name}" />
+                </ComboBox>
+
+                <!-- Zip/Postal Code - NA POSITION -->
+                <Label visible="{settings>/isNorthAmerica}" text="{i18n>CHANGE_SERVICE.FIELD_POSTAL_CODE}" class="sapUmcHorizontalBeforeSpacingX1_5 sapUmcMLabelBold" />
+                <Input visible="{settings>/isNorthAmerica}" value="{premiseAddress>/selection/AddressInfo/PostalCode}" enabled="{premiseAddress>/_isNewAddress}" class="sapUmcVerticalAfterSpacingX2" />
+
+            </l:VerticalLayout>
+        </l:content>
+    </l:Grid>
+
+</core:View>

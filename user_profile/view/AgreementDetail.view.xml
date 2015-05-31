@@ -1,0 +1,56 @@
+<core:View  height="100%" xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns:ma="sap.makit"
+	xmlns="sap.m" xmlns:l="sap.ui.layout" xmlns:f="sap.ui.layout.form"
+	controllerName="sap.umc.mobile.user_profile.view.AgreementDetail" >
+	<Page enableScrolling="true" >		
+	    <customHeader>
+			<Bar>	
+				<contentMiddle>
+					<Label text="{i18n>USER_PROFILE.AGREEMENT_DETAIL}" />
+				</contentMiddle>			
+			</Bar>
+		</customHeader>	
+	    <content>
+			 <ObjectHeader			   
+			    title="{Agreement>/Description}" class="sapUmcObjectHeaderWhiteColor" >
+			    <attributes>
+			      <ObjectAttribute text="{Agreement>/_AgreementAddress}" />
+			    </attributes> 
+			    <statuses>
+		            <ObjectStatus text=""  />
+		            <ObjectStatus text="{i18n>USER_PROFILE.AGREEMENT_NUMBER} : {Agreement>/ContractAccountID}"   class="sapUmcWhiteTextColor"/>
+		        </statuses>         
+			  </ObjectHeader>
+			  
+			  <f:SimpleForm id="servicesForm" minWidth="1024" maxContainerCols="2" editable="false" layout="ResponsiveGridLayout" title="{i18n>USER_PROFILE.SERVICES}"
+			        labelSpanL="3" labelSpanM="3" emptySpanL="4" emptySpanM="4" columnsL="1" columnsM="1">
+					<f:content>
+					</f:content>
+			   </f:SimpleForm>
+			 		
+			   <List headerText="{i18n>USER_PROFILE.BILLING_INFORMATION}" class="sapUmcVerticalBeforeSpacingX1">
+					<CustomListItem type="Navigation" press="handleBillingAddressPress" >
+						<f:SimpleForm id="billing" minWidth="1024" maxContainerCols="2" editable="false" layout="ResponsiveGridLayout"
+					        labelSpanL="3" labelSpanM="3" emptySpanL="4" emptySpanM="4" columnsL="1" columnsM="1">
+							<f:content>
+								<Label text="{i18n>USER_PROFILE.BILLING_ADDRESS}"/>
+								<Text text="{BillingAddress>/ShortForm}" />
+							</f:content>
+					   </f:SimpleForm>
+                    </CustomListItem>
+			   </List>
+			   <f:SimpleForm id="billingInformationForm" minWidth="1024" maxContainerCols="2" editable="false" layout="ResponsiveGridLayout"
+			        labelSpanL="3" labelSpanM="3" emptySpanL="4" emptySpanM="4" columnsL="1" columnsM="1">
+					<f:content>
+					<!-- 	<Label text="{i18n>USER_PROFILE.BILLING_ADDRESS}"/>
+						<Text text="{BillingAddress>/ShortForm}" /> -->
+						<Label text="{i18n>USER_PROFILE.CURRENT_BALANCE}"/>
+						<Text text="{parts:[{path:'AccountBalance>/CurrentBalance'}, {path:'AccountBalance>/Currency'}],  formatter:'sap.umc.mobile.app.js.formatters.amountWithCurrencyFormatter'}" />
+						<Label text="{i18n>USER_PROFILE.AUTO_PAY}"/>
+						<Text text="{AutoPay>/_AutoPay}"  />	
+						<Label text="{i18n>USER_PROFILE.AUTO_PAY_ACCOUNT}"/>
+						<Text text="{AutoPay>/_AutoPayAccount}"  />	
+					</f:content>
+			   </f:SimpleForm>
+		</content>
+	</Page>
+</core:View>

@@ -1,0 +1,68 @@
+<mvc:View height="100%" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m"
+	xmlns:l="sap.ui.layout" controllerName="sap.umc.mobile.user_profile.view.UserProfile">
+	<Page enableScrolling="true">
+		<customHeader>
+			<Bar>
+				<contentMiddle>
+					<Label text="{i18n>USER_PROFILE.PROFILE}" />
+				</contentMiddle>
+			</Bar>
+		</customHeader>
+		<content>
+			<l:VerticalLayout width="100%">
+				<l:content>
+					<FlexBox width="95%">
+						<items>
+							<ObjectHeader title="{parts:[ 'personalInfo>/Title' , 'personalInfo>/FirstName', 'personalInfo>/LastName' ], 
+								 formatter:'sap.umc.mobile.user_profile.js.utils.userTitleFormatter'}" class="sapUmcObjectHeaderWhiteColor">  								
+								<attributes>
+									<ObjectAttribute text="{path: 'personalInfo>/AccountID', formatter: 'sap.umc.mobile.user_profile.js.utils.customerNumberFormatter' }" />
+								</attributes>
+								<layoutData>
+									<FlexItemData growFactor="9" />
+								</layoutData>
+							</ObjectHeader>
+							<Image src="./user_profile/model/mockdata/default_image.jpg"
+								class="sapUmcVerticalBeforeSpacingX3">
+								<layoutData>
+									<FlexItemData growFactor="1" />
+								</layoutData>
+							</Image>
+						</items>
+					</FlexBox>
+				</l:content>
+			</l:VerticalLayout>
+			<List items="{ContractAccounts>/results/}" class="sapUmcVerticalBeforeSpacingX1"
+				headerText="{i18n>USER_PROFILE.AGREEMENTS}">
+				<StandardListItem title="{ContractAccounts>Description}"
+					icon="sap-icon://insurance-house"
+					description="{i18n>USER_PROFILE.AGREEMENT_NUMBER}: {ContractAccounts>ContractAccountID}"
+					iconDensityAware="false" iconInset="false" type="Navigation"
+					press="handleContactAccountPress" />
+			</List>
+			<List headerText="{i18n>USER_PROFILE.PAYMENT_INFORMATION}" visible="{AccountAddress>/hasAddress}" class="sapUmcVerticalBeforeSpacingX1">
+				<StandardListItem icon="sap-icon://monitor-payments"
+					title="{i18n>USER_PROFILE.PAYMENT_ACCOUNTS}" description="{i18n>USER_PROFILE.MANAGE_PAYMENT}"
+					iconDensityAware="false" iconInset="false" type="Navigation"
+					press="handlePaymentInformationPress" />
+				<StandardListItem icon="sap-icon://paid-leave" title="{i18n>USER_PROFILE.AUTOPAY}" 
+				    description="{i18n>USER_PROFILE.SETUP_AUTOPAY}" iconDensityAware="false" iconInset="false" 
+				    type="Navigation" press="handleAutoPayPress" />
+			</List>
+			<List headerText="{i18n>USER_PROFILE.CONTACT_INFO}" visible="{AccountAddress>/hasAddress}" class="sapUmcVerticalBeforeSpacingX1">
+				<StandardListItem icon="sap-icon://business-card"
+					title="{i18n>USER_PROFILE.CONTACT_SETTINGS}" description="{i18n>USER_PROFILE.MANAGE_ADDRESS_PHONE_EMAIL}"
+					iconDensityAware="false" iconInset="false" type="Navigation" press="handleContactInfoPress" />
+				<StandardListItem icon="sap-icon://comment" title="{i18n>USER_PROFILE.COM_PREF}"
+					description="{i18n>USER_PROFILE.ASSIGN_COMMUNICATION_METHOD}" iconDensityAware="false"
+					iconInset="false" type="Navigation" press="handleCommunicationPress" />
+			</List>
+			<List headerText="{i18n>USER_PROFILE.PERSONAL_INFORMATION}" class="sapUmcVerticalBeforeSpacingX1">
+				<StandardListItem icon="sap-icon://customer"
+					title="{parts:[ 'personalInfo>/Title' , 'personalInfo>/FirstName', 'personalInfo>/LastName' ], 
+								 formatter:'sap.umc.mobile.user_profile.js.utils.userTitleFormatter'}" description="{i18n>USER_PROFILE.CHANGE_NAME_DESC}"
+					iconDensityAware="false" iconInset="false" type="Navigation" press="handleNameChangePress" />
+			</List>
+		</content>
+	</Page>
+</mvc:View>

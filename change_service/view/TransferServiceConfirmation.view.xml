@@ -1,0 +1,40 @@
+<core:View height="100%" xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" xmlns:l="sap.ui.layout" xmlns:f="sap.ui.layout.form" controllerName="sap.umc.mobile.change_service.view.TransferServiceConfirmation">
+
+    <l:Grid defaultSpan="L6 M10 S12" defaultIndent="L3 M1 S0">
+        <l:content>
+            <l:VerticalLayout width="100%">
+
+                <!-- Start Date -->
+                <Label text="{i18n>CHANGE_SERVICE.FIELD_SERVICE_START_DATE}" class="sapUmcHorizontalBeforeSpacingX1_5 sapUmcVerticalBeforeSpacingX2 sapUmcMLabelBold" />
+                <Input enabled="false" value="{confirmation>/startDate}" class="sapUmcVerticalAfterSpacingX2" />
+
+                <!-- Old Address -->
+                <Label text="{i18n>CHANGE_SERVICE.FIELD_OLD_ADDRESS}" class="sapUmcHorizontalBeforeSpacingX1_5 sapUmcMLabelBold" />
+                <Input enabled="false" value="{confirmation>/oldAddress}" class="sapUmcVerticalAfterSpacingX2" />
+
+                <!-- End Date -->
+                <Label text="{i18n>CHANGE_SERVICE.FIELD_SERVICE_END_DATE}" class="sapUmcHorizontalBeforeSpacingX1_5 sapUmcMLabelBold" />
+                <Input enabled="false" value="{confirmation>/endDate}" class="sapUmcVerticalAfterSpacingX2" />
+
+                <!-- New Address -->
+                <Label text="{i18n>CHANGE_SERVICE.FIELD_NEW_ADDRESS}" class="sapUmcHorizontalBeforeSpacingX1_5 sapUmcMLabelBold" />
+                <Input enabled="false" value="{confirmation>/newAddress}" class="sapUmcVerticalAfterSpacingX2" />
+
+                <!-- Services -->
+                <Label text="{i18n>CHANGE_SERVICE.FIELD_SERVICES}" class="sapUmcHorizontalBeforeSpacingX1_5 sapUmcMLabelBold" />
+                <TextArea id="TransferServiceServiceList" rows="1" width="100%" enabled="false" value="{confirmation>/services}" class="sapUmcVerticalAfterSpacingX2" />
+
+                <!-- Billing Address -->
+                <Label text="{i18n>CHANGE_SERVICE.FIELD_BILLING_ADDRESS}" class="sapUmcHorizontalBeforeSpacingX1_5 sapUmcMLabelBold" />
+                <Input enabled="false" value="{confirmation>/billingAddress}" class="sapUmcVerticalAfterSpacingX2" />
+
+                <!-- Terms of Service -->
+                <Text text="{i18n>CHANGE_SERVICE.TERMS_SERVICE}" class="sapMLabel sapUmcHorizontalBeforeSpacingX1_5 sapUmcMLabelBold"/>
+                <Switch state="{confirmation>/isChecked}" customTextOff="{i18n>CHANGE_SERVICE.NO}" customTextOn="{i18n>CHANGE_SERVICE.YES}" class="sapUmcVerticalAfterSpacingX2" />
+
+            </l:VerticalLayout>
+        </l:content>
+    </l:Grid>
+
+
+</core:View>

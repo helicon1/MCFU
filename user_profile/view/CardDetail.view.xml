@@ -1,0 +1,49 @@
+<core:View  height="100%" xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" 
+	xmlns="sap.m" xmlns:l="sap.ui.layout" controllerName="sap.umc.mobile.user_profile.view.CardDetail" >
+	<Page enableScrolling="true" >		
+	   	<customHeader>
+			<Bar>			
+				<contentMiddle>
+					<Label text="{cardDetail>/Title}" />
+				</contentMiddle>			
+			</Bar>
+		</customHeader>	   
+	    <content>
+			<l:Grid defaultSpan="L4 M10 S10" defaultIndent="L4 M1 S1">
+				<l:content>
+					<l:VerticalLayout width="100%">
+						<Label text="{i18n>USER_PROFILE.CARD_TYPE}" class="sapUmcHorizontalBeforeSpacingX1_5 sapUmcVerticalBeforeSpacingX4 sapUmcMLabelBold"/>
+						<Input type="Text" value="{cardDetail>/CardType}" visible="{cardDetail>/ShowCard}" enabled="false" class="sapUmcVerticalAfterSpacingX2"/>
+						<Select items="{cardTypes>/results/}" selectedKey="{cardDetail>/seletedCardID}" visible="{cardDetail>/AddCard}" width="100%" change="onCardTypeSelect" class="sapUmcVerticalAfterSpacingX2">
+                        <core:Item key="{cardTypes>PaymentCardTypeID}" text="{cardTypes>Description}" />
+                        </Select>
+						<Label text="{i18n>USER_PROFILE.CARD_NUMBER}" class="sapUmcHorizontalBeforeSpacingX1_5 sapUmcMLabelBold"/>
+						<Input type="Text" value="{cardDetail>/CardNumber}" visible="true" enabled="{cardDetail>/AddCard}" change="onInformationModified" class="sapUmcVerticalAfterSpacingX2"/>					
+						<Label text="{i18n>USER_PROFILE.EXPIRY}" class="sapUmcHorizontalBeforeSpacingX1_5 sapUmcMLabelBold"/>						    
+					    <HBox>
+						<ComboBox items="{months>/results/}" selectedKey="{cardDetail>/seletedMonth}" visible="true" width="90%" enabled="{cardDetail>/DisplayInfo}" 
+						    placeholder="{i18n>APP.MONTH}" selectionChange="onMonthSelect" class="sapUmcVerticalAfterSpacingX2" >
+							<core:Item key="{months>MonthID}" text="{months>Month}" />							
+						</ComboBox>
+						<ComboBox items="{years>/results/}" selectedKey="{cardDetail>/seletedYear}" visible="true" width="90%" enabled="{cardDetail>/DisplayInfo}" 
+						    placeholder="{i18n>APP.YEAR}" selectionChange="onYearSelect" class="sapUmcHorizontalBeforeSpacingX1_5 sapUmcVerticalAfterSpacingX2" >
+							<core:Item key="{years>YearID}" text="{years>Year}" />
+						</ComboBox>
+				        </HBox>						    		
+						<Label text="{i18n>USER_PROFILE.CARDHOLDER_NAME}" class="sapUmcHorizontalBeforeSpacingX1_5 sapUmcMLabelBold"/>
+						<Input type="Text" value="{cardDetail>/Cardholder}" enabled="{cardDetail>/DisplayInfo}" change="onInformationModified" class="sapUmcVerticalAfterSpacingX2"/>																
+					</l:VerticalLayout>		
+				</l:content>
+			</l:Grid>         
+	    </content>
+		<footer>
+			<Bar>		
+				<contentRight>
+				<Button text="{i18n>USER_PROFILE.DELETE}" visible="{cardDetail>/EditInfo}" press="handleDeleteButton" class="sapUmcBtnWhiteTextColor sapUmcBtnBorderLeft"/>
+				<Button text="{i18n>USER_PROFILE.EDIT}" visible="{cardDetail>/EditInfo}" press="handleEditButton" class="sapUmcBtnWhiteTextColor sapUmcBtnBorderLeft"/>
+				<Button text="{i18n>USER_PROFILE.SAVE}" visible="{cardDetail>/DisplayInfo}" press="handleSaveButton" class="sapUmcBtnWhiteTextColor sapUmcBtnBorderLeft"/>
+				</contentRight>
+			</Bar>
+		</footer> 
+	</Page>
+</core:View>

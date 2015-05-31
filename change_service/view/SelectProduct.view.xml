@@ -1,0 +1,37 @@
+<core:View height="100%" xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" xmlns:l="sap.ui.layout" xmlns:f="sap.ui.layout.form" controllerName="sap.umc.mobile.change_service.view.SelectProduct">
+
+    <List mode="SingleSelect" selectionChange="onProductSelected" includeItemInSelection="true" busyIndicatorDelay="300" enableBusyIndicator="true" noDataText="{i18n>CHANGE_SERVICE.PRODUCT_NOT_AVAILABLE}" items="{product>/products}">
+
+        <headerToolbar>
+            <Toolbar class="sapUmcProductListToolbar" design="Transparent" height="6rem">
+                <l:Grid defaultSpan="L4 M5 S5" vSpacing="0">
+
+                    <Select enabled="{product>/_divisionEnabled}" selectedKey="{product>/productFilters/divisionID}" change="onConsumptionChange" items="{
+                                    path: 'product>/divisions',
+                                    sorter: { path: 'DivisionID' }
+                                  }">
+                        <core:Item key="{product>DivisionID}" text="{product>Description}" />
+                    </Select>
+
+                    <Input value="{product>/productFilters/consumption}" change="onConsumptionChange" />
+
+                    <Button icon="sap-icon://search" press="onProductListRefreshPressed">
+                        <layoutData>
+                            <l:GridData span="L2 M2 S2" />
+                        </layoutData>
+                    </Button>
+
+                    <Label text="{i18n>CHANGE_SERVICE.PRODUCT_LIST}" design="Bold" class="sapUmcSubsectionHeadingGrey sapUmcVerticalBeforeSpacingX2">
+                        <layoutData>
+                            <l:GridData span="L12 M12 S12" />
+                        </layoutData>
+                    </Label>
+
+                </l:Grid>
+            </Toolbar>
+        </headerToolbar>
+
+        <StandardListItem icon="{product>IconURL}" title="{product>Description}" description="{product>_EstimatedCost}" />
+    </List>
+
+</core:View>

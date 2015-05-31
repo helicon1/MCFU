@@ -1,0 +1,198 @@
+{
+    "d": {
+        "results": [
+            {
+                "__metadata": {
+                    "id": "https://LDCIGM6.WDF.SAP.CORP:44333/sap/opu/odata/sap/ERP_UTILITIES_UMC/Cont…7',ConsumptionPeriodTypeID='BC',StartDate=datetime'2013-10-01T00%3A00%3A00')",
+                    "uri": "https://LDCIGM6.WDF.SAP.CORP:44333/sap/opu/odata/sap/ERP_UTILITIES_UMC/Cont…7',ConsumptionPeriodTypeID='BC',StartDate=datetime'2013-10-01T00%3A00%3A00')",
+                    "type": "ERP_UTILITIES_UMC.ContractConsumptionValue"
+                },
+                "MeterReadingCategoryID": "01",
+                "ContractID": "23117",
+                "BillingPeriodMonth": "06",
+                "ConsumptionPeriodTypeID": "BC",
+                "InvoiceDate": "2014-06-01T00:00:00.000Z",
+                "EndDate": "2014-06-31T00:00:00.000Z",
+                "BillingPeriodYear": "2014",
+                "AmountDue": "45.00",
+                "Currency": "EUR",
+                "ConsumptionValue": "150.00000000000000",
+                "ConsumptionUnit": "KWH",
+                "MeterReadingCategory": {
+                    "__metadata": {
+                        "id": "https://LDCIGM6.WDF.SAP.CORP:44333/sap/opu/odata/sap/ERP_UTILITIES_UMC/MeterReadingCategories('01')",
+                        "uri": "https://LDCIGM6.WDF.SAP.CORP:44333/sap/opu/odata/sap/ERP_UTILITIES_UMC/MeterReadingCategories('01')",
+                        "type": "ERP_UTILITIES_UMC.MeterReadingCategory"
+                    },
+                    "MeterReadingCategoryID": "01",
+                    "Description": "Meter reading by utility company"
+                },
+                "ConsumptionPeriodType": {
+                    "__deferred": {
+                        "uri": "https://LDCIGM6.WDF.SAP.CORP:44333/sap/opu/odata/sap/ERP_UTILITIES_UMC/Cont…ID='BC',StartDate=datetime'2013-10-01T00%3A00%3A00')/ConsumptionPeriodType"
+                    }
+                }
+            },
+            {
+                "__metadata": {
+                    "id": "https://LDCIGM6.WDF.SAP.CORP:44333/sap/opu/odata/sap/ERP_UTILITIES_UMC/Cont…7',ConsumptionPeriodTypeID='BC',StartDate=datetime'2013-11-01T00%3A00%3A00')",
+                    "uri": "https://LDCIGM6.WDF.SAP.CORP:44333/sap/opu/odata/sap/ERP_UTILITIES_UMC/Cont…7',ConsumptionPeriodTypeID='BC',StartDate=datetime'2013-11-01T00%3A00%3A00')",
+                    "type": "ERP_UTILITIES_UMC.ContractConsumptionValue"
+                },
+                "MeterReadingCategoryID": "01",
+                "ContractID": "23117",
+                "BillingPeriodMonth": "07",
+                "ConsumptionPeriodTypeID": "BC",
+                "InvoiceDate": "2014-07-01T00:00:00.000Z",
+                "EndDate": "2014-07-30T00:00:00.000Z",
+                "BillingPeriodYear": "2014",
+                "AmountDue": "46.50",
+                "Currency": "EUR",
+                "ConsumptionValue": "155.00000000000000",
+                "ConsumptionUnit": "KWH",
+                "MeterReadingCategory": {
+                    "__metadata": {
+                        "id": "https://LDCIGM6.WDF.SAP.CORP:44333/sap/opu/odata/sap/ERP_UTILITIES_UMC/MeterReadingCategories('01')",
+                        "uri": "https://LDCIGM6.WDF.SAP.CORP:44333/sap/opu/odata/sap/ERP_UTILITIES_UMC/MeterReadingCategories('01')",
+                        "type": "ERP_UTILITIES_UMC.MeterReadingCategory"
+                    },
+                    "MeterReadingCategoryID": "01",
+                    "Description": "Meter reading by utility company"
+                },
+                "ConsumptionPeriodType": {
+                    "__deferred": {
+                        "uri": "https://LDCIGM6.WDF.SAP.CORP:44333/sap/opu/odata/sap/ERP_UTILITIES_UMC/Cont…ID='BC',StartDate=datetime'2013-11-01T00%3A00%3A00')/ConsumptionPeriodType"
+                    }
+                }
+            },
+            {
+                "__metadata": {
+                    "id": "https://LDCIGM6.WDF.SAP.CORP:44333/sap/opu/odata/sap/ERP_UTILITIES_UMC/Cont…7',ConsumptionPeriodTypeID='BC',StartDate=datetime'2013-12-01T00%3A00%3A00')",
+                    "uri": "https://LDCIGM6.WDF.SAP.CORP:44333/sap/opu/odata/sap/ERP_UTILITIES_UMC/Cont…7',ConsumptionPeriodTypeID='BC',StartDate=datetime'2013-12-01T00%3A00%3A00')",
+                    "type": "ERP_UTILITIES_UMC.ContractConsumptionValue"
+                },
+                "MeterReadingCategoryID": "01",
+                "ContractID": "23117",
+                "BillingPeriodMonth": "08",
+                "ConsumptionPeriodTypeID": "BC",
+                "InvoiceDate": "2014-08-01T00:00:00.000Z",
+                "EndDate": "2014-08-31T00:00:00.000Z",
+                "BillingPeriodYear": "2014",
+                "AmountDue": "46.50",
+                "Currency": "EUR",
+                "ConsumptionValue": "155.00000000000000",
+                "ConsumptionUnit": "KWH",
+                "MeterReadingCategory": {
+                    "__metadata": {
+                        "id": "https://LDCIGM6.WDF.SAP.CORP:44333/sap/opu/odata/sap/ERP_UTILITIES_UMC/MeterReadingCategories('01')",
+                        "uri": "https://LDCIGM6.WDF.SAP.CORP:44333/sap/opu/odata/sap/ERP_UTILITIES_UMC/MeterReadingCategories('01')",
+                        "type": "ERP_UTILITIES_UMC.MeterReadingCategory"
+                    },
+                    "MeterReadingCategoryID": "01",
+                    "Description": "Meter reading by utility company"
+                },
+                "ConsumptionPeriodType": {
+                    "__deferred": {
+                        "uri": "https://LDCIGM6.WDF.SAP.CORP:44333/sap/opu/odata/sap/ERP_UTILITIES_UMC/Cont…ID='BC',StartDate=datetime'2013-12-01T00%3A00%3A00')/ConsumptionPeriodType"
+                    }
+                }
+            },
+            {
+                "__metadata": {
+                    "id": "https://LDCIGM6.WDF.SAP.CORP:44333/sap/opu/odata/sap/ERP_UTILITIES_UMC/Cont…7',ConsumptionPeriodTypeID='BC',StartDate=datetime'2014-01-01T00%3A00%3A00')",
+                    "uri": "https://LDCIGM6.WDF.SAP.CORP:44333/sap/opu/odata/sap/ERP_UTILITIES_UMC/Cont…7',ConsumptionPeriodTypeID='BC',StartDate=datetime'2014-01-01T00%3A00%3A00')",
+                    "type": "ERP_UTILITIES_UMC.ContractConsumptionValue"
+                },
+                "MeterReadingCategoryID": "01",
+                "ContractID": "23117",
+                "BillingPeriodMonth": "09",
+                "ConsumptionPeriodTypeID": "BC",
+                "InvoiceDate": "2014-09-01T00:00:00.000Z",
+                "EndDate": "2014-09-31T00:00:00.000Z",
+                "BillingPeriodYear": "2014",
+                "AmountDue": "46.50",
+                "Currency": "EUR",
+                "ConsumptionValue": "200.00000000000000",
+                "ConsumptionUnit": "KWH",
+                "MeterReadingCategory": {
+                    "__metadata": {
+                        "id": "https://LDCIGM6.WDF.SAP.CORP:44333/sap/opu/odata/sap/ERP_UTILITIES_UMC/MeterReadingCategories('01')",
+                        "uri": "https://LDCIGM6.WDF.SAP.CORP:44333/sap/opu/odata/sap/ERP_UTILITIES_UMC/MeterReadingCategories('01')",
+                        "type": "ERP_UTILITIES_UMC.MeterReadingCategory"
+                    },
+                    "MeterReadingCategoryID": "01",
+                    "Description": "Meter reading by utility company"
+                },
+                "ConsumptionPeriodType": {
+                    "__deferred": {
+                        "uri": "https://LDCIGM6.WDF.SAP.CORP:44333/sap/opu/odata/sap/ERP_UTILITIES_UMC/Cont…ID='BC',StartDate=datetime'2014-01-01T00%3A00%3A00')/ConsumptionPeriodType"
+                    }
+                }
+            },
+            {
+                "__metadata": {
+                    "id": "https://LDCIGM6.WDF.SAP.CORP:44333/sap/opu/odata/sap/ERP_UTILITIES_UMC/Cont…7',ConsumptionPeriodTypeID='BC',StartDate=datetime'2014-02-01T00%3A00%3A00')",
+                    "uri": "https://LDCIGM6.WDF.SAP.CORP:44333/sap/opu/odata/sap/ERP_UTILITIES_UMC/Cont…7',ConsumptionPeriodTypeID='BC',StartDate=datetime'2014-02-01T00%3A00%3A00')",
+                    "type": "ERP_UTILITIES_UMC.ContractConsumptionValue"
+                },
+                "MeterReadingCategoryID": "01",
+                "ContractID": "23117",
+                "BillingPeriodMonth": "10",
+                "ConsumptionPeriodTypeID": "BC",
+                "InvoiceDate": "2014-10-01T00:00:00.000Z",
+                "EndDate": "2014-10-28T00:00:00.000Z",
+                "BillingPeriodYear": "2014",
+                "AmountDue": "46.50",
+                "Currency": "EUR",
+                "ConsumptionValue": "155.00000000000000",
+                "ConsumptionUnit": "KWH",
+                "MeterReadingCategory": {
+                    "__metadata": {
+                        "id": "https://LDCIGM6.WDF.SAP.CORP:44333/sap/opu/odata/sap/ERP_UTILITIES_UMC/MeterReadingCategories('01')",
+                        "uri": "https://LDCIGM6.WDF.SAP.CORP:44333/sap/opu/odata/sap/ERP_UTILITIES_UMC/MeterReadingCategories('01')",
+                        "type": "ERP_UTILITIES_UMC.MeterReadingCategory"
+                    },
+                    "MeterReadingCategoryID": "01",
+                    "Description": "Meter reading by utility company"
+                },
+                "ConsumptionPeriodType": {
+                    "__deferred": {
+                        "uri": "https://LDCIGM6.WDF.SAP.CORP:44333/sap/opu/odata/sap/ERP_UTILITIES_UMC/Cont…ID='BC',StartDate=datetime'2014-02-01T00%3A00%3A00')/ConsumptionPeriodType"
+                    }
+                }
+            },
+            {
+                "__metadata": {
+                    "id": "https://LDCIGM6.WDF.SAP.CORP:44333/sap/opu/odata/sap/ERP_UTILITIES_UMC/Cont…7',ConsumptionPeriodTypeID='BC',StartDate=datetime'2014-03-01T00%3A00%3A00')",
+                    "uri": "https://LDCIGM6.WDF.SAP.CORP:44333/sap/opu/odata/sap/ERP_UTILITIES_UMC/Cont…7',ConsumptionPeriodTypeID='BC',StartDate=datetime'2014-03-01T00%3A00%3A00')",
+                    "type": "ERP_UTILITIES_UMC.ContractConsumptionValue"
+                },
+                "MeterReadingCategoryID": "01",
+                "ContractID": "23117",
+                "BillingPeriodMonth": "11",
+                "ConsumptionPeriodTypeID": "BC",
+                "InvoiceDate": "2014-11-01T00:00:00.000Z",
+                "EndDate": "2014-11-31T00:00:00.000Z",
+                "BillingPeriodYear": "2014",
+                "AmountDue": "46.50",
+                "Currency": "EUR",
+                "ConsumptionValue": "155.00000000000000",
+                "ConsumptionUnit": "KWH",
+                "MeterReadingCategory": {
+                    "__metadata": {
+                        "id": "https://LDCIGM6.WDF.SAP.CORP:44333/sap/opu/odata/sap/ERP_UTILITIES_UMC/MeterReadingCategories('01')",
+                        "uri": "https://LDCIGM6.WDF.SAP.CORP:44333/sap/opu/odata/sap/ERP_UTILITIES_UMC/MeterReadingCategories('01')",
+                        "type": "ERP_UTILITIES_UMC.MeterReadingCategory"
+                    },
+                    "MeterReadingCategoryID": "01",
+                    "Description": "Meter reading by utility company"
+                },
+                "ConsumptionPeriodType": {
+                    "__deferred": {
+                        "uri": "https://LDCIGM6.WDF.SAP.CORP:44333/sap/opu/odata/sap/ERP_UTILITIES_UMC/Cont…ID='BC',StartDate=datetime'2014-03-01T00%3A00%3A00')/ConsumptionPeriodType"
+                    }
+                }
+            }
+        ]
+    }
+}

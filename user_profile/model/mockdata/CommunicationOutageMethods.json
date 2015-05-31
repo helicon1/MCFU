@@ -1,0 +1,36 @@
+{
+   "d":{
+      "results":[
+         {
+            "__metadata":{
+               "id":"https://LDCIGM6.WDF.SAP.CORP:44333/sap/opu/odata/sap/ERP_UTILITIES_UMC/Invoices('ISU000300002757')",
+               "uri":"https://LDCIGM6.WDF.SAP.CORP:44333/sap/opu/odata/sap/ERP_UTILITIES_UMC/Invoices('ISU000300002757')",
+               "type":"ERP_UTILITIES_UMC.Invoice"
+            },           
+            "CommunicationMethodID": "SMS",
+            "Description": "SMS",
+			"IBAN": ""         
+         },
+         {
+             "__metadata":{
+               "id":"https://LDCIGM6.WDF.SAP.CORP:44333/sap/opu/odata/sap/ERP_UTILITIES_UMC/Invoices('ISU000300002757')",
+               "uri":"https://LDCIGM6.WDF.SAP.CORP:44333/sap/opu/odata/sap/ERP_UTILITIES_UMC/Invoices('ISU000300002757')",
+               "type":"ERP_UTILITIES_UMC.Invoice"
+            },           
+            "CommunicationMethodID": "MAIL",
+            "Description": "E-Mail",
+			"IBAN": ""      
+         },
+         {
+            "__metadata":{
+               "id":"https://LDCIGM6.WDF.SAP.CORP:44333/sap/opu/odata/sap/ERP_UTILITIES_UMC/Invoices('ISU000300002757')",
+               "uri":"https://LDCIGM6.WDF.SAP.CORP:44333/sap/opu/odata/sap/ERP_UTILITIES_UMC/Invoices('ISU000300002757')",
+               "type":"ERP_UTILITIES_UMC.Invoice"
+            },           
+            "CommunicationMethodID": "NONE",
+            "Description": "Do not send",
+			"IBAN": "" 
+         }      
+      ]
+   }
+}

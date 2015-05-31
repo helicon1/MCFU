@@ -1,0 +1,129 @@
+<core:View height="100%" xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" xmlns:l="sap.ui.layout" xmlns:u="sap.ui.unified" xmlns:ui="sap.ca.ui" controllerName="sap.umc.mobile.message_center.view.MessageDetail">
+    <Page enableScrolling="true">
+        <customHeader>
+            <Bar>
+                <contentMiddle>
+                    <Label text="{Message>/DetailTitle}" />
+                </contentMiddle>
+            </Bar>
+        </customHeader>
+        <content>
+            <l:Grid defaultSpan="L8 M10 S10" defaultIndent="L2 M1 S1" width="100%">
+                <l:content>
+
+                    <l:VerticalLayout id="AL" width="100%" visible="{displayControl>/AlertVisible}">
+                        <Label text="{i18n>MESSAGE_CENTER.SEVERITY}" class="sapUmcHorizontalBeforeSpacingX1_5 sapUmcVerticalBeforeSpacingX4 sapUmcMLabelBold" />
+                        <Input type="Text" value="{Message>/Status}" enabled="{displayControl>/newMessage}" class="sapUmcVerticalAfterSpacingX2" />
+                        <Label text="{i18n>MESSAGE_CENTER.TYPE}" class="sapUmcHorizontalBeforeSpacingX1_5 sapUmcMLabelBold" />
+                        <Input type="Text" value="{path: 'Message>/Alert/AlertTypeID', formatter: 'sap.umc.mobile.message_center.js.utils.alertType'}" enabled="{displayControl>/newMessage}" class="sapUmcVerticalAfterSpacingX2" />
+                        <Label text="{i18n>MESSAGE_CENTER.SUBJECT}" class="sapUmcHorizontalBeforeSpacingX1_5 sapUmcMLabelBold" />
+                        <Input type="Text" value="{Message>/Alert/Subject}" enabled="{displayControl>/newMessage}" change="onInformationModified" class="sapUmcVerticalAfterSpacingX2" />
+                        <Label text="{i18n>MESSAGE_CENTER.MESSAGE}" class="sapUmcHorizontalBeforeSpacingX1_5 sapUmcMLabelBold" />
+                        <TextArea maxLength="255" value="{Message>/Alert/Message}" editable="{displayControl>/newMessage}" rows="12" width="100%" change="onInformationModified" class="sapUmcVerticalAfterSpacingX6" />
+                    </l:VerticalLayout>
+
+                    <l:VerticalLayout id="OT" width="100%" visible="{displayControl>/OutageVisible}">
+                        <Label text="{i18n>MESSAGE_CENTER.STATUS}" visible="{displayControl>/displayMessage}" class="sapUmcHorizontalBeforeSpacingX1_5 sapUmcVerticalBeforeSpacingX4 sapUmcMLabelBold" />
+                        <Input type="Text" value="{Message>/Status}" visible="{displayControl>/displayMessage}" enabled="{displayControl>/newMessage}" class="sapUmcVerticalAfterSpacingX2" />
+                        <Label text="{i18n>MESSAGE_CENTER.REASON}" class="sapUmcHorizontalBeforeSpacingX1_5 sapUmcMLabelBold" />
+                        <Input type="Text" value="{Message>/Outage/Reason}" enabled="false" class="sapUmcVerticalAfterSpacingX2" />
+                        <Label text="{i18n>MESSAGE_CENTER.PROPERTY}" class="sapUmcHorizontalBeforeSpacingX1_5 sapUmcMLabelBold" />
+                        <Input type="Text" value="{Message>/Outage/Premise/AddressInfo/ShortForm}" visible="{displayControl>/displayMessage}" enabled="{displayControl>/newMessage}" change="onInformationModified" class="sapUmcVerticalAfterSpacingX2" />
+                        <Select id="OTBox" items="{Premises>/}" selectedKey="{Message>/Outage/PremiseID}" width="100%" visible="{displayControl>/newMessage}" enabled="{displayControl>/newMessage}" change="onInformationModified">
+                            <core:Item key="{Premises>PremiseID}" text="{Premises>AddressInfo/ShortForm}" />
+                        </Select>
+                        <Label text="{i18n>MESSAGE_CENTER.MESSAGE}" class="sapUmcHorizontalBeforeSpacingX1_5 sapUmcMLabelBold" />
+                        <TextArea maxLength="1320" value="{Message>/Outage/Note}" editable="{displayControl>/newMessage}" rows="12" width="100%" change="onInformationModified" class="sapUmcVerticalAfterSpacingX6" />
+                    	<!-- <List class="sapUmcVerticalBeforeSpacingX1">
+						  <StandardListItem title="{i18n>MESSAGE_CENTER.ATTACHMENTS}" iconDensityAware="false" icon="sap-icon://attachment" type="Navigation" press="attachmentPressed" />
+			  			</List> -->
+			  			<l:VerticalLayout width="100%" visible="{displayControl>/showAttachmentUploader}">
+			  			<!-- File Uploader -->
+                        	<Label text="{i18n>MESSAGE_CENTER.ATTACH_FILE}" visible="{displayControl>/newMessage}" class="sapUmcHorizontalBeforeSpacingX1_5 sapUmcMLabelBold" />
+                        	<u:FileUploader id="OTFileUploader" visible="{displayControl>/newMessage}" sendXHR="true" useMultipart="false" width="100%" uploadComplete="onAttachmentUploadComplete" change="onAttachmentChange" class="sapUmcVerticalAfterSpacingX2"></u:FileUploader>
+						</l:VerticalLayout>
+                        <!-- Attachment Display -->
+                        <l:VerticalLayout visible="{displayControl>/hasAttachment}" width="45%">
+                            <Label text="{i18n>MESSAGE_CENTER.ATTACHMENT}" class="sapUmcHorizontalBeforeSpacingX1_5 sapUmcVerticalAfterSpacingX1 sapUmcMLabelBold" />
+                            <Image visible="{displayControl>/IsAttachmentImage}" src="{Message>/_attachmentDisplayURL}" press="onAttachmentPress" width="100%"></Image>
+                            <core:Icon visible="{path: 'displayControl>/IsAttachmentImage', formatter:'sap.umc.mobile.message_center.js.utils.booleanNot'}" src="{Message>/_attachmentDisplayURL}" press="onAttachmentPress" size="4rem" class="sapUmcVerticalAfterSpacingX1"></core:Icon>
+                            <Text text="{Message>/_attachmentDescription}" class="sapUmcSmallText"> </Text>
+                        </l:VerticalLayout>
+                    </l:VerticalLayout>
+
+                    <l:VerticalLayout id="NT" width="100%" visible="{displayControl>/ServiceNotificationVisible}">
+                        <Label text="{i18n>MESSAGE_CENTER.STATUS}" visible="{displayControl>/displayMessage}" class="sapUmcHorizontalBeforeSpacingX1_5 sapUmcVerticalBeforeSpacingX4 sapUmcMLabelBold" />
+                        <Input type="Text" value="{Message>/ServiceNotification/Status}" visible="{displayControl>/displayMessage}" enabled="{displayControl>/newMessage}" class="sapUmcVerticalAfterSpacingX2" />
+                        <Label text="{i18n>MESSAGE_CENTER.REASON}" class="sapUmcHorizontalBeforeSpacingX1_5 sapUmcMLabelBold" />
+                        <Input type="Text" value="{Message>/ServiceNotification/Reason}" enabled="false" class="sapUmcVerticalAfterSpacingX2" />
+                        <Label text="{i18n>MESSAGE_CENTER.SUBJECT}" class="sapUmcHorizontalBeforeSpacingX1_5 sapUmcMLabelBold" />
+                        <Input type="Text" maxLength="40" value="{Message>/ServiceNotification/Description}" enabled="{displayControl>/newMessage}" change="onInformationModified" class="sapUmcVerticalAfterSpacingX2" />
+                        <Label text="{i18n>MESSAGE_CENTER.MESSAGE}" class="sapUmcHorizontalBeforeSpacingX1_5 sapUmcMLabelBold" />
+                        <TextArea maxLength="300" value="{Message>/ServiceNotification/Note}" editable="{displayControl>/newMessage}" rows="12" width="100%" change="onInformationModified" class="sapUmcVerticalAfterSpacingX6" />
+                    	<!-- <List class="sapUmcVerticalBeforeSpacingX1">
+                    	{parts: ['i18n>MESSAGE_CENTER.ATTACHMENTS', 'Balance>/Currency'], formatter: 'jQuery.sap.formatMessage'} 
+						  <StandardListItem title="{i18n>MESSAGE_CENTER.ATTACHMENTS}" iconDensityAware="false" icon="sap-icon://attachment" type="Navigation" press="attachmentPressed" />
+			  			</List> -->
+			  			<l:VerticalLayout width="100%" visible="{displayControl>/showAttachmentUploader}">
+                        <!-- File Uploader -->
+                        	<Label text="{i18n>MESSAGE_CENTER.ATTACH_FILE}" visible="{displayControl>/newMessage}" class="sapUmcHorizontalBeforeSpacingX1_5 sapUmcMLabelBold" />
+                        	<u:FileUploader id="NTFileUploader" visible="{displayControl>/newMessage}" sendXHR="true" useMultipart="false" width="100%" uploadComplete="onAttachmentUploadComplete" change="onAttachmentChange" class="sapUmcVerticalAfterSpacingX2"></u:FileUploader>
+						</l:VerticalLayout>
+                        <!-- Attachment Display -->
+                        <l:VerticalLayout visible="{displayControl>/hasAttachment}" width="45%">
+                            <Label text="{i18n>MESSAGE_CENTER.ATTACHMENT}" class="sapUmcHorizontalBeforeSpacingX1_5 sapUmcVerticalAfterSpacingX1 sapUmcMLabelBold" />
+                            <Image visible="{displayControl>/IsAttachmentImage}" src="{Message>/_attachmentDisplayURL}" press="onAttachmentPress" width="100%"></Image>
+                            <core:Icon visible="{path: 'displayControl>/IsAttachmentImage', formatter:'sap.umc.mobile.message_center.js.utils.booleanNot'}" src="{Message>/_attachmentDisplayURL}" press="onAttachmentPress" size="4rem" class="sapUmcVerticalAfterSpacingX1"></core:Icon>
+                            <Text text="{Message>/_attachmentDescription}" class="sapUmcSmallText"> </Text>
+                        </l:VerticalLayout>
+                    </l:VerticalLayout>
+
+                    <l:VerticalLayout id="IR" width="100%" visible="{displayControl>/InteractionRecordVisible}">
+                        <Label text="{i18n>MESSAGE_CENTER.STATUS}" visible="{displayControl>/displayMessage}" class="sapUmcHorizontalBeforeSpacingX1_5 sapUmcVerticalBeforeSpacingX4 sapUmcMLabelBold" />
+                        <Input type="Text" value="{Message>/Status}" visible="{displayControl>/displayMessage}" enabled="{displayControl>/newMessage}" class="sapUmcVerticalAfterSpacingX2" />
+
+                        <Label text="{i18n>MESSAGE_CENTER.REASON}" class="sapUmcHorizontalBeforeSpacingX1_5 sapUmcMLabelBold" />
+                        <Input type="Text" value="{Message>/MessageTypeDescription}" visible="{displayControl>/displayMessage}" enabled="{displayControl>/newMessage}" class="sapUmcVerticalAfterSpacingX2" />
+                        <Select id="IRRBox" items="{IRReasons>/}" width="100%" visible="{displayControl>/newMessage}" enabled="{displayControl>/newMessage}" change="onReasonChanged">
+                            <core:Item key="{IRReasons>InteractionRecordReasonID}" text="{IRReasons>Description}" />
+                        </Select>
+
+                        <Label text="{i18n>MESSAGE_CENTER.PROPERTY}" class="sapUmcHorizontalBeforeSpacingX1_5 sapUmcMLabelBold" />
+                        <Input type="Text" value="{Message>/InteractionRecord/Premise/AddressInfo/ShortForm}" visible="{displayControl>/displayMessage}" enabled="{displayControl>/newMessage}" change="onInformationModified" class="sapUmcVerticalAfterSpacingX2" />
+                        <Select id="IRPBox" items="{Premises>/}" width="100%" visible="{displayControl>/newMessage}" enabled="{displayControl>/newMessage}" change="onPremiseChanged">
+                            <core:Item key="{Premises>PremiseID}" text="{Premises>AddressInfo/ShortForm}" />
+                        </Select>
+
+                        <Label text="{i18n>MESSAGE_CENTER.SUBJECT}" class="sapUmcHorizontalBeforeSpacingX1_5 sapUmcMLabelBold" />
+                        <Input maxLength="40" type="Text" value="{Message>/InteractionRecord/Description}" enabled="{displayControl>/newMessage}" change="onInformationModified" class="sapUmcVerticalAfterSpacingX2" />
+
+                        <Label text="{i18n>MESSAGE_CENTER.MESSAGE}" class="sapUmcHorizontalBeforeSpacingX1_5 sapUmcMLabelBold" />
+                        <TextArea maxLength="1320" value="{Message>/InteractionRecord/Note}" editable="{displayControl>/newMessage}" rows="12" width="100%" change="onInformationModified" class="sapUmcVerticalAfterSpacingX2" />
+                        <l:VerticalLayout width="100%" visible="{displayControl>/newMessage}">
+                        <!-- File Uploader -->
+                        	<Label text="{i18n>MESSAGE_CENTER.ATTACH_FILE}" visible="{displayControl>/newMessage}" class="sapUmcHorizontalBeforeSpacingX1_5 sapUmcMLabelBold" />
+                        	<u:FileUploader id="IRFileUploader"  visible="{displayControl>/newMessage}" sendXHR="true" useMultipart="false" width="100%" uploadComplete="onAttachmentUploadComplete" change="onAttachmentChange" class="sapUmcVerticalAfterSpacingX2"></u:FileUploader>
+						</l:VerticalLayout>
+                        <!-- Attachment Display -->
+                        <l:VerticalLayout visible="{displayControl>/hasAttachment}" width="45%">
+                            <Label text="{i18n>MESSAGE_CENTER.ATTACHMENT}" class="sapUmcHorizontalBeforeSpacingX1_5 sapUmcVerticalAfterSpacingX1 sapUmcMLabelBold" />
+                            <Image visible="{displayControl>/IsAttachmentImage}" src="{Message>/_attachmentDisplayURL}" press="onAttachmentPress" width="100%"></Image>
+                            <core:Icon visible="{path: 'displayControl>/IsAttachmentImage', formatter:'sap.umc.mobile.message_center.js.utils.booleanNot'}" src="{Message>/_attachmentDisplayURL}" press="onAttachmentPress" size="4rem" class="sapUmcVerticalAfterSpacingX1"></core:Icon>
+                            <Text text="{Message>/_attachmentDescription}" class="sapUmcSmallText"> </Text>
+                        </l:VerticalLayout>
+
+                    </l:VerticalLayout>
+
+                </l:content>
+            </l:Grid>
+        </content>
+        <footer>
+            <Bar>
+                <contentRight>
+                    <Button text="{i18n>MESSAGE_CENTER.SUBMIT}" visible="{displayControl>/newMessage}" press="handleSubmitButton" class="sapUmcBtnWhiteTextColor sapUmcBtnBorderLeft" />
+                    <Button text="{i18n>MESSAGE_CENTER.VIEW_BALANCE}" visible="{displayControl>/AlertVisible}" press="handleViewBalanceButton" class="sapUmcBtnWhiteTextColor sapUmcBtnBorderLeft" />
+                </contentRight>
+            </Bar>
+        </footer>
+    </Page>
+</core:View>

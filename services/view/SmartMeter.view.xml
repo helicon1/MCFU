@@ -1,0 +1,86 @@
+<core:View height="100%" xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" xmlns:ma="sap.makit" xmlns:l="sap.ui.layout" controllerName="sap.umc.mobile.services.view.SmartMeter">
+
+    <VBox>
+
+        <l:Grid defaultSpan="L6 M6 S6" vSpacing="0" class="sapUmcVerticalBeforeSpacingX2 sapUmcVerticalAfterSpacingX2">
+
+            <!-- Current displayed period label -->
+            <HBox height="3rem" alignItems="Center">
+                <Label text="{smartMeterViewModel>/smartMeterChartLabel}" class="sapUmcHorizontalBeforeSpacingX2"/>
+
+                <layoutData>
+                    <l:GridData span="L3 M3 S12" indent="L0 M0 S0" />
+                </layoutData>
+            </HBox>
+
+            <!-- Consumption bar with displayed period start and end dates -->
+            <HBox width="100%" alignItems="Center" class="sapUmcSmartMeterConsumptionBar">
+                <Text text="{smartMeterViewModel>/progressBarDateFrom}" class="sapUmcHorizontalBeforeSpacingX1 sapUmcHorizontalAfterSpacingX1" />
+                <ProgressIndicator percentValue="{smartMeterViewModel>/progressBarPercentValue}" displayValue="{smartMeterViewModel>/progressBarDisplayValue}" showValue="true" state="None" class="sapUmcProgressBar">
+                    <layoutData>
+                        <FlexItemData growFactor="1" />
+                    </layoutData>
+                </ProgressIndicator>
+                <Text text="{smartMeterViewModel>/progressBarDateTo}" class="sapUmcHorizontalBeforeSpacingX1 sapUmcHorizontalAfterSpacingX1" />
+
+                <layoutData>
+                    <l:GridData span="L6 M6 S12" indent="L0 M0 S0" />
+                </layoutData>
+            </HBox>
+
+            <!-- projected total consumption value for the displayed period -->
+            <HBox height="3rem" alignItems="Center" justifyContent="Center">
+                <Label text="{smartMeterViewModel>/projectedConsumptonTotal}" />
+                <layoutData>
+                    <l:GridData span="L3 M3 S12" indent="L0 M0 S0" />
+                </layoutData>
+            </HBox>
+
+            <!-- Currency / Unit switch -->
+            <SegmentedButton select="onCurrencyUnitSwitchPressed" class="sapUmcConsumptionSegmentedButton">
+                <Button text="{smartMeterViewModel>/unitButtonText}" width="2.5rem" class="sapUmcConsumptionButton" />
+                <Button text="{smartMeterViewModel>/currencyButtonText}" width="2.5rem" class="sapUmcConsumptionButton" />
+
+                <layoutData>
+                    <l:GridData linebreak="true" span="L6 M6 S7" />
+                </layoutData>
+            </SegmentedButton>
+
+            <!-- Zoom in / out buttons -->
+            <HBox alignItems="Center" justifyContent="End">
+                <Button icon="sap-icon://zoom-in" enabled="{smartMeterViewModel>/zoomInButtonEnabled}" press="onPressZoomIn" type="Emphasized" class="sapUmcHorizontalAfterSpacingX2" />
+                <Button icon="sap-icon://zoom-out" enabled="{smartMeterViewModel>/zoomOutButtonEnabled}" press="onPressZoomOut" type="Emphasized" />
+
+                <layoutData>
+                    <l:GridData span="L6 M6 S5" />
+                </layoutData>
+            </HBox>
+
+        </l:Grid>
+
+        <!-- Usage and Forecast chart -->
+        <ma:Chart id="smartMeterChart" height="25rem" type="StackedColumn" rows="{smartGraph>/consumption}" primaryColorPalette="{smartGraph>/color}" doubletap="onPressZoomIn">
+
+            <ma:category>
+                <ma:Category column="dayCategory" />
+            </ma:category>
+
+            <ma:series>
+                <ma:Series column="consumptionSeries" />
+            </ma:series>
+
+            <ma:values>
+                <ma:Value expression="consumptionValue" />
+            </ma:values>
+
+            <ma:columns>
+                <ma:Column name="dayCategory" value="{smartGraph>timePeriod}" />
+                <ma:Column name="consumptionSeries" value="{smartGraph>type}" />
+                <ma:Column name="consumptionValue" value="{smartGraph>value}" type="number" />
+            </ma:columns>
+
+        </ma:Chart>
+
+    </VBox>
+
+</core:View>

@@ -1,0 +1,29 @@
+<mvc:View height="100%" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m"
+	controllerName="sap.umc.mobile.invoice.view.InvoiceList">
+	<Page enableScrolling="true">
+		<customHeader>
+			<Bar>
+				<contentMiddle>
+					<Label text="{i18n>INVOICE.BILLS}" />
+				</contentMiddle>
+			</Bar>
+		</customHeader>
+		<!-- mode="SingleSelectMaster" -->
+		<content>
+			<List items="{Invoices>/results/}" mode="{device>/listMode}" 
+				select="handleListSelect" id="invoiceList">
+				<ObjectListItem title="{Invoices>FormatteInvoiceDate}" type="Navigation" press="handleListItemPress"
+				      number="{Invoices>FormatteAmountDue}" numberUnit="{Invoices>Currency}" >
+					<firstStatus>   
+						<ObjectStatus text="{Invoices>PaymentStateDescription}" state="{Invoices>PaymentState}"/>
+					</firstStatus>
+					<attributes>
+						<ObjectAttribute text="{Invoices>ContractAccount/Description}" />
+						<ObjectAttribute text="{path: 'Invoices>FormatteDueDate', formatter: 'sap.umc.mobile.invoice.js.utils.FormattedDueDate'}" />						
+					</attributes>
+				</ObjectListItem>
+			</List>
+		</content>
+				
+	</Page>
+</mvc:View>

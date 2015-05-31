@@ -1,0 +1,46 @@
+<mvc:View height="100%" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" xmlns:l="sap.ui.layout" xmlns:form="sap.ui.layout.form"
+	xmlns:core="sap.ui.core" controllerName="sap.umc.mobile.message_center.view.MessageCenter">
+	<Page enableScrolling="true">
+		<customHeader>
+			<Bar>
+				<contentMiddle>
+					<Label text="{i18n>MESSAGE_CENTER.MESSAGE_CENTER}" />
+				</contentMiddle>
+			</Bar>
+		</customHeader>
+		<subHeader>
+        <Toolbar>
+         <SearchField id="search" liveChange="handleSearch" width="100%" />         
+        </Toolbar>
+        </subHeader>
+		<!-- mode="SingleSelectMaster" -->
+		<content> 
+		 	<l:Grid defaultSpan="L12 M12 S12" defaultIndent="L0 M0 S0"
+				hSpacing="0" vSpacing="0">
+				<l:content>	
+				<Select id="filter" items="{filterOption>/results/}" selectedKey="{filterOption>/DefaultSelection}" width="100%" change="handleFilterSelect" class="">
+                    <core:Item key="{filterOption>FilterID}" text="{filterOption>Filter}" />
+                </Select>	
+                <List id="idList" items= "{ path: 'Messages>/results', sorter: { path: 'Messages>DateSorter',  descending: true } }" mode="{device>/listMode}" itemPress="handleListItemSelect" headerText="{i18n>MESSAGE_CENTER.MESSAGES}" class="sapUmcMessageCenterList">
+				<ObjectListItem title="{Messages>MessageTypeDescription}" press="handleListItemPress" number="{Messages>Direction}" 
+				               numberUnit="{path: 'Messages>Date', formatter: 'sap.umc.mobile.app.js.formatters.dateFormatter'}" icon="{Messages>ChannelIcon}" type="Navigation"> 
+					<firstStatus>   
+						<ObjectStatus text="{Messages>Status}" state="{Messages>State}"/>
+					</firstStatus>
+					<attributes>
+						<ObjectAttribute text="{Messages>Subject}" />																	
+					</attributes>
+				</ObjectListItem>
+			    </List>		
+				</l:content>
+			</l:Grid>  						
+		</content>
+		<footer>
+			<Bar>
+				<contentRight>
+					<Button text="{i18n>MESSAGE_CENTER.NEW_MESSAGE}" press ="handleNewMessage" class="sapUmcBtnWhiteTextColor sapUmcBtnBorderLeft sapUmcBtnBorderRight" />
+				</contentRight>
+			</Bar>
+		</footer>
+	</Page>
+</mvc:View>

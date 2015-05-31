@@ -1,0 +1,122 @@
+<mvc:View height="100%" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" xmlns:l="sap.ui.layout" xmlns:form="sap.ui.layout.form"
+    controllerName="sap.umc.mobile.agent_panel.view.BpSearch">
+    <Page enableScrolling="true">
+        <customHeader>
+            <Bar>
+                <contentMiddle>
+                    <Label text="{i18n>AGENT_PANEL.AGENT_PANEL}" />
+                </contentMiddle>			
+            </Bar>
+        </customHeader>	
+
+        <l:Grid id="SearchGrid" defaultSpan="L10 M10 S10" defaultIndent="L1 M1 S1" width="100%">
+            <l:content>
+                <l:VerticalLayout width="100%" class="sapUmcAgentPantelVL">
+                    <FlexBox alignItems="Start" justifyContent="SpaceBetween" class="sapUmcVerticalBeforeSpacingX3">
+                        <items>
+                            <Text text="{i18n>AGENT_PANEL.SEARCH_CRITERIA}" class="sapUmcListHeading sapUmcWhiteTextColor"/>
+                            <l:HorizontalLayout width="100%">
+                                <Button type="Emphasized" text="{i18n>AGENT_PANEL.RESET}" press="onReset" class="sapUmcHorizontalAfterSpacingX1_5 sapUmcBtnWhiteTextColor"/> 
+                                <Button  type="Emphasized" text="{i18n>AGENT_PANEL.SEARCH}" press="onSearch" class="sapUmcBtnWhiteTextColor"/> 
+                            </l:HorizontalLayout> 
+                        </items>
+                    </FlexBox>  
+
+                    <FlexBox id="SearchParametersColoumns" width="100%"  alignItems="Start" justifyContent="Center" class="sapUmcBpSearchCriteriaItems">
+                        <items>
+                            <l:VerticalLayout width="100%" class="sapUmcHorizontalAfterSpacingX1_5">
+                                <RadioButton groupName="searchCriteria" text="{i18n>AGENT_PANEL.CONTRACT_ACCOUNT_NUMBER}" selected="{SearchParameters>/bContractAccountBasedSearch}"/>
+                                <Input id="ContractAccountIdSearchInpunt" type="Text" placeholder="{i18n>AGENT_PANEL.CONTRACT_ACCOUNT}" value="{SearchParameters>/oSearchParameters/ContractAccountID}" visible="{SearchParameters>/bContractAccountBasedSearch}"/>
+
+                                <Input id="BpSearchInpunt" type="Text" placeholder="{i18n>AGENT_PANEL.BP}" value="{SearchParameters>/oSearchParameters/AccountID}" visible="{SearchParameters>/bBpNumberBasedSearch}"/>                                   
+
+                                <Input id="UserNameSearchInput" type="Text" placeholder="{i18n>AGENT_PANEL.USER_NAME}" value="{SearchParameters>/oSearchParameters/UserName}" visible="{SearchParameters>/bUserNameBasedSearch}"/>
+
+                                <Input id="FirstNameSearchInput" type="Text" placeholder="{i18n>AGENT_PANEL.FIRST_NAME}" value="{SearchParameters>/oSearchParameters/FirstName}" visible="{SearchParameters>/bAddressBasedSearch}"/>
+                                <Input id="HouseSearchInput" type="Text" placeholder="{i18n>AGENT_PANEL.HOUSE}" value="{SearchParameters>/oSearchParameters/House}" visible="{SearchParameters>/bAddressBasedSearch}"/>
+                            </l:VerticalLayout>
+
+                            <l:VerticalLayout width="100%" class="sapUmcHorizontalAfterSpacingX1_5">
+                                <RadioButton groupName="searchCriteria" text="{i18n>AGENT_PANEL.BUSINESS_PARTNER_NUMBER}" selected="{SearchParameters>/bBpNumberBasedSearch}"/>
+                                <Input id="LastNameSearchInput" type="Text" placeholder="{i18n>AGENT_PANEL.LAST_NAME}" value="{SearchParameters>/oSearchParameters/LastName}" visible="{SearchParameters>/bAddressBasedSearch}"/>
+                                <Input id="StreetSearchInput" type="Text" placeholder="{i18n>AGENT_PANEL.STREET}" value="{SearchParameters>/oSearchParameters/Street}" visible="{SearchParameters>/bAddressBasedSearch}"/>
+                            </l:VerticalLayout>     
+
+                            <l:VerticalLayout width="100%">
+                                <RadioButton groupName="searchCriteria" text="{i18n>AGENT_PANEL.USER_NAME}" selected="{SearchParameters>/bUserNameBasedSearch}"/>
+                                <Input id="PhoneSearchInput" type="Text" placeholder="{i18n>AGENT_PANEL.PHONE}" value="{SearchParameters>/oSearchParameters/Phone}" visible="{SearchParameters>/bAddressBasedSearch}"/>
+                                <Input id="CitySearchInput" type="Text" placeholder="{i18n>AGENT_PANEL.CITY}" value="{SearchParameters>/oSearchParameters/City}" visible="{SearchParameters>/bAddressBasedSearch}"/>    
+                                                             
+                            </l:VerticalLayout> 
+
+                            <l:VerticalLayout width="105%">
+                                <RadioButton groupName="searchCriteria" text="{i18n>AGENT_PANEL.PERSONAL_AND_ADDRESS_INFO}" selected="{SearchParameters>/bAddressBasedSearch}"/>
+                                <Input id="EmailSearchInput" type="Text" placeholder="{i18n>AGENT_PANEL.EMAIL}" value="{SearchParameters>/oSearchParameters/Email}" visible="{SearchParameters>/bAddressBasedSearch}"/>  
+                                <Input id="PostalCodeSearchInput" type="Text" placeholder="{i18n>AGENT_PANEL.POSTAL_CODE}" value="{SearchParameters>/oSearchParameters/PostalCode}" visible="{SearchParameters>/bAddressBasedSearch}"/> 
+
+<!--                                 <ComboBox
+                                  items="{
+                                   path: 'Countries>/aCountries',
+                                    sorter: { path: 'Name' }
+                                  }">
+                                <core:Item key="{Countries>CountryID}" text="{Countries>Name}" />
+                              </ComboBox>  -->                               
+                            </l:VerticalLayout>                                                       
+                        </items>                    
+                    </FlexBox> 
+
+                    <FlexBox alignItems="Start" justifyContent="SpaceBetween" class="sapUmcVerticalBeforeSpacingX3">
+                        <items>
+                            <Text text="{i18n>AGENT_PANEL.SEARCH_RESULTS}" class="sapUmcListHeading sapUmcWhiteTextColor"/>
+                        </items>
+                    </FlexBox>  
+
+                    <FlexBox alignItems="Start" justifyContent="Center" class="sapUmcBpSearchResultTable">
+                    <items>
+                        <Table id="AccountsListTable" inset="true"
+                            growing="true"
+                            growingThreshold="5"
+                            growingScrollToLoad="true"                            
+                            class="sapUmcAlternativeBackgroundColor sapUmcVerticalBeforeSpacingX4"
+                            items="{path: 'Accounts>/',  sorter: {path: 'AccountID', descending: true}}"
+                            itemPress="onTableItemSelection">
+                            <columns>
+                                <Column>
+                                    <Text text="{i18n>AGENT_PANEL.BP_NUMBER}" />
+                                </Column>
+                                <Column>
+                                    <Text text="{i18n>AGENT_PANEL.NAME}" />
+                                </Column>
+                                <Column>
+                                    <Text text="{i18n>AGENT_PANEL.ADDRESS}" />
+                                </Column>
+                                <Column>
+                                    <Text text="{i18n>AGENT_PANEL.CONTRACT_ACCOUNT}" />
+                                </Column>
+                                <Column>
+                                    <Text text="{i18n>AGENT_PANEL.PHONE}" />
+                                </Column>
+                                <Column>
+                                    <Text text="{i18n>AGENT_PANEL.EMAIL}" />
+                                </Column>                                                                                
+                            </columns>
+                            <items>
+                                    <ColumnListItem vAlign="Top" type="Navigation">
+                                        <cells>
+                                            <Text text="{Accounts>AccountID}" />
+                                            <Text text="{Accounts>FullName}" />
+                                            <Text text="{Accounts>FullAddress}" />
+                                            <Text text="{Accounts>ContractAccountIDs}" />
+                                            <Text text="{Accounts>DefaultPhone}" />
+                                            <Text text="{Accounts>DefaultEmail}" />
+                                        </cells>
+                                    </ColumnListItem>
+                                </items>
+                            </Table>
+                        </items>
+                    </FlexBox>                   
+                </l:VerticalLayout> 
+            </l:content>
+        </l:Grid>		
+    </Page>
+</mvc:View>

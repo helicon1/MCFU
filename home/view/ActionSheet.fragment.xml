@@ -1,0 +1,17 @@
+<core:FragmentDefinition
+	xmlns="sap.m"
+	xmlns:core="sap.ui.core">
+	<ActionSheet
+		showCancelButton="true"
+		placement="Bottom">
+		<buttons>
+			<Button id="agentSearch" visible="{settings>/bIsAgent}" text="{i18n>AGENT_PANEL.AGENT_SEARCH}" icon="sap-icon://employee-lookup" press="onAgentSearch" /> 		
+			<Button id="manageProfileButton" visible="{settings>/bIsNotAgent}" text="{i18n>HOME.MANAGE_PROFILE}" icon="sap-icon://person-placeholder" press="onClickManageProfile" /> 
+			<Button text="{i18n>APP.CHANGE_PASSWORD}" icon="sap-icon://locked" press="onClickChangePassword" /> 
+			<Button text="{i18n>APP.SELECT_THEME}" icon="sap-icon://ppt-attachment" press="onClickSelectTheme" />
+			<!-- <Button text="{i18n>APP.ABOUT}" icon="sap-icon://hint" press="onClickAbout" />			
+			<Button text="{i18n>APP.CONNECTION_SETTINGS}" icon="sap-icon://settings" press="onClickConnectionSettings" /> -->
+			<Button text="{i18n>APP.LOG_OUT}" icon="sap-icon://log" press="onClickLogOut" />
+		</buttons>
+	</ActionSheet>
+</core:FragmentDefinition>

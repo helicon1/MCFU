@@ -1,0 +1,133 @@
+{
+   "d":{
+      "results":[
+         {
+            "__metadata":{
+               "id":"https://LDCIGM6.WDF.SAP.CORP:44333/sap/opu/odata/sap/ERP_UTILITIES_UMC/Invoices('ISU000300002757')",
+               "uri":"https://LDCIGM6.WDF.SAP.CORP:44333/sap/opu/odata/sap/ERP_UTILITIES_UMC/Invoices('ISU000300002757')",
+               "type":"ERP_UTILITIES_UMC.Invoice"
+            },
+           "CompanyCode": "U100",
+           "DivisionID": "01",
+           "ExternalID": "AR_LIE_SE3",
+           "Name": "SAB Testfall IS_U_IDE_471",
+           "OwnSystemFlag": false,
+           "ServiceCategoryID": "02",
+           "ServiceProviderID": "AR_LIE_SE3",
+           "ServiceTypeDescription": "Services",
+           "ServiceTypeID": "0002",
+            "AmountDue":"53.5500",
+             "InvoicePDF":{
+               "__deferred":{
+                  "uri":"https://LDCIGM6.WDF.SAP.CORP:44333/sap/opu/odata/sap/ERP_UTILITIES_UMC/Invoices('ISU000300002756')/InvoicePDF"
+               }
+            }
+         },
+         {
+            "__metadata":{
+               "id":"https://LDCIGM6.WDF.SAP.CORP:44333/sap/opu/odata/sap/ERP_UTILITIES_UMC/Invoices('ISU000300002756')",
+               "uri":"https://LDCIGM6.WDF.SAP.CORP:44333/sap/opu/odata/sap/ERP_UTILITIES_UMC/Invoices('ISU000300002756')",
+               "type":"ERP_UTILITIES_UMC.Invoice"
+            },
+           "CompanyCode": "U100",
+           "DivisionID": "01",
+           "ExternalID": "BS044039",
+           "Name": "Supplier for eCATT",
+           "OwnSystemFlag": false,
+           "ServiceCategoryID": "02",
+           "ServiceProviderID": "BS044039",
+           "ServiceTypeDescription": "Services",
+           "ServiceTypeID": "0002",
+            "InvoicePDF":{
+               "__deferred":{
+                  "uri":"https://LDCIGM6.WDF.SAP.CORP:44333/sap/opu/odata/sap/ERP_UTILITIES_UMC/Invoices('ISU000300002756')/InvoicePDF"
+               }
+            }
+         },
+         {
+            "__metadata":{
+               "id":"https://LDCIGM6.WDF.SAP.CORP:44333/sap/opu/odata/sap/ERP_UTILITIES_UMC/Invoices('ISU000300002755')",
+               "uri":"https://LDCIGM6.WDF.SAP.CORP:44333/sap/opu/odata/sap/ERP_UTILITIES_UMC/Invoices('ISU000300002755')",
+               "type":"ERP_UTILITIES_UMC.Invoice"
+            },
+              "CompanyCode": "U100",
+           "DivisionID": "01",
+           "ExternalID": "BS045538",
+           "Name": "Supplier for eCATT",
+           "OwnSystemFlag": false,
+           "ServiceCategoryID": "02",
+           "ServiceProviderID": "BS045538",
+           "ServiceTypeDescription": "Services",
+           "ServiceTypeID": "0002",
+            "InvoicePDF":{
+               "__deferred":{
+                  "uri":"https://LDCIGM6.WDF.SAP.CORP:44333/sap/opu/odata/sap/ERP_UTILITIES_UMC/Invoices('ISU000300002755')/InvoicePDF"
+               }
+            }
+         },
+         {
+            "__metadata":{
+               "id":"https://LDCIGM6.WDF.SAP.CORP:44333/sap/opu/odata/sap/ERP_UTILITIES_UMC/Invoices('ISU000300002754')",
+               "uri":"https://LDCIGM6.WDF.SAP.CORP:44333/sap/opu/odata/sap/ERP_UTILITIES_UMC/Invoices('ISU000300002754')",
+               "type":"ERP_UTILITIES_UMC.Invoice"
+            },
+               "CompanyCode": "U100",
+           "DivisionID": "01",
+           "ExternalID": "BS050804",
+           "Name": "Supplier for eCATT",
+           "OwnSystemFlag": false,
+           "ServiceCategoryID": "02",
+           "ServiceProviderID": "BS050804",
+           "ServiceTypeDescription": "Services",
+           "ServiceTypeID": "0002",
+            "InvoicePDF":{
+               "__deferred":{
+                  "uri":"https://LDCIGM6.WDF.SAP.CORP:44333/sap/opu/odata/sap/ERP_UTILITIES_UMC/Invoices('ISU000300002754')/InvoicePDF"
+               }
+            }
+         },
+         {
+            "__metadata":{
+               "id":"https://LDCIGM6.WDF.SAP.CORP:44333/sap/opu/odata/sap/ERP_UTILITIES_UMC/Invoices('ISU000300002753')",
+               "uri":"https://LDCIGM6.WDF.SAP.CORP:44333/sap/opu/odata/sap/ERP_UTILITIES_UMC/Invoices('ISU000300002753')",
+               "type":"ERP_UTILITIES_UMC.Invoice"
+            },
+               "CompanyCode": "U100",
+           "DivisionID": "01",
+           "ExternalID": "BS051411",
+           "Name": "Supplier for eCATT",
+           "OwnSystemFlag": false,
+           "ServiceCategoryID": "02",
+           "ServiceProviderID": "BS051411",
+           "ServiceTypeDescription": "Services",
+           "ServiceTypeID": "0002",
+            "InvoicePDF":{
+               "__deferred":{
+                  "uri":"https://LDCIGM6.WDF.SAP.CORP:44333/sap/opu/odata/sap/ERP_UTILITIES_UMC/Invoices('ISU000300002753')/InvoicePDF"
+               }
+            }
+         },
+         {
+            "__metadata":{
+               "id":"https://LDCIGM6.WDF.SAP.CORP:44333/sap/opu/odata/sap/ERP_UTILITIES_UMC/Invoices('ISU000300002752')",
+               "uri":"https://LDCIGM6.WDF.SAP.CORP:44333/sap/opu/odata/sap/ERP_UTILITIES_UMC/Invoices('ISU000300002752')",
+               "type":"ERP_UTILITIES_UMC.Invoice"
+            },
+               "CompanyCode": "U100",
+           "DivisionID": "01",
+           "ExternalID": "BS051951",
+           "Name": "Supplier for eCATT",
+           "OwnSystemFlag": false,
+           "ServiceCategoryID": "02",
+           "ServiceProviderID": "BS051951",
+           "ServiceTypeDescription": "Services",
+           "ServiceTypeID": "0002",
+            "InvoicePDF":{
+               "__deferred":{
+                  "uri":"https://LDCIGM6.WDF.SAP.CORP:44333/sap/opu/odata/sap/ERP_UTILITIES_UMC/Invoices('ISU000300002752')/InvoicePDF"
+               }
+            }
+         }
+      ]
+   }
+}

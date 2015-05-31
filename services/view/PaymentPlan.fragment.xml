@@ -1,0 +1,41 @@
+<core:FragmentDefinition xmlns="sap.m"
+	xmlns:f="sap.ui.layout.form" xmlns:core="sap.ui.core" xmlns:l="sap.ui.layout">
+	<l:VerticalLayout width="100%" visible="{paymentplan>/_bHasPP}">
+		<Text text="{i18n>APP.DETAILS}"
+			class="sapUmcSubsectionHeading sapUmcVerticalBeforeSpacingX2 sapUmcHorizontalBeforeSpacingX2" />
+		<f:SimpleForm width="100%"
+			class="sapUmcSubSectionHeadingWrapperBottomLine">
+			<f:content>
+				<Label text="{i18n>SERVICES.CURRENT_AMOUNT}" />
+				<Text class="sapUmcBoldText"
+					text="{parts: ['paymentplan>/Amount', 'paymentplan>/Currency'] , formatter: 'sap.umc.mobile.app.js.formatters.amountWithCurrencyFormatter' }" />
+				<Label text="{i18n>SERVICES.BILLING_CYCLE}" />
+				<Text class="sapUmcBoldText" text="{paymentplan>/BudgetBillingCycle/Description}" />
+			</f:content>
+		</f:SimpleForm>
+		<Text text="{i18n>SERVICES.MANAGE_PAYMENT}"
+			class="sapUmcSubsectionHeading sapUmcVerticalBeforeSpacingX2 sapUmcHorizontalBeforeSpacingX2" />
+		<Switch class="sapUmcVerticalAfterSpacingX6 sapUmcHorizontalBeforeSpacingX2" state="{paymentplan>/_bSwitch}"
+			change="onPlanChange">
+		</Switch>
+		<Label text="{i18n>SERVICES.EFFECTIVEDATE}" class="sapUmcHorizontalBeforeSpacingX2" />
+		<FlexBox alignItems="Start" justifyContent="Center">
+			<items>
+				<HBox>
+					<ComboBox placeholder="{i18n>APP.MONTH}" value="{paymentplan>/Months}"
+						selectionChange="onSimulatePlan" class="sapUmcAlternativeBackgroundColor sapUmcHorizontalBeforeSpacingX2"
+						enabled="{paymentplan>/_bNotOptedIn}" items="{ path: 'months>/'}"
+						width="90%">
+						<core:Item key="{months>/MonthID}" text="{months>Month}" />
+					</ComboBox>
+					<ComboBox placeholder="{i18n>APP.YEAR}" value="{paymentplan>/Years}"
+						selectionChange="onSimulatePlan"
+						class="sapUmcHorizontalBeforeSpacingX1_5 sapUmcAlternativeBackgroundColor"
+						enabled="{paymentplan>/_bNotOptedIn}"  width="90%" items="{path: 'years>/'}">
+						<core:Item key="{years>YearID}" text="{years>Year}" />
+					</ComboBox>
+				</HBox>
+			</items>
+		</FlexBox>
+	</l:VerticalLayout>
+</core:FragmentDefinition>

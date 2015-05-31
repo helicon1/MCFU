@@ -1,0 +1,132 @@
+{
+   "d":{
+      "results":[
+         {
+            "__metadata":{
+               "id":"https://LDCIGM6.WDF.SAP.CORP:44333/sap/opu/odata/sap/ERP_UTILITIES_UMC/Invoices('ISU000300002757')",
+               "uri":"https://LDCIGM6.WDF.SAP.CORP:44333/sap/opu/odata/sap/ERP_UTILITIES_UMC/Invoices('ISU000300002757')",
+               "type":"ERP_UTILITIES_UMC.Invoice"
+            },           
+            "AccountID": "2542",
+            "AddressID": "177745",
+			"CommunicationCategoryID": "UMC1",
+			"CommunicationCategory":{
+               "CommunicationCategoryID": "UMC1",
+               "Description": "Bill and Payment Notifications"
+            }, 
+            "CommunicationMethod":{
+               "Description": "E-Mail",
+               "CommunicationMethodID": "MAIL"
+            }, 
+            "CommunicationMethodID": "MAIL",
+            "ContractAccountID": "1037436"
+            
+         },
+         {
+            "__metadata":{
+               "id":"https://LDCIGM6.WDF.SAP.CORP:44333/sap/opu/odata/sap/ERP_UTILITIES_UMC/Invoices('ISU000300002757')",
+               "uri":"https://LDCIGM6.WDF.SAP.CORP:44333/sap/opu/odata/sap/ERP_UTILITIES_UMC/Invoices('ISU000300002757')",
+               "type":"ERP_UTILITIES_UMC.Invoice"
+            },           
+            "AccountID": "2542",
+            "AddressID": "177745",
+			"CommunicationCategoryID": "UMC2",
+			"CommunicationCategory":{
+               "CommunicationCategoryID": "UMC2",
+               "Description": "Outage Notifications"
+            }, 
+            "CommunicationMethod":{
+               "Description": "SMS",
+               "CommunicationMethodID": "SMS"
+            }, 
+            "CommunicationMethodID": "SMS",
+            "ContractAccountID": "1037436"
+            
+         },
+         {
+            "__metadata":{
+               "id":"https://LDCIGM6.WDF.SAP.CORP:44333/sap/opu/odata/sap/ERP_UTILITIES_UMC/Invoices('ISU000300002757')",
+               "uri":"https://LDCIGM6.WDF.SAP.CORP:44333/sap/opu/odata/sap/ERP_UTILITIES_UMC/Invoices('ISU000300002757')",
+               "type":"ERP_UTILITIES_UMC.Invoice"
+            },           
+            "AccountID": "2542",
+            "AddressID": "177745",
+			"CommunicationCategoryID": "UMCB",
+			"CommunicationCategory":{
+               "CommunicationCategoryID": "UMCB",
+               "Description": "Go Green"
+            }, 
+            "CommunicationMethod":{
+               "Description": "Do not send",
+               "CommunicationMethodID": "NONE"
+            }, 
+            "CommunicationMethodID": "NONE",
+            "ContractAccountID": "1037436"
+            
+         },
+        {
+            "__metadata":{
+               "id":"https://LDCIGM6.WDF.SAP.CORP:44333/sap/opu/odata/sap/ERP_UTILITIES_UMC/Invoices('ISU000300002757')",
+               "uri":"https://LDCIGM6.WDF.SAP.CORP:44333/sap/opu/odata/sap/ERP_UTILITIES_UMC/Invoices('ISU000300002757')",
+               "type":"ERP_UTILITIES_UMC.Invoice"
+            },           
+            "AccountID": "2542",
+            "AddressID": "177745",
+			"CommunicationCategoryID": "UMC1",
+			"CommunicationCategory":{
+               "CommunicationCategoryID": "UMC1",
+               "Description": "Bill and Payment Notifications"
+            }, 
+            "CommunicationMethod":{
+               "Description": "E-Mail",
+               "CommunicationMethodID": "MAIL"
+            }, 
+            "CommunicationMethodID": "MAIL",
+            "ContractAccountID": "1037436"
+            
+         },
+         {
+            "__metadata":{
+               "id":"https://LDCIGM6.WDF.SAP.CORP:44333/sap/opu/odata/sap/ERP_UTILITIES_UMC/Invoices('ISU000300002757')",
+               "uri":"https://LDCIGM6.WDF.SAP.CORP:44333/sap/opu/odata/sap/ERP_UTILITIES_UMC/Invoices('ISU000300002757')",
+               "type":"ERP_UTILITIES_UMC.Invoice"
+            },           
+            "AccountID": "2542",
+            "AddressID": "177745",
+			"CommunicationCategoryID": "UMC2",
+			"CommunicationCategory":{
+               "CommunicationCategoryID": "UMC2",
+               "Description": "Outage Notifications"
+            }, 
+            "CommunicationMethod":{
+               "Description": "SMS",
+               "CommunicationMethodID": "SMS"
+            }, 
+            "CommunicationMethodID": "SMS",
+            "ContractAccountID": "1037436"
+            
+         },
+         {
+            "__metadata":{
+               "id":"https://LDCIGM6.WDF.SAP.CORP:44333/sap/opu/odata/sap/ERP_UTILITIES_UMC/Invoices('ISU000300002757')",
+               "uri":"https://LDCIGM6.WDF.SAP.CORP:44333/sap/opu/odata/sap/ERP_UTILITIES_UMC/Invoices('ISU000300002757')",
+               "type":"ERP_UTILITIES_UMC.Invoice"
+            },           
+            "AccountID": "2542",
+            "AddressID": "177745",
+			"CommunicationCategoryID": "UMCB",
+			"CommunicationCategory":{
+               "CommunicationCategoryID": "UMCB",
+               "Description": "Go Green"
+            }, 
+            "CommunicationMethod":{
+               "Description": "Do not send",
+               "CommunicationMethodID": "NONE"
+            }, 
+            "CommunicationMethodID": "NONE",
+            "ContractAccountID": "1037436"
+            
+         }
+      ]
+   }
+}

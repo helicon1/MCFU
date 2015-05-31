@@ -1,0 +1,17 @@
+<mvc:View height="100%" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m"
+	controllerName="sap.umc.mobile.message_center.view.ContactUs">
+	<Page enableScrolling="true">
+		<customHeader>
+			<Bar>
+				<contentMiddle>
+					<Label text="{i18n>MESSAGE_CENTER.CONTACT_US}" />
+				</contentMiddle>			
+			</Bar>
+		</customHeader>		
+		<content>		    
+			<List mode="{device>/listMode}"  items="{ContactTypes>/results/}" itemPress="handleListItemSelect" >           
+      			  <StandardListItem  icon="{ContactTypes>Icon}" title="{ContactTypes>Description}" type="{ContactTypes>Type}" press="handleListItemPress" />		
+			</List>		
+		</content>
+	</Page>
+</mvc:View>

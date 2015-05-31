@@ -1,0 +1,66 @@
+{
+   "d":{
+     "AccountID": "2542",
+     "AddressID": "177745",  
+     "AccountAddressDependentEmails":{
+       "results":[
+       {
+       "AccountID": "2542",
+       "AddressID": "177745",
+       "Email": "frank.zappa@email.com",
+       "HomeFlag": true,
+       "SequenceNo": "004",
+       "StandardFlag": true       
+       }]
+      },
+      "AccountAddressDependentMobilePhones":{
+       "results":[
+       {
+       "AccountID": "2542",
+       "AddressID": "177745",
+       "CompletePhoneNo": "+494388717688",
+       "CountryID": "DE",
+       "HomeFlag": false,
+       "DefaultFlag": true,
+       "PhoneNo": "4388717688",
+       "PhoneType": "3",
+       "SequenceNo": "008",
+       "StandardFlag": true       
+       }]
+     },  
+     "AccountAddressDependentPhones":{
+       "results":[
+       {
+       "AccountID": "2542",
+       "AddressID": "367144",
+       "CompletePhoneNo": "+495148002966",
+       "CountryID": "DE",
+       "HomeFlag": true,
+       "DefaultFlag": true,
+       "PhoneNo": "5148002966",
+       "PhoneType": "1",
+       "SequenceNo": "001",
+       "StandardFlag": false       
+       }]
+     }, 
+     "AddressInfo": {
+     "Building": "",
+     "City": "Heidelberg",
+     "CountryID": "DE",
+     "District": "",
+     "Floor": "",
+     "HouseNo": "3",
+     "LanguageID": "E",
+     "POBox": "",
+     "POBoxPostalCode": "",
+     "PostalCode": "69124",
+     "Region": "08",
+     "RoomNo": "",
+     "ShortForm": "Pleikartsförster Straße 3 / 69124 Heidelberg",
+     "StandardFlag": "X",
+     "Street": "Pleikartsförster Straße",
+     "TaxJurisdictionCode": "",
+     "TimeZone": "CET"
+     }
+   }
+}
